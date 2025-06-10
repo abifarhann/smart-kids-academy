@@ -1,62 +1,53 @@
-{{-- resources/views/layouts/app.blade.php --}}
 <!DOCTYPE html>
-<html lang="id">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Aplikasi Saya')</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-        }
-        .main {
-            flex: 1;
-            display: flex;
-        }
-        .sidebar {
-            width: 250px;
-            background-color: #f8f9fa;
-            padding: 1rem;
-        }
-        .content {
-            flex: 1;
-            padding: 2rem;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>@yield('title', config('app.name', 'Laravel'))</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
+<body class="font-sans antialiased bg-gray-100 text-gray-800">
 
-    {{-- Header / Navbar --}}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-        <a class="navbar-brand" href="#">Aplikasi Saya</a>
-    </nav>
+    <div class="min-h-screen flex flex-col">
+        {{-- Navbar/Header --}}
+        <nav class="bg-gray-800 text-white px-6 py-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <div class="text-lg font-semibold">
+                    {{ config('app.name', 'Laravel') }}
+                </div>
+            </div>
+        </nav>
 
-    {{-- Main Content --}}
-    <div class="main">
-        {{-- Sidebar --}}
-        <div class="sidebar">
-            <h5>Menu</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item"><a href="#" class="nav-link">Dashboard</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Profil</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Pengaturan</a></li>
-            </ul>
+        <div class="flex flex-1">
+            {{-- Sidebar --}}
+            <aside class="w-64 bg-white shadow-md p-4">
+                <h2 class="text-lg font-bold mb-4">Menu</h2>
+                <ul class="space-y-2">
+                    <li><a href="{{ route('dashboard') }}" class="block px-3 py-2 rounded hover:bg-gray-200">Dashboard</a></li>
+                    <li><a href="{{ route('home') }}" class="block px-3 py-2 rounded hover:bg-gray-200">Home</a></li>
+                    <li><a href="#" class="block px-3 py-2 rounded hover:bg-gray-200">Pengaturan</a></li>
+                </ul>
+            </aside>
+
+            {{-- Main Content --}}
+            <main class="flex-1 p-6">
+                @yield('content')
+            </main>
         </div>
 
-        {{-- Content --}}
-        <div class="content">
-            @yield('content')
-        </div>
+        {{-- Footer --}}
+        <footer class="bg-gray-800 text-white text-center py-3">
+            &copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}. Semua hak dilindungi.
+        </footer>
     </div>
 
-    {{-- Footer --}}
-    <footer class="bg-dark text-white text-center py-3">
-        &copy; {{ date('Y') }} Aplikasi Saya. Semua hak dilindungi.
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
