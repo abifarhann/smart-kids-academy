@@ -19,7 +19,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('auth.register') }}">
+        <form method="POST" action="{{ route('register') }}">
             @csrf
 
             <div class="mb-4">
@@ -55,7 +55,7 @@
         </form>
 
         <p class="text-sm text-center text-gray-600 mt-4">
-            Sudah punya akun? <a href="{{ route('auth.login') }}" class="text-blue-500 hover:underline">Masuk di sini</a>
+            Sudah punya akun? <a href="{{ route('login') }}" class="text-blue-500 hover:underline">Masuk di sini</a>
         </p>
     </div>
 </body>

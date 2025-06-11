@@ -35,11 +35,8 @@
                             </button>
                         </form>
                     @else
-                        <a href="{{ route('auth.login') }}" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-3 py-1 rounded">
+                        <a href="{{ route('login') }}" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-3 py-1 rounded">
                             Login
-                        </a>
-                        <a href="{{ route('auth.register') }}" class="bg-green-600 hover:bg-green-700 text-white text-sm px-3 py-1 rounded">
-                            Daftar
                         </a>
                     @endauth
                 </div>

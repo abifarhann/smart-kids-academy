@@ -9,9 +9,9 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 // Auth
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('auth.register');
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('auth.login');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth')->group(function () {
