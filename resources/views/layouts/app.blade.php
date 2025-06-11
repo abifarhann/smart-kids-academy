@@ -23,6 +23,26 @@
                 <div class="text-lg font-semibold">
                     {{ config('app.name', 'Laravel') }}
                 </div>
+
+                {{-- Auth Navigation --}}
+                <div class="flex items-center space-x-4">
+                    @auth
+                        <span class="text-sm">Halo, {{ Auth::user()->name }}</span>
+                        <form method="POST" action="{{ route('auth.logout') }}">
+                            @csrf
+                            <button type="submit" class="bg-red-600 hover:bg-red-700 text-white text-sm px-3 py-1 rounded">
+                                Logout
+                            </button>
+                        </form>
+                    @else
+                        <a href="{{ route('auth.login') }}" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-3 py-1 rounded">
+                            Login
+                        </a>
+                        <a href="{{ route('auth.register') }}" class="bg-green-600 hover:bg-green-700 text-white text-sm px-3 py-1 rounded">
+                            Daftar
+                        </a>
+                    @endauth
+                </div>
             </div>
         </nav>
 

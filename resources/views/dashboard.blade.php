@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('title', 'Dashboard')
-
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 @section('content')
     <h1>Selamat Datang di Dashboard</h1>
     <p>Ini adalah konten statis dari halaman dashboard.</p>
