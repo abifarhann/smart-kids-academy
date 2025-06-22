@@ -7,10 +7,12 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>
-        Smartkids Academy | Dashboard 
+        Smartkids Academy | Dashboard
     </title>
     <link rel="icon" href="{{ asset('tailadmin/build/favicon.ico') }}">
     <link href="{{ asset('tailadmin/build/style.css') }}" rel="stylesheet">
+    <!-- Tambahkan di <head> atau sebelum </body> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 </head>
 
@@ -50,5 +52,50 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
     <!-- ===== Page Wrapper End ===== -->
     <script defer src="{{ asset('tailadmin/build/bundle.js') }}"></script>
 </body>
+<script>
+    @if (session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: '{{ session('success') }}',
+            confirmButtonColor: '#22c55e'
+        });
+    @endif
+
+    @if (session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal',
+            text: '{{ session('error') }}',
+            confirmButtonColor: '#ef4444'
+        });
+    @endif
+
+    @if (session('warning'))
+        Swal.fire({
+            icon: 'warning',
+            title: 'Peringatan',
+            text: '{{ session('warning') }}',
+            confirmButtonColor: '#facc15'
+        });
+    @endif
+
+    function confirmDelete(id) {
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Data yang dihapus tidak dapat dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#dc2626',
+            cancelButtonColor: '#6b7280',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById(`delete-form-${id}`).submit();
+            }
+        })
+    }
+</script>
 
 </html>
