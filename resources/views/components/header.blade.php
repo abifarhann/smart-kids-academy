@@ -34,7 +34,7 @@
 
             <a href="index.html" class="lg:hidden">
                 <img class="dark:hidden" src="src/images/logo/logo.svg" alt="Logo" />
-                <img class="hidden dark:block" src="src/images/logo/logo-dark.svg" alt="Logo" />
+                <img class="hidden dark:block" src="/images/logo/3.png" alt="Logo" / style="width: 50px; height: 50px;">
             </a>
 
             <!-- Application nav menu button -->
