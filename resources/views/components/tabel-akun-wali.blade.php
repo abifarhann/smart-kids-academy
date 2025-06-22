@@ -125,13 +125,6 @@
                                     <th class="px-6 py-3 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Password
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
                                                 Nomor WhatsApp
                                             </p>
                                         </div>
@@ -139,7 +132,7 @@
                                     <th class="px-6 py-3 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                               Status Keaktifan
+                                                Status Keaktifan
                                             </p>
                                         </div>
                                     </th>
@@ -156,99 +149,78 @@
 
                             <!-- table body start -->
                             <tbody class="divide-y divide-gray-100 dark:divide-gray-800 transition-colors">
-                                {{-- @foreach ($siswaList as $siswa) --}}
-                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
-                                    {{-- nama lengkap siswa --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div
-                                                style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                <span
-                                                    class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                    Gatot Prasetyo Utomo
-                                                </span>
+                                @foreach ($dataWali as $wali)
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+                                        {{-- Nama Wali --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div
+                                                    style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                    <span
+                                                        class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                        {{ $wali->name }}
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
+                                        </td>
 
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div
-                                                style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                <span
-                                                    class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                    Firsty Angelica
-                                                </span>
+                                        {{-- Username --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div
+                                                    style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                    <span
+                                                        class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                        {{ $wali->username }}
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
+                                        </td>
 
-                                    {{-- get Email --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div
-                                                style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                <span
-                                                    class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                    Gatot@smartkids.com
-                                                </span>
+                                        {{-- Email (jika ada) --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div
+                                                    style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                    <span
+                                                        class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                        {{ $wali->email ?? '-' }}
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
+                                        </td>
 
-                                    {{-- get Password --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items
-                                            <div
-                                                style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                <span
-                                                    class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                    12345678
-                                                </span>
+                                        {{-- Nomor WA --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <a href="{{ whatsappUrl($wali->phone) }}" target="_blank"
+                                                        class="text-theme-sm mb-0.5 block font-medium text-gray-700 dark:text-gray-400"
+                                                        style="color: #1d4ed8; text-decoration: underline; text-decoration-color: #1d4ed8;">
+                                                        {{ $wali->phone ?? '-' }}
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
+                                        </td>
 
-                                    {{-- get Nomor telepon --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <a href="{{ whatsappUrl('088996429778') }}" target="_blank"
-                                                    class="text-theme-sm mb-0.5 block font-medium text-gray-700 dark:text-gray-400"
-                                                    style="color: #1d4ed8; text-decoration: underline; text-decoration-color: #1d4ed8;">
-                                                    088996429778
-                                                </a>
+                                        {{-- Status Keaktifan (asumsi aktif default) --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <p
+                                                    class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-regular">
+                                                    Aktif
+                                                </p>
                                             </div>
-                                        </div>
-                                    </td>
+                                        </td>
 
-                                    {{-- get Status Keaktifan --}}
-                                     <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            {{-- @if ($siswa->status === 'aktif')
-                                                    <p
-                                                        class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
-                                                        Aktif
-                                                    </p>
-                                                @else
-                                                    <p
-                                                        class="bg-red-50 text-theme-xs text-red-600 dark:bg-red-500/10 dark:text-red-500 rounded-full px-2 py-0.5 font-medium">
-                                                        NonAktif
-                                                    </p>
-                                                @endif --}}
-                                            <p
-                                                class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-regular">
-                                                Aktif
-                                            </p>
-                                        </div>
-                                    </td>
-
-                                    <td class="px-6 py-3 whitespace-nowrap flex items-center justify-center gap-3">
-                                        <x-btn-aksi-wali />
-                                    </td>
-                                </tr>
-                                {{-- @endforeach --}}
+                                        {{-- Aksi --}}
+                                        <td class="px-6 py-3 whitespace-nowrap flex items-center justify-center gap-3">
+                                            <x-btn-aksi-wali :wali="$wali" />
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
+
                             <!-- table body end -->
                         </table>
                     </div>

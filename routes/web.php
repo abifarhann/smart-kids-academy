@@ -27,14 +27,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/akun-wali-siswa', [WaliSiswaController::class, 'dataWali'])->name('akun-wali-siswa');
+    Route::get('/form-wali-siswa', [WaliSiswaController::class, 'formWali'])->name('form-wali-siswa');
+    Route::get('/form-wali-siswa/{id}', [WaliSiswaController::class, 'formEditWali'])->name('edit-wali-siswa');
+    Route::post('/form-wali-siswa/store', [WaliSiswaController::class, 'storeDataWali'])->name('store-data-wali');
+    Route::put('/akun-wali-siswa/update/{id}', [WaliSiswaController::class, 'updateDataWali'])->name('update-data-wali');
+    Route::delete('/akun-wali-siswa/{id}', [WaliSiswaController::class, 'destroyWali'])->name('hapus-wali-siswa');
     Route::get('/data-siswa', [SiswaController::class, 'dataSiswa'])->name('data-siswa');
     Route::get('/data-mentor', [MentorController::class, 'dataMentor'])->name('data-mentor');
     Route::get('/form-siswa', [FormSiswaController::class, 'formSiswa'])->name('form-siswa');
     Route::get('/form-mentor', [FormMentorController::class, 'formMentor'])->name('form-mentor');
-    Route::get('/form-wali-siswa', [FormWaliController::class, 'formWali'])->name('form-wali-siswa');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 // require __DIR__.'/auth.php';
