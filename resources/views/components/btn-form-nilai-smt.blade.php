@@ -2,7 +2,7 @@
 <div class="flex justify-end gap-3 items-center" style="margin:25px">
     {{-- cancel --}}
     <div style="display: flex; justify-content: flex-end;">
-        <button onclick="setTimeout(() => window.location.href = '{{ route('nilai-bulanan') }}', 1000);"
+        <button onclick="setTimeout(() => window.location.href = '{{ route('nilai-semester') }}', 1000);"
             style=" display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid #ef4444; font-size: 0.875rem; font-weight: 500; color: #dc2626; background-color: transparent; transition: background-color 0.2s, color 0.2s, border-color 0.2s;"
             onmouseover="this.style.backgroundColor='#fef2f2'; this.style.color='#b91c1c';"
             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#dc2626';"
@@ -19,7 +19,7 @@
         redirectAfterAlert() {
             this.$watch('showAlert', value => {
                 if (value) {
-                    setTimeout(() => window.location.href = '{{ route('nilai-bulanan') }}', 1000);
+                    setTimeout(() => window.location.href = '{{ route('nilai-semester') }}', 1000);
                 }
             });
         }

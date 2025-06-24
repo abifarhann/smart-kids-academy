@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Nilai Semester Siswa')
+@section('title', 'Tambah Nilai Bulanan Siswa')
 
 @section('content')
     <div class="container mx-auto p-6">
-       <x-tabel-nilai-smt />
+       <x-form-nilai-smt />
     </div>
 @endsection

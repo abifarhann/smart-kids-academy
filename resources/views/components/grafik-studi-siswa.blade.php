@@ -15,9 +15,9 @@
             <div id="chartOne" x-ref="chartOne" class="-ml-5 h-full min-w-[650px] pl-2 xl:min-w-full"></div>
         </div>
     </div>
-    <!-- Contoh tombol update data -->
+    {{-- <!-- Contoh tombol update data -->
     <button @click="update([40, 50, 35])" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
         Update Data
-    </button>
+    </button> --}}
 </div>
 <!-- ====== Chart One End -->

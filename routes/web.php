@@ -3,12 +3,16 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FormMentorController;
 use App\Http\Controllers\FormNilaiBlnController;
+use App\Http\Controllers\FormNilaiSmtController;
 use App\Http\Controllers\FormWaliController;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\NilaiBulananController;
+use App\Http\Controllers\NilaiSemesterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RaportBulananController;
+use App\Http\Controllers\RaportSmtController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\WaliSiswaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
@@ -28,7 +32,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');
     Route::get('/akun-wali-siswa', [WaliSiswaController::class, 'dataWali'])->name('akun-wali-siswa');
     Route::get('/form-wali-siswa', [WaliSiswaController::class, 'formWali'])->name('form-wali-siswa');
     Route::get('/form-wali-siswa/{id}', [WaliSiswaController::class, 'formEditWali'])->name('edit-wali-siswa');
@@ -42,6 +46,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/form-mentor', [FormMentorController::class, 'formMentor'])->name('form-mentor');
     Route::get('/form-nilai-bln', [FormNilaiBlnController::class, 'formNilaiBln'])->name('form-nilai-bln');
     Route::get('/raport-bulanan', [RaportBulananController::class, 'raportBulanan'])->name('raport-bulanan');
+    Route::get('/form-nilai-smt', [FormNilaiSmtController::class, 'formNilaiSmt'])->name('form-nilai-smt');
+    Route::get('/nilai-semester', [NilaiSemesterController::class, 'nilaiSemester'])->name('nilai-semester');
+    Route::get('/raport-semester', [RaportSmtController::class, 'RaportSmt'])->name('raport-semester');
 });
 
 // require __DIR__.'/auth.php';

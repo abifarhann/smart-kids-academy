@@ -1,6 +1,6 @@
 <div class="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
     <!-- Breadcrumb Start -->
-    <div x-data="{ pageName: `Nilai Bulanan Siswa` }">
+    <div x-data="{ pageName: `Nilai Semester Siswa` }">
         <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
             <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
             <nav class="flex items-center gap-2 text-gray-500 dark:text-gray-400">
@@ -26,12 +26,12 @@
             <div class="flex justify-between border-b border-gray-100 dark:border-gray-800 sm:px-6">
                 <div class="px-5 py-4 sm:px-6 sm:py-5">
                     <h3 class="text-base font-medium text-gray-800 dark:text-white/90">
-                        Daftar Nilai Bulanan
+                        Daftar Nilai Semester
                     </h3>
                 </div>
 
                 {{-- Button add data --}}
-                <x-btn-add-nilai-bln />
+                <x-btn-add-nilai-smt />
             </div>
 
 
@@ -565,7 +565,7 @@
 
                                     {{-- 22. Detail Laporan --}}
                                     <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <a href="{{route('raport-bulanan')}}" title="Lihat laporan"
+                                        <a href="{{route('raport-semester')}}" title="Lihat laporan"
                                             class="text-gray-500 hover:text-brand-600">
                                             Lihat
                                         </a>
@@ -574,7 +574,7 @@
                                     {{-- 23. Aksi --}}
                                     <td class="py-2 whitespace-nowrap text-center">
                                         <div class="flex justify-center items-center gap-2">
-                                            <x-btn-aksi-nilai-bln />
+                                            <x-btn-aksi-nilai-smt />
                                         </div>
                                     </td>
 

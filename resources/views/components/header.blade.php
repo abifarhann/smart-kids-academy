@@ -5,7 +5,10 @@
             class="flex w-full items-center justify-between gap-2 border-b border-gray-200 px-3 py-3 sm:gap-4 lg:justify-normal lg:border-b-0 lg:px-0 lg:py-4 dark:border-gray-800">
             <!-- Hamburger Toggle BTN -->
             <button
-                :class="sidebarToggle ? 'lg:bg-transparent dark:lg:bg-transparent bg-gray-100 dark:bg-gray-800' : ''"
+                :class="sidebarToggle
+                    ?
+                    'lg:bg-transparent dark:lg:bg-transparent bg-gray-100 dark:bg-gray-800 transition-all duration-300 ease-in-out' :
+                    'transition-all duration-300 ease-in-out'"
                 class="z-99999 flex h-10 w-10 items-center justify-center rounded-lg border-gray-200 text-gray-500 lg:h-11 lg:w-11 lg:border dark:border-gray-800 dark:text-gray-400"
                 @click.stop="sidebarToggle = !sidebarToggle">
                 <svg class="hidden fill-current lg:block" width="16" height="12" viewBox="0 0 16 12" fill="none"
@@ -32,10 +35,13 @@
             </button>
             <!-- Hamburger Toggle BTN -->
 
-            <a href="index.html" class="lg:hidden">
-                <img class="dark:hidden" src="src/images/logo/logo.svg" alt="Logo" />
-                <img class="hidden dark:block" src="/images/logo/3.png" alt="Logo" / style="width: 50px; height: 50px;">
-            </a>
+            <div class="lg:hidden block flex justify-center items-center gap-2">
+                <img class="lg:hidden block" src="/images/logo/logo-unfix.png" alt="Logo"
+                    style="width: 30px; height: 30px;">
+                <h3 class="text-md font-semibold text-gray-800 dark:text-white" :class="sidebarToggle ? 'hidden' : ''">
+                    SmartKids Academy
+                </h3>
+            </div>
 
             <!-- Application nav menu button -->
             <button

@@ -48,14 +48,24 @@
                                 <div class="text-center md:text-left flex-1">
                                     <h1
                                         class="text-xl md:text-2xl font-extrabold text-blue-800 dark:text-white mb-1 leading-tight">
-                                        LAPORAN PENILAIAN BULANAN SISWA
+                                        LAPORAN PENILAIAN SEMESTER SISWA
                                     </h1>
                                     <h2
                                         class="text-xl md:text-2xl font-extrabold text-blue-800 dark:text-white mb-1 leading-tight">
                                         SMARTKIDS ACADEMY
                                     </h2>
-                                    <p class="text-xs text-gray-500 dark:text-gray-500">Jl Lingkar Utara Kalibaru
-                                        Tengah, Bekasi Utara Telp : 021-88881168</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-500">Head Office : Jl Pendidikan No
+                                        11 Gedeg Mojokerto
+
+                                        Bimbel Umum : GG Cinta II Beratwetan Mojokerto
+
+                                        No Telp:
+                                        ‪+62 877-2109-9337‬
+
+                                        IG :
+                                        smartkidsacademy__
+
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +137,7 @@
                                                         Mata Pelajaran</th>
                                                     <th colspan="4"
                                                         class="border-b dark:text-white text-gray-600 border-r border-blue-400 px-4 py-3 text-center font-semibold">
-                                                        Nilai Bulanan
+                                                        Nilai Semester
                                                     </th>
                                                     <th rowspan="2"
                                                         class="border-r dark:text-white text-gray-600  border-blue-400 px-4 py-3 text-center font-semibold">
