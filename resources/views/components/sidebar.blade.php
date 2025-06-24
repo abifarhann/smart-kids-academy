@@ -1,29 +1,37 @@
 <!-- ===== Sidebar Start ===== -->
-<aside :class="sidebarToggle ? 'translate-x-0 lg:w-[90px]' : '-translate-x-full'" 
+<aside :class="sidebarToggle ? 'translate-x-0 lg:w-[90px]' : '-translate-x-full'"
     class="sidebar fixed left-0 top-0 z-9999 flex h-screen w-[290px] flex-col overflow-y-hidden border-r border-gray-200 bg-white px-5 dark:border-gray-800 dark:bg-black lg:static lg:translate-x-0">
     <!-- SIDEBAR HEADER -->
-    <div :class="sidebarToggle ? 'justify-center' : 'justify-between'"
-        class="flex items-center gap-2 pt-8 sidebar-header pb-7">
-        <a href="">
+    <div class="flex flex-col gap-2 pt-4 pb-7 sidebar-header" :class="sidebarToggle ? 'items-center' : 'items-start'">
+
+        <!-- Baris atas: logo, teks, dan ikon -->
+        <div class="flex items-center w-full" :class="sidebarToggle ? 'justify-center' : 'justify-between'">
+            <!-- Logo besar -->
             <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
-                <img class="dark:hidden" src="images/logo/3.png" alt="Logo" />
-                <img class="hidden dark:block" src="/images/logo/4.png" alt="Logo" / style="width: 50px; height: 50px;" />
+                <img src="images/logo/logo-unfix.png" alt="Logo" style="width: 50px; height: 50px;" />
             </span>
 
-            <img class="logo-icon" :class="sidebarToggle ? 'lg:block' : 'hidden'" src="src/images/logo/logo-icon.svg"
-                alt="Logo" />
-        </a>
+            <!-- Judul Akademi -->
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-white" :class="sidebarToggle ? 'hidden' : ''">
+                SmartKids Academy
+            </h3>
+
+            {{-- logo responsif --}}
+            <img class="block sm:hidden" src="/images/logo/logo-unfix.png" alt="Logo"
+                style="width: 32px; height: 32px;" />
+        </div>
     </div>
+
     <!-- SIDEBAR HEADER -->
 
-    <div class="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar" >
+    <div class="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
         <!-- Sidebar Menu -->
         <nav x-data="{ selected: $persist('Dashboard') }">
             <!-- Menu Group -->
             <div>
                 <h3 class="mb-4 text-xs uppercase leading-[20px] text-gray-400">
                     <span class="menu-group-title" :class="sidebarToggle ? 'lg:hidden' : ''">
-                        MENU
+                        MENU ADMIN DASHBOARD
                     </span>
 
                     <svg :class="sidebarToggle ? 'lg:block hidden' : 'hidden'"
@@ -86,8 +94,8 @@
 
                     <!-- Menu Item Profile -->
                     <li>
-                        <a href="{{route('akun-wali-siswa')}}" @click="selected = (selected === 'Profile' ? '':'Profile')"
-                            class="menu-item group"
+                        <a href="{{ route('akun-wali-siswa') }}"
+                            @click="selected = (selected === 'Profile' ? '':'Profile')" class="menu-item group"
                             :class="(selected === 'Profile') && (page === 'profile') ? 'menu-item-active' :
                             'menu-item-inactive'">
                             <svg :class="(selected === 'Profile') && (page === 'profile') ? 'menu-item-icon-active' :
@@ -210,19 +218,19 @@
                             <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
                                 class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
                                 <li>
-                                    <a href="blank.html" class="menu-dropdown-item group"
+                                    <a href="{{ route('nilai-bulanan') }}" class="menu-dropdown-item group"
                                         :class="page === 'blank' ? 'menu-dropdown-item-active' :
                                             'menu-dropdown-item-inactive'">
                                         Bulanan
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="404.html" class="menu-dropdown-item group"
+                                {{-- <li>
+                                    <a href="{{ route('form-nilai-bulanan') }}" class="menu-dropdown-item group"
                                         :class="page === 'page404' ? 'menu-dropdown-item-active' :
                                             'menu-dropdown-item-inactive'">
                                         Semester
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                         <!-- Dropdown Menu End -->

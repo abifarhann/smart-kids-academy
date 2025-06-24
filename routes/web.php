@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FormMentorController;
+use App\Http\Controllers\FormNilaiBlnController;
 use App\Http\Controllers\FormWaliController;
 use App\Http\Controllers\MentorController;
+use App\Http\Controllers\NilaiBulananController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RaportBulananController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\WaliSiswaController;
 use Illuminate\Support\Facades\Route;
@@ -34,8 +37,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/akun-wali-siswa/{id}', [WaliSiswaController::class, 'destroyWali'])->name('hapus-wali-siswa');
     Route::get('/data-siswa', [SiswaController::class, 'dataSiswa'])->name('data-siswa');
     Route::get('/data-mentor', [MentorController::class, 'dataMentor'])->name('data-mentor');
+    Route::get('/nilai-bulanan', [NilaiBulananController::class, 'nilaiBulanan'])->name('nilai-bulanan');
     Route::get('/form-siswa', [FormSiswaController::class, 'formSiswa'])->name('form-siswa');
     Route::get('/form-mentor', [FormMentorController::class, 'formMentor'])->name('form-mentor');
+    Route::get('/form-nilai-bln', [FormNilaiBlnController::class, 'formNilaiBln'])->name('form-nilai-bln');
+    Route::get('/raport-bulanan', [RaportBulananController::class, 'raportBulanan'])->name('raport-bulanan');
 });
 
 // require __DIR__.'/auth.php';
