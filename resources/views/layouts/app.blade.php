@@ -80,7 +80,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         });
     @endif
 
-    function confirmDelete(id) {
+    function confirmDelete(type, id) {
         Swal.fire({
             title: 'Apakah Anda yakin?',
             text: "Data yang dihapus tidak dapat dikembalikan!",
@@ -92,9 +92,9 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             cancelButtonText: 'Batal'
         }).then((result) => {
             if (result.isConfirmed) {
-                document.getElementById(`delete-form-${id}`).submit();
+                document.getElementById(`delete-form-${type}-${id}`).submit();
             }
-        })
+        });
     }
 </script>
 
