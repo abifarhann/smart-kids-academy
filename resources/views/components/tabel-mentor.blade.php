@@ -198,169 +198,131 @@
 
                             <!-- table body start -->
                             <tbody class="divide-y divide-gray-100 dark:divide-gray-800 transition-colors">
-                                {{-- @foreach ($siswaList as $siswa) --}}
-                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
-                                    {{-- nama lengkap siswa --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
+                                @foreach ($dataMentor as $mentor)
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+                                        {{-- Nama --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div
+                                                    style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                    <span
+                                                        class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                        {{ $mentor->nama }}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        {{-- Tgl Lahir --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
                                             <div
                                                 style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                <span
-                                                    class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                    Firsty Angelica Valency
+                                                <span class="text-theme-sm text-gray-700 dark:text-gray-400">
+                                                    {{ \Carbon\Carbon::parse($mentor->tgl_lahir)->format('d-m-Y') }}
                                                 </span>
                                             </div>
-                                        </div>
-                                    </td>
+                                        </td>
 
-                                    {{-- get tgl lahir --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <span
-                                                    class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                    14-10-2003
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </td>
+                                        {{-- Tempat Lahir --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <span class="text-theme-sm text-gray-700 dark:text-gray-400">
+                                                {{ $mentor->tempat_lahir }}
+                                            </span>
+                                        </td>
 
-                                    {{-- get Tempat lahir --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
+                                        {{-- Alamat --}}
+                                        <td class="px-6 py-3 whitespace-nowrap" title="{{ $mentor->alamat }}">
+                                            <span class="text-theme-sm text-gray-700 dark:text-gray-400"
+                                                style="max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                {{ $mentor->alamat }}
+                                            </span>
+                                        </td>
+
+                                        {{-- Jenis Kelamin --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <span class="text-theme-sm text-gray-700 dark:text-gray-400">
+                                                {{ $mentor->jenis_kelamin }}
+                                            </span>
+                                        </td>
+
+                                        {{-- Nomor WhatsApp --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <a href="{{ whatsappUrl($mentor->phone) }}" target="_blank"
+                                                class="text-theme-sm text-blue-600 underline">
+                                                {{ $mentor->phone }}
+                                            </a>
+                                        </td>
+
+                                        {{-- Tingkat Pendidikan --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <span class="text-theme-sm text-gray-700 dark:text-gray-400">
+                                                {{ $mentor->tingkat_pendidikan }}
+                                            </span>
+                                        </td>
+
+                                        {{-- Jurusan --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <span class="text-theme-sm text-gray-700 dark:text-gray-400">
+                                                {{ $mentor->jurusan }}
+                                            </span>
+                                        </td>
+
+                                        {{-- Asal Sekolah --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
                                             <div
                                                 style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                <span
-                                                    class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                    Mojokerto
+                                                <span class="text-theme-sm text-gray-700 dark:text-gray-400">
+                                                    {{ $mentor->asal_sekolah }}
                                                 </span>
+
                                             </div>
-                                        </div>
-                                    </td>
+                                        </td>
 
-                                    {{-- get Alamat --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div style="max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
-                                                {{-- tittle: get detail address if > max length --}}
-                                                title="RT. 01 RW. 02, Desa Sumbertanggul, Kecamatan Mojoanyar">
-                                                <span
-                                                    class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                    RT. 01 RW. 02, Desa Sumbertanggul, Kecamatan Mojoanyar
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </td>
+                                        {{-- Status Pendidikan --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            @if ($mentor->status_pendidikan === 'Aktif')
+                                                <p
+                                                    class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-theme-xs font-medium">
+                                                    Aktif
+                                                </p>
+                                            @else
+                                                <p
+                                                    class="bg-red-500 text-red-600 dark:bg-red-500/10 dark:text-red-500 rounded-full px-2 py-0.5 text-theme-xs font-medium">
+                                                    Lulus
+                                                </p>
+                                            @endif
+                                        </td>
 
-                                    {{-- get Jenis Kelamin --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <span
-                                                    class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                    Perempuan
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </td>
+                                        {{-- Program --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <span class="text-theme-sm text-gray-700 dark:text-gray-400">
+                                                {{ $mentor->program->nama_program ?? 'Tidak ada program' }}
+                                            </span>
+                                        </td>
 
-                                    {{-- get Nomor telepon --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <a href="{{ whatsappUrl('088996429778') }}" target="_blank"
-                                                    class="text-theme-sm mb-0.5 block font-medium text-gray-700 dark:text-gray-400"
-                                                    style="color: #1d4ed8; text-decoration: underline; text-decoration-color: #1d4ed8;">
-                                                    088996429778
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
+                                        {{-- Status Ajar --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            @if ($mentor->status === 'Aktif')
+                                                <p
+                                                    class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-theme-xs font-medium">
+                                                    Aktif
+                                                </p>
+                                            @else
+                                                <p
+                                                    class="bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-500 rounded-full px-2 py-0.5 text-theme-xs font-medium">
+                                                    Nonaktif
+                                                </p>
+                                            @endif
+                                        </td>
 
-                                    {{-- get Tingkat Pendidikan --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <p class="font-regular text-gray-700 text-theme-sm dark:text-gray-400">
-                                                D3
-                                            </p>
-                                        </div>
-                                    </td>
-
-                                    {{-- get jurusan --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <p class="font-regular text-gray-700 text-theme-sm dark:text-gray-400">
-                                                Teknik Informatika
-                                            </p>
-                                        </div>
-                                    </td>
-
-                                    {{-- get asal sekolah --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <p class="font-regular text-gray-700 text-theme-sm dark:text-gray-400">
-                                               Institut Teknologi Sepuluh Nopember
-                                            </p>
-                                        </div>
-                                    </td>
-
-                                    {{-- badge keaktifan siswa di bimbel --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            {{-- @if ($siswa->status === 'aktif')
-                                                    <p
-                                                        class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
-                                                        Aktif
-                                                    </p>
-                                                @else
-                                                    <p
-                                                        class="bg-red-50 text-theme-xs text-red-600 dark:bg-red-500/10 dark:text-red-500 rounded-full px-2 py-0.5 font-medium">
-                                                        Lulus
-                                                    </p>
-                                                @endif --}}
-                                            <p
-                                                class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-regular">
-                                                Aktif
-                                            </p>
-                                        </div>
-                                    </td>
-
-                                    {{-- get jurusan --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <p class="font-regular text-gray-700 text-theme-sm dark:text-gray-400">
-                                                Private
-                                            </p>
-                                        </div>
-                                    </td>
-
-                                    {{-- badge keaktifan siswa di bimbel --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            {{-- @if ($siswa->status === 'aktif')
-                                                    <p
-                                                        class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-medium">
-                                                        Aktif
-                                                    </p>
-                                                @else
-                                                    <p
-                                                        class="bg-red-50 text-theme-xs text-red-600 dark:bg-red-500/10 dark:text-red-500 rounded-full px-2 py-0.5 font-medium">
-                                                        Keluar
-                                                    </p>
-                                                @endif --}}
-                                            <p
-                                                class="bg-success-50 text-theme-xs text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 font-regular">
-                                                Aktif
-                                            </p>
-                                        </div>
-                                    </td>
-
-                                    <td class="px-6 py-3 whitespace-nowrap flex items-center justify-center gap-3">
-                                        <x-btn-aksi-mentor />
-                                    </td>
-                                </tr>
-                                {{-- @endforeach --}}
+                                        {{-- Aksi --}}
+                                        <td class="px-6 py-3 whitespace-nowrap flex items-center justify-center gap-3">
+                                            <x-btn-aksi-mentor :mentor="$mentor" />
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
+
                             <!-- table body end -->
                         </table>
                     </div>

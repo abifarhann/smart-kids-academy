@@ -1,5 +1,5 @@
 <!-- Breadcrumb Start -->
-<div x-data="{ pageName: `Tambah Data Mentor` }">
+<div x-data="{ pageName: `{{ isset($mentor) ? 'Edit Data Mentor' : 'Tambah Data Mentor' }}` }">
     <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
         <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
         <nav>
@@ -45,385 +45,172 @@
             Profil Mentor
         </h3>
     </div>
-    <div class="space-y-6 border-t border-gray-100 p-5 sm:p-6 dark:border-gray-800">
-        <!-- Elements -->
-        <div class="flex justify-start gap-4 items-center">
-            <div>
-                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                    Nama Lengkap
-                </label>
-                <input type="text" placeholder="Masukkan nama mentor"
-                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
-            </div>
-
-            {{-- tgl lahir --}}
-            <div>
-                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                    Tanggal Lahir
-                </label>
-
-                <div class="relative">
-                    <div class="flatpickr-wrapper">
-                        <input type="text" placeholder="Select date"
-                            class="dark:bg-dark-900 datepickerTwo shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 flatpickr-input"
-                            readonly="readonly">
-                        <div class="flatpickr-calendar animate static null arrowBottom arrowLeft" tabindex="-1">
-                            <div class="flatpickr-months"><span class="flatpickr-prev-month"><svg class="stroke-current"
-                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M15.25 6L9 12.25L15.25 18.5" stroke="" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </svg></span>
-                                <div class="flatpickr-month">
-                                    <div class="flatpickr-current-month"><span class="cur-month">June </span>
-                                        <div class="numInputWrapper"><input class="numInput cur-year" type="number"
-                                                tabindex="-1" aria-label="Year"><span class="arrowUp"></span><span
-                                                class="arrowDown"></span></div>
-                                    </div>
-                                </div><span class="flatpickr-next-month"><svg class="stroke-current" width="24"
-                                        height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8.75 19L15 12.75L8.75 6.5" stroke="" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </svg></span>
-                            </div>
-                            <div class="flatpickr-innerContainer">
-                                <div class="flatpickr-rContainer">
-                                    <div class="flatpickr-weekdays">
-                                        <div class="flatpickr-weekdaycontainer">
-                                            <span class="flatpickr-weekday">
-                                                Sun</span><span class="flatpickr-weekday">Mon</span><span
-                                                class="flatpickr-weekday">Tue</span><span
-                                                class="flatpickr-weekday">Wed</span><span
-                                                class="flatpickr-weekday">Thu</span><span
-                                                class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="flatpickr-days" tabindex="-1">
-                                        <div class="dayContainer"><span class="flatpickr-day" aria-label="June 1, 2025"
-                                                tabindex="-1">1</span><span class="flatpickr-day"
-                                                aria-label="June 2, 2025" tabindex="-1">2</span><span
-                                                class="flatpickr-day" aria-label="June 3, 2025"
-                                                tabindex="-1">3</span><span class="flatpickr-day"
-                                                aria-label="June 4, 2025" tabindex="-1">4</span><span
-                                                class="flatpickr-day" aria-label="June 5, 2025"
-                                                tabindex="-1">5</span><span class="flatpickr-day"
-                                                aria-label="June 6, 2025" tabindex="-1">6</span><span
-                                                class="flatpickr-day" aria-label="June 7, 2025"
-                                                tabindex="-1">7</span><span class="flatpickr-day"
-                                                aria-label="June 8, 2025" tabindex="-1">8</span><span
-                                                class="flatpickr-day" aria-label="June 9, 2025"
-                                                tabindex="-1">9</span><span class="flatpickr-day"
-                                                aria-label="June 10, 2025" tabindex="-1">10</span><span
-                                                class="flatpickr-day" aria-label="June 11, 2025"
-                                                tabindex="-1">11</span><span class="flatpickr-day"
-                                                aria-label="June 12, 2025" tabindex="-1">12</span><span
-                                                class="flatpickr-day" aria-label="June 13, 2025"
-                                                tabindex="-1">13</span><span class="flatpickr-day"
-                                                aria-label="June 14, 2025" tabindex="-1">14</span><span
-                                                class="flatpickr-day" aria-label="June 15, 2025"
-                                                tabindex="-1">15</span><span class="flatpickr-day"
-                                                aria-label="June 16, 2025" tabindex="-1">16</span><span
-                                                class="flatpickr-day" aria-label="June 17, 2025"
-                                                tabindex="-1">17</span><span class="flatpickr-day"
-                                                aria-label="June 18, 2025" tabindex="-1">18</span><span
-                                                class="flatpickr-day" aria-label="June 19, 2025"
-                                                tabindex="-1">19</span><span class="flatpickr-day"
-                                                aria-label="June 20, 2025" tabindex="-1">20</span><span
-                                                class="flatpickr-day today" aria-label="June 21, 2025"
-                                                aria-current="date" tabindex="-1">21</span><span
-                                                class="flatpickr-day" aria-label="June 22, 2025"
-                                                tabindex="-1">22</span><span class="flatpickr-day"
-                                                aria-label="June 23, 2025" tabindex="-1">23</span><span
-                                                class="flatpickr-day" aria-label="June 24, 2025"
-                                                tabindex="-1">24</span><span class="flatpickr-day"
-                                                aria-label="June 25, 2025" tabindex="-1">25</span><span
-                                                class="flatpickr-day" aria-label="June 26, 2025"
-                                                tabindex="-1">26</span><span class="flatpickr-day"
-                                                aria-label="June 27, 2025" tabindex="-1">27</span><span
-                                                class="flatpickr-day" aria-label="June 28, 2025"
-                                                tabindex="-1">28</span><span class="flatpickr-day"
-                                                aria-label="June 29, 2025" tabindex="-1">29</span><span
-                                                class="flatpickr-day" aria-label="June 30, 2025"
-                                                tabindex="-1">30</span><span class="flatpickr-day nextMonthDay"
-                                                aria-label="July 1, 2025" tabindex="-1">1</span><span
-                                                class="flatpickr-day nextMonthDay" aria-label="July 2, 2025"
-                                                tabindex="-1">2</span><span class="flatpickr-day nextMonthDay"
-                                                aria-label="July 3, 2025" tabindex="-1">3</span><span
-                                                class="flatpickr-day nextMonthDay" aria-label="July 4, 2025"
-                                                tabindex="-1">4</span><span class="flatpickr-day nextMonthDay"
-                                                aria-label="July 5, 2025" tabindex="-1">5</span><span
-                                                class="flatpickr-day nextMonthDay" aria-label="July 6, 2025"
-                                                tabindex="-1">6</span><span class="flatpickr-day nextMonthDay"
-                                                aria-label="July 7, 2025" tabindex="-1">7</span><span
-                                                class="flatpickr-day nextMonthDay" aria-label="July 8, 2025"
-                                                tabindex="-1">8</span><span class="flatpickr-day nextMonthDay"
-                                                aria-label="July 9, 2025" tabindex="-1">9</span><span
-                                                class="flatpickr-day nextMonthDay" aria-label="July 10, 2025"
-                                                tabindex="-1">10</span><span class="flatpickr-day nextMonthDay"
-                                                aria-label="July 11, 2025" tabindex="-1">11</span><span
-                                                class="flatpickr-day nextMonthDay" aria-label="July 12, 2025"
-                                                tabindex="-1">12</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <span
-                        class="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                        <svg class="fill-current" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M6.66659 1.5415C7.0808 1.5415 7.41658 1.87729 7.41658 2.2915V2.99984H12.5833V2.2915C12.5833 1.87729 12.919 1.5415 13.3333 1.5415C13.7475 1.5415 14.0833 1.87729 14.0833 2.2915V2.99984L15.4166 2.99984C16.5212 2.99984 17.4166 3.89527 17.4166 4.99984V7.49984V15.8332C17.4166 16.9377 16.5212 17.8332 15.4166 17.8332H4.58325C3.47868 17.8332 2.58325 16.9377 2.58325 15.8332V7.49984V4.99984C2.58325 3.89527 3.47868 2.99984 4.58325 2.99984L5.91659 2.99984V2.2915C5.91659 1.87729 6.25237 1.5415 6.66659 1.5415ZM6.66659 4.49984H4.58325C4.30711 4.49984 4.08325 4.7237 4.08325 4.99984V6.74984H15.9166V4.99984C15.9166 4.7237 15.6927 4.49984 15.4166 4.49984H13.3333H6.66659ZM15.9166 8.24984H4.08325V15.8332C4.08325 16.1093 4.30711 16.3332 4.58325 16.3332H15.4166C15.6927 16.3332 15.9166 16.1093 15.9166 15.8332V8.24984Z"
-                                fill=""></path>
-                        </svg>
-                    </span>
+    <form action="{{ isset($mentor) ? route('update-data-mentor', $mentor->id) : route('store-data-mentor') }}" method="POST">
+        @csrf
+        @if(isset($mentor))
+            @method('PUT')
+        @endif
+        <div class="space-y-6 border-t border-gray-100 p-5 sm:p-6 dark:border-gray-800">
+            <!-- Elements -->
+            <div class="flex justify-start gap-4 items-center">
+                <div>
+                    <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                        Nama Lengkap
+                    </label>
+                    <input type="text" placeholder="Masukkan nama mentor" name="nama"
+                        value="{{ isset($mentor) ? $mentor->nama : '' }}"
+                        class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                 </div>
 
+                {{-- tgl lahir --}}
+                <div>
+                    <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Tanggal
+                        Lahir</label>
+                    <input type="date" name="tgl_lahir" required onclick="this.showPicker()"
+                        value="{{ isset($mentor) && $mentor->tgl_lahir ? \Carbon\Carbon::parse($mentor->tgl_lahir)->format('Y-m-d') : '' }}"
+                        class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                </div>
+
+                {{-- kota lahir --}}
+                <div>
+                    <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                        Tempat Lahir
+                    </label>
+                    <input type="text" placeholder="Kota kelahiran" name="tempat_lahir"
+                        value="{{ isset($mentor) ? $mentor->tempat_lahir : '' }}"
+                        class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                </div>
+
+                <!-- Tanggal Mulai Mengajar -->
+                <div>
+                    <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Tanggal Mulai
+                        Mengajar</label>
+                    <input type="date" name="start_date" onclick="this.showPicker()"
+                        value="{{ isset($mentor) && $mentor->start_date ? \Carbon\Carbon::parse($mentor->start_date)->format('Y-m-d') : '' }}"
+                        class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                </div>
             </div>
-            {{-- kota lahir --}}
+
+
+            {{-- jenis kelamin --}}
+            <div>
+                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Jenis Kelamin</label>
+                <select name="jenis_kelamin"
+                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                    <option value="" selected disabled>Pilih jenis kelamin</option>
+                    <option value="Laki-Laki"
+                        {{ isset($mentor) && $mentor->jenis_kelamin == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki
+                    </option>
+                    <option value="Perempuan"
+                        {{ isset($mentor) && $mentor->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan
+                    </option>
+                </select>
+            </div>
+
+            {{-- no hp --}}
             <div>
                 <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                    Tempat Lahir
+                    Nomor WhatsApp
                 </label>
-                <input type="text" placeholder="Kota kelahiran"
+                <input type="number" placeholder="Masukkan nomor whatsapp" name="phone"
+                    value="{{ isset($mentor) ? $mentor->phone : '' }}"
                     class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
             </div>
-        </div>
 
-
-        {{-- jenis kelamin --}}
-        <div>
-            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                Jenis Kelamin
-            </label>
-            <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                <select
-                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                    :class="isOptionSelected & amp & amp
-                    'text-gray-800 dark:text-white/90'"
-                    @change="isOptionSelected = true">
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        Laki-Laki
-                    </option>
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        Perempuan
-                    </option>
-                </select>
-                <span
-                    class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                    <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </span>
+            {{-- alamat --}}
+            <div>
+                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Alamat
+                </label>
+                <textarea placeholder="Alamat tempat tinggal" type="text" rows="6" name="alamat"
+                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">{{ isset($mentor) ? $mentor->alamat : '' }}</textarea>
             </div>
-        </div>
 
-        {{-- no hp --}}
-        <div>
-            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                Nomor WhatsApp
-            </label>
-            <input type="text" placeholder="Masukkan nomor whatsapp"
-                class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
-        </div>
-
-        {{-- alamat --}}
-        <div>
-            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                Alamat
-            </label>
-            <textarea placeholder="Alamat tempat tinggal" type="text" rows="6"
-                class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"></textarea>
-        </div>
-
-        {{-- Tingkat Pendidikan --}}
-        <div>
-            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                Tingkat Pendidikan/Kelas
-            </label>
-            <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                <select :disabled="pendidikan === 'Kuliah'"
-                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                    :class="isOptionSelected & amp; & amp;
-                    'text-gray-800 dark:text-white/90'"
-                    @change="isOptionSelected = true">
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        10
+            <!-- Tingkat Pendidikan -->
+            <div>
+                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Tingkat
+                    Pendidikan/Kelas</label>
+                <select name="tingkat_pendidikan"
+                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                    <option value="" disabled selected>Pilih tingkat pendidikan</option>
+                    <option value="10"
+                        {{ isset($mentor) && $mentor->tingkat_pendidikan == '10' ? 'selected' : '' }}>10</option>
+                    <option value="11"
+                        {{ isset($mentor) && $mentor->tingkat_pendidikan == '11' ? 'selected' : '' }}>11</option>
+                    <option value="12"
+                        {{ isset($mentor) && $mentor->tingkat_pendidikan == '12' ? 'selected' : '' }}>12</option>
+                    <option value="D3"
+                        {{ isset($mentor) && $mentor->tingkat_pendidikan == 'D3' ? 'selected' : '' }}>D3</option>
+                    <option value="D4/S1"
+                        {{ isset($mentor) && $mentor->tingkat_pendidikan == 'D4/S1' ? 'selected' : '' }}>D4/S1
                     </option>
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        11
-                    </option>
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        12
-                    </option>
+                    <option value="S2"
+                        {{ isset($mentor) && $mentor->tingkat_pendidikan == 'S2' ? 'selected' : '' }}>S2</option>
                 </select>
-                <select :disabled="pendidikan === 'SMA' || pendidikan === 'SMK'"
-                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                    D3
-                    </option>
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        D4/S1
-                    </option>
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        S2
-                    </option>
-                </select>
-                <span
-                    class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                    <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </span>
             </div>
-        </div>
 
-        <div>
-            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                Jurusan
-            </label>
-            <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                <select :disabled="pendidikan === 'Kuliah'"
-                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                    :class="isOptionSelected & amp; & amp;
-                    'text-gray-800 dark:text-white/90'"
-                    @change="isOptionSelected = true">
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        IPA
-                    </option>
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        IPS
-                    </option>
-                </select>
-                <span
-                    class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                    <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </span>
+            <div>
+                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Jurusan
+                </label>
+                <input type="text" placeholder="Masukkan jurusan" name="jurusan"
+                    value="{{ isset($mentor) ? $mentor->jurusan : '' }}"
+                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
             </div>
-        </div>
 
-        {{-- Prodi --}}
-        <div>
-            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                Prodi
-            </label>
-            <input :disabled="pendidikan === 'SMA' || pendidikan === 'SMK'" type="text"
-                placeholder="Masukkan program studi"
-                class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
-        </div>
-
-        {{-- Sekolah / Perguruan Tinggi --}}
-        <div>
-            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                Asal Sekolah/Perguruan Tinggi
-            </label>
-            <input type="text" placeholder="Masukkan nama sekolah atau perguruan tinggi"
-                class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
-        </div>
-
-        {{-- Status Pendidikan --}}
-        <div>
-            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                Status Pendidikan
-            </label>
-            <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                <select
-                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                    :class="isOptionSelected & amp; & amp;
-                    'text-gray-800 dark:text-white/90'"
-                    @change="isOptionSelected = true">
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        Aktif
-                    </option>
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        Lulus
-                    </option>
-                </select>
-                <span
-                    class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                    <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </span>
+            <!-- Prodi -->
+            <div>
+                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Prodi</label>
+                <input type="text" name="prodi" placeholder="Masukkan program studi" value="{{ isset($mentor) ? $mentor->prodi : '' }}"
+                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
             </div>
-        </div>
 
-        {{-- Program Ajar --}}
-        <div>
-            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                Program Ajar
-            </label>
-            <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                <select
-                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                    :class="isOptionSelected & amp; & amp;
-                    'text-gray-800 dark:text-white/90'"
-                    @change="isOptionSelected = true">
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        Regular
-                    </option>
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        Private
-                    </option>
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        Community
-                    </option>
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        Umum
-                    </option>
-                </select>
-                <span
-                    class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                    <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </span>
+            <!-- Asal Sekolah -->
+            <div>
+                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Asal Sekolah/Perguruan
+                    Tinggi</label>
+                <input type="text" name="asal_sekolah" placeholder="Masukkan asal sekolah" value="{{ isset($mentor) ? $mentor->asal_sekolah : '' }}"
+                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
             </div>
-        </div>
 
-        {{-- Status Ajar --}}
-        <div>
-            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                Status Ajar
-            </label>
-            <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                <select
-                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                    :class="isOptionSelected & amp; & amp;
-                    'text-gray-800 dark:text-white/90'"
-                    @change="isOptionSelected = true">
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        Aktif
-                    </option>
-                    <option value="" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-                        Nonaktif
-                    </option>
+            <!-- Status Pendidikan -->
+            <div>
+                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Status
+                    Pendidikan</label>
+                <select name="status_pendidikan"
+                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                    <option value="" disabled selected>Pilih status pendidikan</option>
+                    <option value="Aktif" {{ (isset($mentor) && $mentor->status_pendidikan == 'Aktif') ? 'selected' : '' }}>Aktif</option>
+                    <option value="Lulus" {{ (isset($mentor) && $mentor->status_pendidikan == 'Lulus') ? 'selected' : '' }}>Lulus</option>
                 </select>
-                <span
-                    class="pointer-events-none absolute top-1/2 right-4 z-30 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                    <svg class="stroke-current" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.79175 7.396L10.0001 12.6043L15.2084 7.396" stroke="" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </span>
             </div>
+
+            <!-- Program Ajar -->
+            <div>
+                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Program Ajar</label>
+                <select name="id_program"
+                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                    <option value="" disabled selected>Pilih program ajar</option>
+                    <option value="1" {{ (isset($mentor) && $mentor->id_program == '1') ? 'selected' : '' }}>Privat</option>
+                    <option value="2" {{ (isset($mentor) && $mentor->id_program == '2') ? 'selected' : '' }}>Kelompok</option>
+                    <option value="3" {{ (isset($mentor) && $mentor->id_program == '3') ? 'selected' : '' }}>Community</option>
+                    <option value="4" {{ (isset($mentor) && $mentor->id_program == '4') ? 'selected' : '' }}>Umum</option>
+                </select>
+            </div>
+
+            <!-- Status Ajar -->
+            <div>
+                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Status Ajar</label>
+                <select name="status"
+                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                    <option value="" disabled selected>Pilih status ajar</option>
+                    <option value="1" {{ (isset($mentor) && $mentor->status == '1') ? 'selected' : '' }}>Aktif</option>
+                    <option value="0" {{ (isset($mentor) && $mentor->status == '0') ? 'selected' : '' }}>Nonaktif</option>
+                </select>
+            </div>
+
+            {{-- button --}}
+            <x-btn-form-mentor class="mt-6" />
         </div>
-        {{-- button --}}
-        <x-btn-form-mentor class="mt-6" />
-    </div>
+    </form>
 </div>

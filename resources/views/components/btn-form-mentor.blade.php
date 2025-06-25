@@ -14,28 +14,10 @@
     </div>
 
     {{-- save data --}}
-    <div x-data="{
-        showAlert: false,
-        redirectAfterAlert() {
-            this.$watch('showAlert', value => {
-                if (value) {
-                    setTimeout(() => window.location.href = '{{ route('data-mentor') }}', 1000);
-                }
-            });
-        }
-    }" x-init="redirectAfterAlert()" class="space-y-4">
-
-        <!-- Gunakan komponen alert -->
-        <div x-show="showAlert" x-transition x-effect="if (showAlert) setTimeout(() => showAlert = false, 3000)">
-            <x-alert type="success" title="Berhasil!" message="Data berhasil disimpan!" class="mb-4" />
-        </div>
-
-        <!-- Tombol trigger -->
-        <div class="flex justify-end">
-            <button @click="showAlert = true;"
-                class="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-500 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:bg-brand-500 dark:hover:bg-brand-600 dark:focus:ring-brand-400">
-                Simpan Data
-            </button>
-        </div>
+    <div class="flex justify-end">
+        <button type="submit"
+            class="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-500 px-4 py-2 text-sm font-medium text-white shadow hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:bg-brand-500 dark:hover:bg-brand-600 dark:focus:ring-brand-400">
+            Simpan
+        </button>
     </div>
 </div>

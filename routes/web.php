@@ -37,7 +37,10 @@ Route::middleware('auth')->group(function () {
     Route::put('/data-siswa/update/{id}', [SiswaController::class, 'updateDataSiswa'])->name('update-data-siswa');
     Route::delete('/data-siswa/{id}', [SiswaController::class, 'deleteDataSiswa'])->name('hapus-data-siswa');
     Route::get('/data-mentor', [MentorController::class, 'dataMentor'])->name('data-mentor');
-    Route::get('/form-mentor', [FormMentorController::class, 'formMentor'])->name('form-mentor');
+    Route::get('/form-mentor', [MentorController::class, 'formMentor'])->name('form-mentor');
+    Route::post('/form-mentor/store', [MentorController::class, 'storeDataMentor'])->name('store-data-mentor');
+    Route::put('/data-mentor/update/{id}', [MentorController::class, 'updateDataMentor'])->name('update-data-mentor');
+    Route::delete('/data-mentor/{id}', [MentorController::class, 'deleteDataMentor'])->name('hapus-data-mentor');
 });
 
 // require __DIR__.'/auth.php';
