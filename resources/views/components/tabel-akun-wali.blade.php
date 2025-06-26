@@ -145,7 +145,7 @@
 
                             <!-- table body start -->
                             <tbody class="divide-y divide-gray-100 dark:divide-gray-800 transition-colors">
-                                @foreach ($dataWali as $wali)
+                                @forelse ($dataWali as $wali)
                                     <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
                                         {{-- Nama Wali --}}
                                         <td class="px-6 py-3 whitespace-nowrap">
@@ -214,7 +214,19 @@
                                             <x-btn-aksi-wali :wali="$wali" />
                                         </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <tr>
+                                        <td colspan="12" class="text-center py-6 text-gray-500 dark:text-gray-400">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="mx-auto mb-2 h-10 w-10 text-gray-300 dark:text-gray-600"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 17v-6h6v6m2 4H7a2 2 0 01-2-2V7a2 2 0 012-2h3l2-2h2l2 2h3a2 2 0 012 2v12a2 2 0 01-2 2z" />
+                                            </svg>
+                                            Tidak ada data siswa untuk ditampilkan.
+                                        </td>
+                                    </tr>
+                                @endforelse
                             </tbody>
 
                             <!-- table body end -->

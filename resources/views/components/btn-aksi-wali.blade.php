@@ -1,9 +1,9 @@
 <div class="flex items-center justify-center gap-3">
     {{-- Tombol Delete --}}
-    <form id="delete-form-{{ $wali->id }}" action="{{ route('hapus-wali-siswa', $wali->id) }}" method="POST">
+    <form id="delete-form-wali-{{ $wali->id }}" action="{{ route('hapus-wali-siswa', $wali->id) }}" method="POST">
         @csrf
         @method('DELETE')
-        <button type="button" onclick="confirmDelete({{ $wali->id }})"
+        <button type="button" onclick="confirmDelete('wali', {{ $wali->id }})"
             class="text-gray-500 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-500">
             <svg class="fill-current" width="21" height="21" viewBox="0 0 21 21"
                 xmlns="http://www.w3.org/2000/svg">
@@ -12,6 +12,7 @@
             </svg>
         </button>
     </form>
+
 
       {{-- Tombol Edit --}}
     <a href="{{ route('form-wali-siswa', ['id' => $wali->id]) }}"

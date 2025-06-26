@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container mx-auto p-6">
-        <x-tabel-siswa />
+        <x-tabel-siswa :data="$dataSiswa" />
 
     </div>
 @endsection

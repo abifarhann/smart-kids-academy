@@ -39,21 +39,6 @@ class WaliSiswaController extends Controller
         }
     }
 
-    public function formEditWali($id)
-    {
-        try {
-            $wali = User::findOrFail($id);
-
-            if ($wali->role !== 'wali_murid') {
-                return redirect()->back()->with('error', 'Data yang dipilih bukan wali murid.');
-            }
-
-            return view('partials.admin.form-wali-siswa', compact('wali'));
-        } catch (\Throwable $e) {
-            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
-        }
-    }
-
     public function storeDataWali(Request $request)
     {
         try {
