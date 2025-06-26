@@ -8,6 +8,7 @@ use App\Http\Controllers\FormWaliController;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\NilaiBulananController;
 use App\Http\Controllers\NilaiSemesterController;
+use App\Http\Controllers\PenilaianSiswaBlnController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RaportBulananController;
 use App\Http\Controllers\RaportSmtController;
@@ -49,6 +50,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/form-nilai-smt', [FormNilaiSmtController::class, 'formNilaiSmt'])->name('form-nilai-smt');
     Route::get('/nilai-semester', [NilaiSemesterController::class, 'nilaiSemester'])->name('nilai-semester');
     Route::get('/raport-semester', [RaportSmtController::class, 'RaportSmt'])->name('raport-semester');
+    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::get('/penilaian-bulanan-siswa', [PenilaianSiswaBlnController::class, 'PenilaianSiswaBln'])->name('penilaian-bulanan-siswa');
 });
 
 // require __DIR__.'/auth.php';
