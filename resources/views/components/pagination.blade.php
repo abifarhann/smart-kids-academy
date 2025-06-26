@@ -1,32 +1,28 @@
-<div class="p-4 flex  md:flex-row items-center justify-between gap-4">
+<div class="p-4 flex  flex-row sm:flex-col items-center justify-between gap-4">
     <!-- Informasi jumlah data -->
     <span class="text-sm text-gray-500 dark:text-gray-400">
         Menampilkan 1 - 8 dari 50 data
     </span>
 
     <!-- Pagination -->
-    <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem;">
-        <!-- Tombol Previous -->
+    <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
         <button
-            style="padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid #D1D5DB; color: #374151; background-color: transparent; transition: background-color 0.2s;"
-            onmouseover="this.style.backgroundColor='#F3F4F6'" onmouseout="this.style.backgroundColor='transparent'">
+            class="px-4 py-2 rounded-md border border-gray-300 text-gray-700 bg-transparent hover:bg-gray-100 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-800">
             Previous
         </button>
 
-        <!-- Nomor Halaman -->
-        <button style="color: #374151; font-weight: 500;">
+        <button class="text-gray-700 font-medium dark:text-gray-300">
             1
         </button>
-        <button
-            style="padding: 0.375rem 0.75rem; border-radius: 0.375rem; background-color: #DBEAFE; color: #2563EB; font-weight: 500;">
+
+        <button class="px-3 py-1.5 rounded-md bg-blue-100 text-blue-600 font-medium">
             2
         </button>
 
-        <!-- Tombol Next -->
         <button
-            style="padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid #D1D5DB; color: #374151; background-color: transparent; transition: background-color 0.2s;"
-            onmouseover="this.style.backgroundColor='#F3F4F6'" onmouseout="this.style.backgroundColor='transparent'">
+            class="px-4 py-2 rounded-md border border-gray-300 text-gray-700 bg-transparent hover:bg-gray-100 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-800">
             Next
         </button>
     </div>
+
 </div>

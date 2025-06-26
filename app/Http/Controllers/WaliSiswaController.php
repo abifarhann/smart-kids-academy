@@ -108,4 +108,29 @@ class WaliSiswaController extends Controller
         }
     }
 
+    // public function index(Request $request)
+    // {
+    //     $query = User::query()->where('role', 'wali_murid');
+
+    //     if ($request->filled('keyword')) {
+    //         $keyword = $request->keyword;
+    //         $query->where(function ($q) use ($keyword) {
+    //             $q->where('name', 'like', "%$keyword%")
+    //                 ->orWhere('username', 'like', "%$keyword%")
+    //                 ->orWhere('email', 'like', "%$keyword%")
+    //                 ->orWhere('phone', 'like', "%$keyword%");
+    //         });
+    //     }
+
+    //     $perPage = $request->input('per_page', 10);
+
+    //     if ($perPage === 'all') {
+    //         $dataWali = $query->paginate($query->count())->withQueryString(); // tetap paginate tapi semua
+    //     } else {
+    //         $dataWali = $query->paginate((int) $perPage)->withQueryString();
+    //     }
+
+    //     return view('components.tabel-akun-wali', compact('dataWali'));
+    // }
+
 }

@@ -2,19 +2,17 @@
 <div x-data="{ pageName: `{{ isset($wali) ? 'Update Akun Wali Siswa' : 'Tambah Akun Wali Siswa' }}` }">
     <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
         <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
-        <nav>
+        <nav class="flex items-center gap-2 text-gray-500 dark:text-gray-400">
             <ol class="flex items-center gap-1.5 text-sm">
                 <!-- Akun Wali Siswa -->
-                <li>
-                    <a href="index.html" class="flex items-center gap-1.5 text-gray-500 dark:text-gray-400">
-                        Akun Wali Siswa
-                        <svg class="stroke-current" width="17" height="16" viewBox="0 0 17 16" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6.0765 12.667L10.2432 8.50033L6.0765 4.33366" stroke="currentColor"
-                                stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a>
-                </li>
+                <p  class="flex items-center text-sm gap-1.5 text-gray-500 dark:text-gray-400">
+                    Akun Wali Siswa
+                    <svg class="stroke-current" width="17" height="16" viewBox="0 0 17 16" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.0765 12.667L10.2432 8.50033L6.0765 4.33366" stroke="currentColor" stroke-width="1.2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </p>
 
                 <!-- Wali Siswa -->
                 <li>
@@ -42,7 +40,7 @@
     <form method="POST" action="{{ isset($wali) ? route('update-data-wali', $wali->id) : route('store-data-wali') }}">
         <!-- Ganti "/your-action-url" dengan URL tujuan pengiriman data -->
         @csrf
-        @if(isset($wali))
+        @if (isset($wali))
             @method('PUT')
         @endif
 
@@ -51,7 +49,8 @@
                 <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                     Nama Wali Siswa
                 </label>
-                <input type="text" placeholder="Masukkan nama siswa" name="name" value="{{ old('name', $wali->name ?? '') }}"
+                <input type="text" placeholder="Masukkan nama siswa" name="name"
+                    value="{{ old('name', $wali->name ?? '') }}"
                     class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
             </div>
 
@@ -59,7 +58,8 @@
                 <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                     Username
                 </label>
-                <input type="text" placeholder="Masukkan username" name="username" value="{{ old('username', $wali->username ?? '') }}"
+                <input type="text" placeholder="Masukkan username" name="username"
+                    value="{{ old('username', $wali->username ?? '') }}"
                     class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
             </div>
 
@@ -83,7 +83,8 @@
                 <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                     Nomor WA
                 </label>
-                <input type="text" placeholder="Masukkan nomor wa" name="phone" value="{{ old('phone', $wali->phone ?? '') }}"
+                <input type="text" placeholder="Masukkan nomor wa" name="phone"
+                    value="{{ old('phone', $wali->phone ?? '') }}"
                     class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
             </div>
 

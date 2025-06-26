@@ -3,10 +3,10 @@
     <div x-data="{ pageName: `Mentor` }">
         <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
             <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
-            <nav>
+            <nav class="flex items-center gap-2 text-gray-500 dark:text-gray-400">
                 <ol class="flex items-center gap-1.5">
-                    <li>
-                        <a class="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400"
+                    <p
+                        class="inline-flex text-sm items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400"
                             href="index.html">
                             Rekapitulasi data
                             <svg class="stroke-current" width="17" height="16" viewBox="0 0 17 16" fill="none"

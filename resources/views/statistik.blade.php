@@ -1,7 +1,7 @@
 {{-- resources/views/home.blade.php --}}
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'Statistik')
 
 @section('content')
     <div class="flex flex-col md:gap-6">

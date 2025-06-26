@@ -4,6 +4,6 @@
 
 @section('content')
     <div class="container mx-auto p-6">
-       <x-tabel-nilai-bulanan />
+       <x-detail-nilai-bln />
     </div>
 @endsection
