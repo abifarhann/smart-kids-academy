@@ -16,15 +16,15 @@ class MentorController extends Controller
 
     public function formMentor()
     {
+        $mentor = null;
         // Jika ada parameter ID, kita akan mengedit data mentor yang ada
         if (request()->has('id')) {
             $mentor = Mentor::find(request()->id);
             if (!$mentor) {
                 return redirect()->back()->with('error', 'Data mentor tidak ditemukan.');
             }
-            return view('partials.admin.form-mentor', compact('mentor'));
         }
-        return view('partials.admin.form-mentor');
+        return view('partials.admin.form-mentor', compact('mentor'));
     }
 
     public function storeDataMentor(Request $request)

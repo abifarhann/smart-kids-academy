@@ -327,6 +327,19 @@
                                             </div>
                                         </td>
 
+                                        {{-- Tanggal Masuk --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div
+                                                    style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                    <span
+                                                        class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                        {{ \Carbon\Carbon::parse($siswa->tgl_mulai)->format('d-m-Y') }}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+
                                         <!-- Nomor Telepon -->
                                         <td class="px-6 py-3 whitespace-nowrap">
                                             <div class="flex items-center">

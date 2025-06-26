@@ -44,11 +44,11 @@ Route::middleware('auth')->group(function () {
     Route::put('/data-siswa/update/{id}', [SiswaController::class, 'updateDataSiswa'])->name('update-data-siswa');
     Route::delete('/data-siswa/{id}', [SiswaController::class, 'deleteDataSiswa'])->name('hapus-data-siswa');
     Route::get('/data-mentor', [MentorController::class, 'dataMentor'])->name('data-mentor');
-    Route::get('/nilai-bulanan', [NilaiBulananController::class, 'nilaiBulanan'])->name('nilai-bulanan');
     Route::get('/form-mentor', [MentorController::class, 'formMentor'])->name('form-mentor');
     Route::post('/form-mentor/store', [MentorController::class, 'storeDataMentor'])->name('store-data-mentor');
     Route::put('/data-mentor/update/{id}', [MentorController::class, 'updateDataMentor'])->name('update-data-mentor');
     Route::delete('/data-mentor/{id}', [MentorController::class, 'deleteDataMentor'])->name('hapus-data-mentor');
+    Route::get('/nilai-bulanan', [NilaiBulananController::class, 'nilaiBulanan'])->name('nilai-bulanan');
     Route::get('/form-nilai-bln', [FormNilaiBlnController::class, 'formNilaiBln'])->name('form-nilai-bln');
     Route::get('/raport-bulanan', [RaportBulananController::class, 'raportBulanan'])->name('raport-bulanan');
     Route::get('/form-nilai-smt', [FormNilaiSmtController::class, 'formNilaiSmt'])->name('form-nilai-smt');
