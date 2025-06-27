@@ -1,3 +1,24 @@
+ <!-- Breadcrumb Start -->
+    <div x-data="{ pageName: `Evaluasi Bulanan Siswa` }">
+        <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
+            <nav class="flex items-center gap-2 text-gray-500 dark:text-gray-400">
+                    <p class="flex items-center gap-1.5 text-sm">
+                        Penilaian Siswa
+                        <svg class="stroke-current w-4 h-4" viewBox="0 0 17 16" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.0765 12.667L10.2432 8.50033L6.0765 4.33366" stroke="currentColor"
+                                stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </p>
+                <ol class="flex items-center gap-1.5">
+                    <li class="text-sm text-gray-800 dark:text-white/90" x-text="pageName"></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+<!-- Breadcrumb End -->
+
 <div class="flex flex-col gap-2 p-4 rounded-xl shadow-md dark:bg-black h-1/3"
     style="background-color:#eaf3ff; min-height: 200px ;">
     <div class="flex items-center justify-between">

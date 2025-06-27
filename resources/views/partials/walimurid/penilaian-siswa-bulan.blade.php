@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container mx-auto p-6">
-       <x-card-header-wali />
+       <x-card-header-bln />
        <x-card-bulan />
     </div>
 @endsection

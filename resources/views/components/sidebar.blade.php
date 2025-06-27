@@ -273,10 +273,10 @@
                             <a href="#" @click.prevent="selected = (selected === 'Pages' ? '':'Pages')"
                                 class="menu-item group"
                                 :class="(selected === 'Pages' || currentPage === 'penilaian-bulanan-siswa' ||
-                                    currentPage === 'nilai-semester') ? 'menu-item-active' :
+                                    currentPage === 'penilaian-semester-siswa') ? 'menu-item-active' :
                                 'menu-item-inactive'">
                                 <svg :class="(selected === 'Pages' || currentPage === 'penilaian-bulanan-siswa' ||
-                                    currentPage === 'nilai-semester') ? 'menu-item-icon-active' :
+                                    currentPage === 'penilaian-semester-siswa') ? 'menu-item-icon-active' :
                                 'menu-item-icon-inactive'"
                                     width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -303,23 +303,23 @@
                             <!-- Dropdown Menu Start -->
                             <div class="overflow-hidden transform translate"
                                 :class="(selected === 'Pages' || currentPage === 'penilaian-bulanan-siswa' ||
-                                    currentPage === 'nilai-semester') ? 'block' : 'hidden'"
-                                x-init="if (currentPage === 'penilaian-bulanan-siswa' || currentPage === 'nilai-semester') { selected = 'Pages' }">
+                                    currentPage === 'penilaian-semester-siswa') ? 'block' : 'hidden'"
+                                x-init="if (currentPage === 'penilaian-bulanan-siswa' || currentPage === 'penilaian-siswa-smt') { selected = 'Pages' }">
                                 <ul
                                     :class="[sidebarToggle ? 'lg:hidden' : '', 'flex flex-col gap-1 mt-2 menu-dropdown pl-9']">
                                     <li>
                                         <a href="{{ route('penilaian-bulanan-siswa') }}"
                                             class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
-                                            :class="currentPage === 'nilai-bulanan' ?
+                                            :class="currentPage === 'penilaian-bulanan-siswa' ?
                                                 'bg-[#ebf3ff] text-blue-600 font-semibold' :
                                                 'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
                                             Bulanan
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('nilai-semester') }}"
+                                        <a href="{{ route('penilaian-semester-siswa') }}"
                                             class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
-                                            :class="currentPage === 'nilai-semester' ?
+                                            :class="currentPage === 'penilaian-semester-siswa' ?
                                                 'bg-[#ebf3ff] text-blue-600 font-semibold' :
                                                 'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
                                             Semester
@@ -331,9 +331,9 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('akun-wali-siswa') }}" class="menu-item group"
-                                :class="currentPage === 'akun-wali-siswa' ? 'menu-item-active' : 'menu-item-inactive'">
-                                <svg :class="currentPage === 'akun-wali-siswa' ? 'menu-item-icon-active' : 'menu-item-icon-inactive'"
+                            <a href="{{ route('profile') }}" class="menu-item group"
+                                :class="currentPage === 'profile' ? 'menu-item-active' : 'menu-item-inactive'">
+                                <svg :class="currentPage === 'profile' ? 'menu-item-icon-active' : 'menu-item-icon-inactive'"
                                     width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"

@@ -13,6 +13,7 @@
     <link href="{{ asset('tailadmin/build/style.css') }}" rel="stylesheet">
     <!-- Tambahkan di <head> atau sebelum </body> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
     <style>

@@ -8,6 +8,6 @@ class PenilaianSiswaSmtController extends Controller
 {
     public function PenilaianSiswaSmt()
     {
-        return view('partials.walimurid.penilaian-siswa-semester');
+        return view('partials.walimurid.penilaian-siswa-smt');
     }
 }
