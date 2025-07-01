@@ -49,7 +49,7 @@
                             <span class="text-gray-500 dark:text-gray-400"> Tampilkan </span>
 
                             <div class="relative z-20 w-32">
-                                <select 
+                                <select
                                     class="dark:bg-dark-900 h-9 w-full appearance-none rounded-lg border border-gray-300 bg-transparent py-2 pl-2 pr-10 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800">
                                     <option value="all">Semua
                                     </option>
@@ -107,14 +107,7 @@
                                     <th class="px-6 py-3 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Nama Siswa
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Email
+                                                Username
                                             </p>
                                         </div>
                                     </th>
@@ -172,20 +165,6 @@
                                                 </div>
                                             </div>
                                         </td>
-
-                                        {{-- Email (jika ada) --}}
-                                        <td class="px-6 py-3 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div
-                                                    style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                    <span
-                                                        class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                        {{ $wali->email ?? '-' }}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </td>
-
                                         {{-- Nomor WA --}}
                                         <td class="px-6 py-3 whitespace-nowrap">
                                             <div class="flex items-center">
