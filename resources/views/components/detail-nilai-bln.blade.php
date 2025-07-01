@@ -177,14 +177,12 @@
                                                 <col style="width: 50%">
                                                 <col style="width: 15%">
                                                 <col style="width: 15%">
-                                                <col style="width: 15%">
                                             </colgroup>
                                             <thead class="bg-gray-100">
                                                 <tr>
                                                     <th class="border px-2 py-1">No</th>
                                                     <th class="border px-2 py-1 text-left">Mata Pelajaran</th>
                                                     <th class="border px-2 py-1">Evaluasi Bulanan</th>
-                                                    <th class="border px-2 py-1">Rata-rata</th>
                                                     <th class="border px-2 py-1">Keterangan</th>
                                                 </tr>
                                             </thead>
@@ -195,14 +193,12 @@
                                                     <td class="border px-2 py-1">1</td>
                                                     <td class="border px-2 py-1 text-left">Bahasa Indonesia</td>
                                                     <td class="border px-2 py-1">85</td>
-                                                    <td class="border px-2 py-1">82</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
                                                 <tr class="text-center">
                                                     <td class="border px-2 py-1">2</td>
                                                     <td class="border px-2 py-1 text-left">Matematika</td>
                                                     <td class="border px-2 py-1">78</td>
-                                                    <td class="border px-2 py-1">79</td>
                                                     <td class="border px-2 py-1">B</td>
                                                 </tr>
                                                 <tr class="text-center">
@@ -210,7 +206,6 @@
                                                     <td class="border px-2 py-1 text-left">Ilmu Pengetahuan Alam(IPA)
                                                     </td>
                                                     <td class="border px-2 py-1">85</td>
-                                                    <td class="border px-2 py-1">82</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
                                                 <tr class="text-center">
@@ -218,14 +213,12 @@
                                                     <td class="border px-2 py-1 text-left">Ilmu Pengetahuan Sosial(IPS)
                                                     </td>
                                                     <td class="border px-2 py-1">78</td>
-                                                    <td class="border px-2 py-1">79</td>
                                                     <td class="border px-2 py-1">B</td>
                                                 </tr>
                                                 <tr class="text-center">
                                                     <td class="border px-2 py-1">5</td>
                                                     <td class="border px-2 py-1 text-left">Pendidikan Pancasila</td>
                                                     <td class="border px-2 py-1">85</td>
-                                                    <td class="border px-2 py-1">82</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
                                                 <tr class="text-center">
@@ -233,28 +226,24 @@
                                                     <td class="border px-2 py-1 text-left">Seni Budaya dan Prakarya
                                                     </td>
                                                     <td class="border px-2 py-1">78</td>
-                                                    <td class="border px-2 py-1">79</td>
                                                     <td class="border px-2 py-1">B</td>
                                                 </tr>
                                                 <tr class="text-center">
                                                     <td class="border px-2 py-1">7</td>
                                                     <td class="border px-2 py-1 text-left">PJOK</td>
                                                     <td class="border px-2 py-1">85</td>
-                                                    <td class="border px-2 py-1">82</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
                                                 <tr class="text-center">
                                                     <td class="border px-2 py-1">8</td>
                                                     <td class="border px-2 py-1 text-left">Bahasa Inggris</td>
                                                     <td class="border px-2 py-1">78</td>
-                                                    <td class="border px-2 py-1">79</td>
                                                     <td class="border px-2 py-1">B</td>
                                                 </tr>
                                                 <tr class="text-center">
                                                     <td class="border px-2 py-1">9</td>
                                                     <td class="border px-2 py-1 text-left">PAI & Budi Pekerti</td>
                                                     <td class="border px-2 py-1">85</td>
-                                                    <td class="border px-2 py-1">82</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
                                             </tbody>
@@ -269,42 +258,36 @@
                                                 <col style="width: 50%">
                                                 <col style="width: 15%">
                                                 <col style="width: 15%">
-                                                <col style="width: 15%">
                                             </colgroup>
                                             <tbody>
                                                 <tr class="text-center">
                                                     <td class="border px-2 py-1">10</td>
                                                     <td class="border px-2 py-1 text-left">Al-Qur’an Hadist</td>
                                                     <td class="border px-2 py-1">86</td>
-                                                    <td class="border px-2 py-1">84</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
                                                 <tr class="text-center">
                                                     <td class="border px-2 py-1">11</td>
                                                     <td class="border px-2 py-1 text-left">Aqidah Akhlak</td>
                                                     <td class="border px-2 py-1">81</td>
-                                                    <td class="border px-2 py-1">83</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
                                                 <tr class="text-center">
                                                     <td class="border px-2 py-1">12</td>
                                                     <td class="border px-2 py-1 text-left">Fiqih</td>
                                                     <td class="border px-2 py-1">81</td>
-                                                    <td class="border px-2 py-1">83</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
                                                 <tr class="text-center">
                                                     <td class="border px-2 py-1">13</td>
                                                     <td class="border px-2 py-1 text-left">SKI</td>
                                                     <td class="border px-2 py-1">81</td>
-                                                    <td class="border px-2 py-1">83</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
                                                 <tr class="text-center">
                                                     <td class="border px-2 py-1">14</td>
                                                     <td class="border px-2 py-1 text-left">Bahasa Arab</td>
                                                     <td class="border px-2 py-1">81</td>
-                                                    <td class="border px-2 py-1">83</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
                                             </tbody>
@@ -320,13 +303,11 @@
                                                 <col style="width: 50%">
                                                 <col style="width: 15%">
                                                 <col style="width: 15%">
-                                                <col style="width: 15%">
                                             </colgroup>
                                             <tbody>
                                                 <tr class="text-center">
                                                     <td class="border px-2 py-1">1</td>
                                                     <td class="border px-2 py-1 text-left">Kemampuan Dasar</td>
-                                                    <td class="border px-2 py-1">88</td>
                                                     <td class="border px-2 py-1">88</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
@@ -334,13 +315,11 @@
                                                     <td class="border px-2 py-1">2</td>
                                                     <td class="border px-2 py-1 text-left">Kognitif</td>
                                                     <td class="border px-2 py-1">85</td>
-                                                    <td class="border px-2 py-1">85</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
                                                 <tr class="text-center">
                                                     <td class="border px-2 py-1">3</td>
                                                     <td class="border px-2 py-1 text-left">Bahasa</td>
-                                                    <td class="border px-2 py-1">85</td>
                                                     <td class="border px-2 py-1">85</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
@@ -348,13 +327,11 @@
                                                     <td class="border px-2 py-1">4</td>
                                                     <td class="border px-2 py-1 text-left">Kemampuan Emosional</td>
                                                     <td class="border px-2 py-1">85</td>
-                                                    <td class="border px-2 py-1">85</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>
                                                 <tr class="text-center">
                                                     <td class="border px-2 py-1">4</td>
                                                     <td class="border px-2 py-1 text-left">Motorik</td>
-                                                    <td class="border px-2 py-1">85</td>
                                                     <td class="border px-2 py-1">85</td>
                                                     <td class="border px-2 py-1">A</td>
                                                 </tr>

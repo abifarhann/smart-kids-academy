@@ -3,8 +3,9 @@
 @section('title', 'Penilaian Siswa')
 
 @section('content')
-    <div class="container mx-auto p-6">
-       <x-card-header-smt />
-       <x-card-smt />
+    <div class="container mx-auto space-y-6 p-6">
+        <x-card-header-smt />
+        <x-chart-smt-js />
+        <x-card-smt />
     </div>
 @endsection

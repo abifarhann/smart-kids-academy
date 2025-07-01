@@ -20,7 +20,7 @@
 <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 p-6">
     @foreach ($months as $index => $monthName)
         <div class="flex flex-col">
-            <a href="{{ route('raport-semester') }}"
+            <a href="{{ route('raport-bulanan') }}"
                class="bg-white shadow-md flex flex-col md:flex-row lg:flex-row p-6 rounded-lg items-start md:items-center gap-4">
                 
                 {{-- Gambar --}}

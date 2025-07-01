@@ -13,9 +13,8 @@
     <link href="{{ asset('tailadmin/build/style.css') }}" rel="stylesheet">
     <!-- Tambahkan di <head> atau sebelum </body> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-
     <style>
         /* TailAdmin Override CSS - Prioritas Tinggi */
 
@@ -278,6 +277,50 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             }
         });
     }
+
+
+    // chart diagram garis
+    const ctx = document.getElementById('myLineChart').getContext('2d');
+
+    const myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [
+                'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+                'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+            ],
+            datasets: [{
+                label: 'Nilai Bulanan',
+                data: [80, 85, 78, 88, 90, 95, 92, 89, 91, 93, 94, 96], // Contoh data nilai tiap bulan
+                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                tension: 0.4,
+                fill: true,
+                pointRadius: 5,
+                pointHoverRadius: 7
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Grafik Nilai Siswa per Bulan',
+                    font: {
+                        size: 18
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    suggestedMax: 100
+                }
+            }
+        }
+    });
+
+    ///end
 </script>
 
 </html>
