@@ -1,9 +1,8 @@
-{{-- resources/views/dashboard.blade.php --}}
 @extends('layouts.app')
-
-@section('title', 'Dashboard')
-
+@php($noSidebar = true)
+@php($noHeader = true)
 @section('content')
-    <h1>Selamat Datang di Dashboard</h1>
-    <p>Ini adalah konten statis dari halaman dashboard.</p>
+<a href="{{ route('login') }}">Login</a>
+
+{{-- <img src="/images/bwink_edu_04_single_07.jpg" alt="images/bwink_edu_04_single_07.png" class="w-full h-auto"> --}}
 @endsection
