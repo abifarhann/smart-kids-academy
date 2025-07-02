@@ -41,38 +41,7 @@
                 <!-- Table Four -->
                 <div
                     class="overflow-hidden rounded-2xl border border-gray-200 bg-white pt-4 dark:border-gray-800 dark:bg-white/[0.03]">
-                    <div class="flex flex-col gap-5 px-6 mb-4 sm:flex-row sm:items-center sm:justify-between">
-
-                        {{-- jumlah data entries --}}
-                        <div class="flex items-center gap-3">
-                            <span class="text-gray-500 dark:text-gray-400"> Show </span>
-                            <div x-data="{ isOptionSelected: false }" class="relative z-20 bg-transparent">
-                                <div x-data="{ isOptionSelected: false }" class="relative z-20 w-32">
-                                    <select
-                                        class="dark:bg-dark-900 h-9 w-full appearance-none rounded-lg border border-gray-300 bg-transparent py-2 pl-2 pr-10 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
-                                        :class="isOptionSelected ? 'text-gray-800 dark:text-white/90' :
-                                            'text-gray-500 dark:text-gray-400'"
-                                        @change="isOptionSelected = true; perPage = $event.target.value">
-                                        <option value="Semua">Semua</option>
-                                        <option value="8">8</option>
-                                        <option value="5">5</option>
-                                    </select>
-
-                                    <span
-                                        class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400">
-                                        <svg class="stroke-current" width="16" height="16" viewBox="0 0 16 16"
-                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3.8335 5.9165L8.00016 10.0832L12.1668 5.9165"
-                                                stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                </div>
-
-                            </div>
-                            <span class="text-gray-500 dark:text-gray-400"> entries </span>
-                        </div>
-
+                    <div class="flex flex-col gap-5 px-6 mb-4 sm:flex-row sm:items-center sm:justify-end">
                         <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
                             {{-- fitur pencarian data --}}
                             <form>
@@ -287,7 +256,7 @@
                                                 </p>
                                             @else
                                                 <p
-                                                    class="bg-red-500 text-red-600 dark:bg-red-500/10 dark:text-red-500 rounded-full px-2 py-0.5 text-theme-xs font-medium">
+                                                    class="bg-error-50 text-error-600 dark:bg-error-500/10 dark:text-error-500 rounded-full px-2 py-0.5 text-theme-xs font-medium">
                                                     Lulus
                                                 </p>
                                             @endif
@@ -309,7 +278,7 @@
                                                 </p>
                                             @else
                                                 <p
-                                                    class="bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-500 rounded-full px-2 py-0.5 text-theme-xs font-medium">
+                                                    class="bg-error-50 text-error-600 dark:bg-error-500/10 dark:text-error-500 rounded-full px-2 py-0.5 text-theme-xs font-medium">
                                                     Nonaktif
                                                 </p>
                                             @endif
