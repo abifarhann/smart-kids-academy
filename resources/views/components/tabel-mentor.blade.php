@@ -115,7 +115,7 @@
                                     <th class="px-6 py-3 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Tingkat Pendidikan/Kelas
+                                                Tingkat Pendidikan
                                             </p>
                                         </div>
                                     </th>
@@ -225,7 +225,7 @@
                                         {{-- Tingkat Pendidikan --}}
                                         <td class="px-6 py-3 whitespace-nowrap">
                                             <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                {{ $mentor->tingkat_pendidikan }}
+                                                {{ $mentor->tingkatPendidikan->nama ?? 'Tidak ada tingkat pendidikan' }}
                                             </span>
                                         </td>
 

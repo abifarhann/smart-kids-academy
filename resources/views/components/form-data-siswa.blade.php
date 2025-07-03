@@ -150,6 +150,27 @@
             <!-- Baris 3 -->
             <div class="flex justify-start gap-4 items-center">
                 <div>
+                    <label for="id_tingkat_pendidikan" class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                        Tingkat Pendidikan
+                    </label>
+                    <select name="id_tingkat_pendidikan" id="id_tingkat_pendidikan"
+                        class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-800 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90">
+                        <option value="" disabled
+                            {{ old('id_tingkat_pendidikan', $siswa->id_tingkat_pendidikan ?? '') == '' ? 'selected' : '' }}>
+                            Pilih tingkat pendidikan
+                        </option>
+                        @foreach ($tingkatPendidikan as $id => $nama)
+                            <option value="{{ $id }}"
+                                {{ old('id_tingkat_pendidikan', $siswa->id_tingkat_pendidikan ?? '') == $id ? 'selected' : '' }}>
+                                {{ $nama }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('id_tingkat_pendidikan')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
                     <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                         Asal Sekolah
                     </label>

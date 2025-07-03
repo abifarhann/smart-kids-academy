@@ -4,6 +4,6 @@
 
 @section('content')
     <div class="container mx-auto p-6">
-        <x-tabel-mapel :dataWali="$dataWali" />
+        <x-tabel-mapel :dataMapel="$dataMapel" />
     </div>
 @endsection

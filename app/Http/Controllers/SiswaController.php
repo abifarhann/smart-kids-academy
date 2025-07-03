@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TingkatPendidikan;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Siswa;
@@ -10,7 +11,10 @@ class SiswaController extends Controller
 {
     public function dataSiswa()
     {
-        $dataSiswa = Siswa::with('wali:id,name')->get();
+        $dataSiswa = Siswa::with([
+            'wali:id,name',
+            'tingkat_pendidikan:id,nama'
+        ])->get();
 
         return view('partials.admin.data-siswa', compact('dataSiswa'));
     }
@@ -19,6 +23,7 @@ class SiswaController extends Controller
     {
         try {
             $dataWali = User::where('role', 'wali_murid')->pluck('name', 'id');
+            $tingkatPendidikan = TingkatPendidikan::pluck('nama', 'id');
             $siswa = null;
 
             // Jika ada parameter ID, kita akan mengedit data siswa yang ada
@@ -30,7 +35,7 @@ class SiswaController extends Controller
             }
 
             // Kirim data siswa (null untuk create, atau object siswa untuk update)
-            return view('partials.admin.form-siswa', compact('dataWali', 'siswa'));
+            return view('partials.admin.form-siswa', compact('dataWali', 'siswa', 'tingkatPendidikan'));
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan: ' . $e->getMessage()]);
         }
@@ -51,6 +56,7 @@ class SiswaController extends Controller
                 'tgl_mulai' => 'required|date',
                 'id_program' => 'required|integer',
                 'id_user' => 'required|exists:users,id',
+                'id_tingkat_pendidikan' => 'required|exists:tingkat_pendidikan,id'
             ]);
 
             // Tambahkan status default 1 (aktif)
@@ -79,7 +85,8 @@ class SiswaController extends Controller
                 'asal_sekolah' => 'required|string|max:255',
                 'tgl_mulai' => 'required|date',
                 'id_program' => 'required|integer',
-                'id_user' => 'required|exists:users,id'
+                'id_user' => 'required|exists:users,id',
+                'id_tingkat_pendidikan' => 'required|exists:tingkat_pendidikan,id'
             ]);
 
             // Tetapkan default status = 1 jika tidak disertakan

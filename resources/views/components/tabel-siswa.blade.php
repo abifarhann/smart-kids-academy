@@ -127,6 +127,13 @@
                                     <th class="px-6 py-3 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                                Tingkat Pendidikan
+                                            </p>
+                                        </div>
+                                    </th>
+                                    <th class="px-6 py-3 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
                                                 Asal Sekolah
                                             </p>
                                         </div>
@@ -268,6 +275,20 @@
                                                         {{ $siswa->phone }}
                                                     </a>
                                                 </div>
+                                            </div>
+                                        </td>
+
+                                        <!-- Asal Pendidikan -->
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div
+                                                    style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                    <p
+                                                        class="font-regular text-gray-700 text-theme-sm dark:text-gray-400">
+                                                        {{ $siswa->tingkat_pendidikan->nama ?? '-' }}
+                                                    </p>
+                                                </div>
+
                                             </div>
                                         </td>
 

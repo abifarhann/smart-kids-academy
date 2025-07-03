@@ -4,6 +4,6 @@
 
 @section('content')
     <div class="container mx-auto p-6">
-        <x-tabel-mentor :dataMentor="$dataMentor" />
+        <x-tabel-mentor :dataMentor="$dataMentor"/>
     </div>
 @endsection

@@ -43,9 +43,10 @@
             Profil Mentor
         </h3>
     </div>
-    <form action="{{ isset($mentor) ? route('update-data-mentor', $mentor->id) : route('store-data-mentor') }}" method="POST">
+    <form action="{{ isset($mentor) ? route('update-data-mentor', $mentor->id) : route('store-data-mentor') }}"
+        method="POST">
         @csrf
-        @if(isset($mentor))
+        @if (isset($mentor))
             @method('PUT')
         @endif
         <div class="space-y-6 border-t border-gray-100 p-5 sm:p-6 dark:border-gray-800">
@@ -126,25 +127,26 @@
 
             <!-- Tingkat Pendidikan -->
             <div>
-                <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Tingkat
-                    Pendidikan/Kelas</label>
-                <select name="tingkat_pendidikan"
-                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
-                    <option value="" disabled selected>Pilih tingkat pendidikan</option>
-                    <option value="10"
-                        {{ isset($mentor) && $mentor->tingkat_pendidikan == '10' ? 'selected' : '' }}>10</option>
-                    <option value="11"
-                        {{ isset($mentor) && $mentor->tingkat_pendidikan == '11' ? 'selected' : '' }}>11</option>
-                    <option value="12"
-                        {{ isset($mentor) && $mentor->tingkat_pendidikan == '12' ? 'selected' : '' }}>12</option>
-                    <option value="D3"
-                        {{ isset($mentor) && $mentor->tingkat_pendidikan == 'D3' ? 'selected' : '' }}>D3</option>
-                    <option value="D4/S1"
-                        {{ isset($mentor) && $mentor->tingkat_pendidikan == 'D4/S1' ? 'selected' : '' }}>D4/S1
+                <label for="id_tingkat_pendidikan"
+                    class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                    Tingkat Pendidikan
+                </label>
+                <select name="id_tingkat_pendidikan" id="id_tingkat_pendidikan"
+                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-800 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90">
+                    <option value="" disabled
+                        {{ old('id_tingkat_pendidikan', $mentor->id_tingkat_pendidikan ?? '') == '' ? 'selected' : '' }}>
+                        Pilih tingkat pendidikan
                     </option>
-                    <option value="S2"
-                        {{ isset($mentor) && $mentor->tingkat_pendidikan == 'S2' ? 'selected' : '' }}>S2</option>
+                    @foreach ($tingkatPendidikan as $id => $nama)
+                        <option value="{{ $id }}"
+                            {{ old('id_tingkat_pendidikan', $mentor->id_tingkat_pendidikan ?? '') == $id ? 'selected' : '' }}>
+                            {{ $nama }}
+                        </option>
+                    @endforeach
                 </select>
+                @error('id_tingkat_pendidikan')
+                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
             <div>
@@ -159,7 +161,8 @@
             <!-- Prodi -->
             <div>
                 <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Prodi</label>
-                <input type="text" name="prodi" placeholder="Masukkan program studi" value="{{ isset($mentor) ? $mentor->prodi : '' }}"
+                <input type="text" name="prodi" placeholder="Masukkan program studi"
+                    value="{{ isset($mentor) ? $mentor->prodi : '' }}"
                     class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
             </div>
 
@@ -167,7 +170,8 @@
             <div>
                 <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Asal Sekolah/Perguruan
                     Tinggi</label>
-                <input type="text" name="asal_sekolah" placeholder="Masukkan asal sekolah" value="{{ isset($mentor) ? $mentor->asal_sekolah : '' }}"
+                <input type="text" name="asal_sekolah" placeholder="Masukkan asal sekolah"
+                    value="{{ isset($mentor) ? $mentor->asal_sekolah : '' }}"
                     class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
             </div>
 
@@ -178,8 +182,12 @@
                 <select name="status_pendidikan"
                     class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                     <option value="" disabled selected>Pilih status pendidikan</option>
-                    <option value="Aktif" {{ (isset($mentor) && $mentor->status_pendidikan == 'Aktif') ? 'selected' : '' }}>Aktif</option>
-                    <option value="Lulus" {{ (isset($mentor) && $mentor->status_pendidikan == 'Lulus') ? 'selected' : '' }}>Lulus</option>
+                    <option value="Aktif"
+                        {{ isset($mentor) && $mentor->status_pendidikan == 'Aktif' ? 'selected' : '' }}>Aktif
+                    </option>
+                    <option value="Lulus"
+                        {{ isset($mentor) && $mentor->status_pendidikan == 'Lulus' ? 'selected' : '' }}>Lulus
+                    </option>
                 </select>
             </div>
 
@@ -189,10 +197,14 @@
                 <select name="id_program"
                     class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                     <option value="" disabled selected>Pilih program ajar</option>
-                    <option value="1" {{ (isset($mentor) && $mentor->id_program == '1') ? 'selected' : '' }}>Privat</option>
-                    <option value="2" {{ (isset($mentor) && $mentor->id_program == '2') ? 'selected' : '' }}>Kelompok</option>
-                    <option value="3" {{ (isset($mentor) && $mentor->id_program == '3') ? 'selected' : '' }}>Community</option>
-                    <option value="4" {{ (isset($mentor) && $mentor->id_program == '4') ? 'selected' : '' }}>Umum</option>
+                    <option value="1" {{ isset($mentor) && $mentor->id_program == '1' ? 'selected' : '' }}>
+                        Privat</option>
+                    <option value="2" {{ isset($mentor) && $mentor->id_program == '2' ? 'selected' : '' }}>
+                        Kelompok</option>
+                    <option value="3" {{ isset($mentor) && $mentor->id_program == '3' ? 'selected' : '' }}>
+                        Community</option>
+                    <option value="4" {{ isset($mentor) && $mentor->id_program == '4' ? 'selected' : '' }}>Umum
+                    </option>
                 </select>
             </div>
 
@@ -202,8 +214,10 @@
                 <select name="status"
                     class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                     <option value="" disabled selected>Pilih status ajar</option>
-                    <option value="1" {{ (isset($mentor) && $mentor->status == '1') ? 'selected' : '' }}>Aktif</option>
-                    <option value="0" {{ (isset($mentor) && $mentor->status == '0') ? 'selected' : '' }}>Nonaktif</option>
+                    <option value="1" {{ isset($mentor) && $mentor->status == '1' ? 'selected' : '' }}>Aktif
+                    </option>
+                    <option value="0" {{ isset($mentor) && $mentor->status == '0' ? 'selected' : '' }}>Nonaktif
+                    </option>
                 </select>
             </div>
 

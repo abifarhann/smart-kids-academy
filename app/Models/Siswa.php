@@ -33,7 +33,8 @@ class Siswa extends Model
         'tgl_mulai',
         'status',
         'id_program',
-        'id_user'
+        'id_user',
+        'id_tingkat_pendidikan'
     ];
 
     /**
@@ -50,6 +51,11 @@ class Siswa extends Model
     public function wali()
     {
         return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public function tingkat_pendidikan()
+    {
+        return $this->belongsTo(TingkatPendidikan::class, 'id_tingkat_pendidikan');
     }
 
 }

@@ -93,49 +93,33 @@
 
                             <!-- table body start -->
                             <tbody class="divide-y divide-gray-100 dark:divide-gray-800 transition-colors">
-                                @forelse ($dataWali as $wali)
+                                @forelse ($dataMapel as $mapel)
                                     <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
-                                        {{-- Nama Wali --}}
+                                        {{-- Nama Mapel --}}
                                         <td class="px-6 py-3 whitespace-nowrap">
                                             <div class="flex items-center">
-                                                <div
-                                                    style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                    <span
-                                                        class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                        {{ $wali->name }}
-                                                    </span>
-                                                </div>
+                                                <span
+                                                    class="text-theme-sm font-regular text-gray-700 dark:text-gray-400">
+                                                    {{ $mapel->nama }}
+                                                </span>
                                             </div>
                                         </td>
 
-                                        {{-- Username --}}
+                                        {{-- Tingkat Pendidikan --}}
                                         <td class="px-6 py-3 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div
-                                                    style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                    <span
-                                                        class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                        {{ $wali->username }}
-                                                    </span>
-                                                </div>
-                                            </div>
+                                            <span class="text-theme-sm font-regular text-gray-700 dark:text-gray-400">
+                                                {{ $mapel->tingkatPendidikan->pluck('nama')->implode(', ') }}
+                                            </span>
                                         </td>
 
                                         {{-- Aksi --}}
                                         <td class="px-6 py-3 whitespace-nowrap flex items-center justify-center gap-3">
-                                            <x-btn-aksi-wali :wali="$wali" />
+                                            <x-btn-aksi-mapel :mapel="$mapel" />
                                         </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="12" class="text-center py-6 text-gray-500 dark:text-gray-400">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="mx-auto mb-2 h-10 w-10 text-gray-300 dark:text-gray-600"
-                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M9 17v-6h6v6m2 4H7a2 2 0 01-2-2V7a2 2 0 012-2h3l2-2h2l2 2h3a2 2 0 012 2v12a2 2 0 01-2 2z" />
-                                            </svg>
-                                            Tidak ada data mata pelajaran untuk ditampilkan.
+                                        <td colspan="3" class="text-center py-4 text-gray-500">Tidak ada data mapel.
                                         </td>
                                     </tr>
                                 @endforelse

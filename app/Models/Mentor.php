@@ -14,7 +14,7 @@ class Mentor extends Model
     protected $fillable = [
         'nama',
         'jenis_kelamin',
-        'tingkat_pendidikan',
+        'id_tingkat_pendidikan',
         'status_pendidikan',
         'id_program',
         'start_date',
@@ -37,5 +37,10 @@ class Mentor extends Model
     public function program()
     {
         return $this->belongsTo(Program::class, 'id_program');
+    }
+
+    public function tingkatPendidikan()
+    {
+        return $this->belongsTo(TingkatPendidikan::class, 'id_tingkat_pendidikan');
     }
 }

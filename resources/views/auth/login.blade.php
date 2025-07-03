@@ -105,8 +105,8 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                         Lupa password? Silakan hubungi Admin:
                                     </p>
                                     <a href="{{ whatsappUrl('082338109400') }}" target="_blank"
-                                        class="text-brand-500 hover:text-brand-600 dark:text-brand-400">
-                                        (Admin) +62 823-3810-9400
+                                        class="text-brand-500 text-sm hover:text-brand-600 dark:text-brand-400">
+                                        Klik di sini
                                     </a>
                                 </div>
 
@@ -119,12 +119,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                 </div>
                             </div>
                         </form>
-
-                        <p class="text-sm text-start text-gray-600 mt-6">
+                        {{-- <p class="text-sm text-start text-gray-600 mt-6">
                             Belum punya akun? <a href="{{ route('register') }}"
                                 class="text-brand-500 hover:text-brand-600 dark:text-brand-400">Klik
                                 di sini</a>
-                        </p>
+                        </p> --}}
                     </div>
                 </div>
             </div>

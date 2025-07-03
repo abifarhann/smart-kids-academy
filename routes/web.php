@@ -28,8 +28,8 @@ use App\Http\Controllers\FormSiswaController;
 
 // Auth
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+// Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+// Route::post('/register', [AuthController::class, 'register']);
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -44,6 +44,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/akun-wali-siswa/{id}', [WaliSiswaController::class, 'destroyWali'])->name('hapus-wali-siswa');
     //Mapel
     Route::get('/data-mapel', [MapelController::class, 'dataMapel'])->name('data-mapel');
+    Route::get('/form-mapel', [MapelController::class, 'formMapel'])->name('form-mapel');
+    Route::post('/form-mapel/store', [MapelController::class, 'storeDataMapel'])->name('store-data-mapel');
+    Route::put('/data-mapel/update/{id}', [MapelController::class, 'updateDataMapel'])->name('update-data-mapel');
+    Route::delete('/data-mapel/{id}', [MapelController::class, 'deleteDataMapel'])->name('hapus-data-mapel');
     //Data Siswa
     Route::get('/data-siswa', [SiswaController::class, 'dataSiswa'])->name('data-siswa');
     Route::get('/form-siswa', action: [SiswaController::class, 'formSiswa'])->name('form-siswa');
