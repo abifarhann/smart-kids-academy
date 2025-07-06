@@ -100,62 +100,52 @@
                                     </h2>
 
                                     <div class="flex gap-4 justify-center">
-                                        <p class="text-xs text-gray-500 dark:text-white">Head Office : Jl Pendidikan No 11 Gedeg Mojokerto </p>
-                                        <p class="text-xs text-gray-500 dark:text-white">Bimbel Umum : GG Cinta II Beratwetan Mojokerto </p>
+                                        <p class="text-xs text-gray-500 dark:text-white">Head Office : Jl Pendidikan No
+                                            11 Gedeg Mojokerto </p>
+                                        <p class="text-xs text-gray-500 dark:text-white">Bimbel Umum : GG Cinta II
+                                            Beratwetan Mojokerto </p>
                                     </div>
 
                                     <div class="flex gap-4 justify-center">
-                                    <p class="text-xs text-gray-500 dark:text-white">No Telp: +62 877-2109-9337 </p>
-                                    <p class="text-xs text-gray-500 dark:text-white">Instagram : smartkidsacademy__ </p>
+                                        <p class="text-xs text-gray-500 dark:text-white">No Telp: +62 877-2109-9337 </p>
+                                        <p class="text-xs text-gray-500 dark:text-white">Instagram : smartkidsacademy__
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="border-x-2 border-black dark:border-gray-700 p-6 md:p-8 z-10">
-                            <div class="space-y-2 flex justify-between items-center">
-                                <div class="flex flex-col">
-                                    <div class="flex">
-                                        <span
-                                            class="w-40 text-sm font-semibold text-gray-700 dark:text-gray-300">Nama</span>
-                                        <span class="text-sm text-gray-800 dark:text-white/90">: Firsty Angelica
-                                            Valency</span>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="w-40 text-sm font-semibold text-gray-700 dark:text-gray-300">Nama
-                                            Wali</span>
-                                        <span class="text-sm text-gray-800 dark:text-white/90">: Gatot
-                                            Prasetyo</span>
-                                    </div>
-                                    <div class="flex">
-                                        <span
-                                            class="w-40 text-sm font-semibold text-gray-700 dark:text-gray-300">Program
-                                            Bimbel</span>
-                                        <span class="text-sm text-gray-800 dark:text-white/90">: Regular</span>
-                                    </div>
+                            <div class="flex flex-col md:flex-row justify-between gap-6">
+                                <div class="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1">
+                                    <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Nama:</span>
+                                    <span class="text-sm text-gray-800 dark:text-white/90">Firsty Angelica
+                                        Valency</span>
+
+                                    <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Nama
+                                        Wali:</span>
+                                    <span class="text-sm text-gray-800 dark:text-white/90">Gatot Prasetyo</span>
+
+                                    <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Program
+                                        Bimbel:</span>
+                                    <span class="text-sm text-gray-800 dark:text-white/90">Regular</span>
                                 </div>
 
-                                <div class="flex flex-col">
-                                    <div class="flex">
-                                        <span
-                                            class="w-40 text-sm font-semibold text-gray-700 dark:text-gray-300">Kelas</span>
-                                        <span class="text-sm text-gray-800 dark:text-white/90">: 9</span>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="w-40 text-sm font-semibold text-gray-700 dark:text-gray-300">Asal
-                                            Sekolah</span>
-                                        <span class="text-sm text-gray-800 dark:text-white/90">: MI Gedeg</span>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="w-40 text-sm font-semibold text-gray-700 dark:text-gray-300">Tahun
-                                            Ajaran</span>
-                                        <span class="text-sm text-gray-800 dark:text-white/90">: 2025</span>
-                                    </div>
-                                    <div class="flex">
-                                        <span
-                                            class="w-40 text-sm font-semibold text-gray-700 dark:text-gray-300">Semester</span>
-                                        <span class="text-sm text-gray-800 dark:text-white/90">: Genap</span>
-                                    </div>
+                                <div class="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1">
+                                    <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Kelas:</span>
+                                    <span class="text-sm text-gray-800 dark:text-white/90">9</span>
+
+                                    <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Asal
+                                        Sekolah:</span>
+                                    <span class="text-sm text-gray-800 dark:text-white/90">MI Gedeg</span>
+
+                                    <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Tahun
+                                        Ajaran:</span>
+                                    <span class="text-sm text-gray-800 dark:text-white/90">2025</span>
+
+                                    <span
+                                        class="text-sm font-semibold text-gray-700 dark:text-gray-300">Semester:</span>
+                                    <span class="text-sm text-gray-800 dark:text-white/90">Genap</span>
                                 </div>
                             </div>
 
@@ -383,7 +373,7 @@
                                     <div class="space-y-1 text-xs text-gray-700 dark:text-white">
                                         <div><span class="font-semibold">A :</span> ≥ 85 (Sangat Baik)</div>
                                         <div><span class="font-semibold">B :</span> ≥ 70 (Baik)</div>
-                                        <div><span class="font-semibold">C :</span> ≤ 70  (Cukup)</div>
+                                        <div><span class="font-semibold">C :</span> ≤ 70 (Cukup)</div>
                                     </div>
                                 </div>
 
