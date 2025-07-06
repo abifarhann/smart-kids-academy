@@ -16,6 +16,7 @@ use App\Http\Controllers\RaportSmtController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\WaliSiswaController;
+use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MapelController;
@@ -27,7 +28,7 @@ use App\Http\Controllers\FormSiswaController;
 // });
 
 // Auth
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/', [WebController::class, 'index'])->name('web');
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');

@@ -224,7 +224,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                 <!-- Submit -->
                                 <div>
                                     <button type="submit" href="{{ route('statistik') }}"
-                                        class="flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-brand-500 shadow-theme-xs hover:bg-brand-600">
+                                        class="flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-white transition rounded-lg  shadow-theme-xs"  style="background-color: #0047A0">
                                         Daftar
                                     </button>
                                 </div>
@@ -253,7 +253,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     <div class="flex flex-col items-center ">
                         <div class="block mb-4 flex flex-row justify-center items-center gap-3">
                             <img src="/images/logo/web-logo-2.png" alt="Logo" class="w-16 h-auto max-w-full" />
-                            <h1 class="font-bold text-white" style="font-size: x-large">SmartKids Academy</h1>
+                            <h1 class="font-bold text-white" style="font-size: x-large">Smart Kids Academy</h1>
                         </div>
                         <p class="text-center text-md text-gray-400 dark:text-white/60 max-w-xs">
                             Excellence Begins at Home <br />
@@ -265,7 +265,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             <!-- Toggler -->
             <div class="fixed z-50 bottom-6 right-6 block">
                 <button
-                    class="inline-flex items-center justify-center text-white transition-colors rounded-full size-14 bg-brand-500 hover:bg-brand-600"
+                    class="inline-flex items-center justify-center text-white transition-colors rounded-full size-14"  style="background-color: #0047A0"
                     @click.prevent="darkMode = !darkMode">
                     <svg class="hidden fill-current dark:block" width="20" height="20" viewBox="0 0 20 20"
                         fill="none" xmlns="http://www.w3.org/2000/svg">

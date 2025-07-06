@@ -39,7 +39,7 @@
                 <img class="lg:hidden block" src="/images/logo/logo-unfix.png" alt="Logo"
                     style="width: 30px; height: 30px;">
                 <h3 class="text-md font-semibold text-gray-800 dark:text-white" :class="sidebarToggle ? 'hidden' : ''">
-                    SmartKids Academy
+                    Smart Kids Academy
                 </h3>
             </div>
 
