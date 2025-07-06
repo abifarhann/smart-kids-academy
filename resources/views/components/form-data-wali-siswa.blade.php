@@ -56,7 +56,7 @@
 
             <div>
                 <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                    Nama Siswa
+                    Username
                 </label>
                 <input type="text" placeholder="Masukkan username" name="username"
                     value="{{ old('username', $wali->username ?? '') }}"

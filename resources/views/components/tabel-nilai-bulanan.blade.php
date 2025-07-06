@@ -85,28 +85,7 @@
                                     <th class="px-6 py-3 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Nama Wali
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Tanggal Submit
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Minggu
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Bulan
+                                                Bulan Penilaian
                                             </p>
                                         </div>
                                     </th>
@@ -114,13 +93,6 @@
                                         <div class="flex items-center">
                                             <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
                                                 Semester
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Asal Sekolah
                                             </p>
                                         </div>
                                     </th>
@@ -138,97 +110,12 @@
                                             </p>
                                         </div>
                                     </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
+                                    @foreach ($mapelList as $mapel)
+                                        <th class="px-6 py-3 whitespace-nowrap">
                                             <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Bahasa Indonesia
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Matematika
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                IPAS
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Pendidikan Pancasila
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center justify-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Seni Budaya & Prakarya
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center justify-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                PJOK
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center justify-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Bahasa Inggris
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center justify-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                PAI & Budi Pekerti
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center justify-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Alquran Hadist
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center justify-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Aqidah Akhlak
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center justify-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Fiqih
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center justify-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                SKI
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center justify-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Bahasa Arab
-                                            </p>
-                                        </div>
-                                    </th>
+                                                {{ $mapel->nama }}</p>
+                                        </th>
+                                    @endforeach
                                     <th class="px-6 py-3 whitespace-nowrap">
                                         <div class="flex items-center justify-center">
                                             <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
@@ -246,14 +133,7 @@
                                     <th class="px-6 py-3 whitespace-nowrap">
                                         <div class="flex items-center justify-center">
                                             <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Catatan Mentor
-                                            </p>
-                                        </div>
-                                    </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
-                                        <div class="flex items-center justify-center">
-                                            <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                Detail Laporan
+                                                Saran
                                             </p>
                                         </div>
                                     </th>
@@ -276,233 +156,111 @@
                             <!-- table header end -->
 
                             <!-- table body start -->
-                            <tbody class="divide-y divide-gray-100 dark:divide-gray-800 transition-colors">
-                                {{-- @foreach ($siswaList as $siswa) --}}
-                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
-                                    {{-- 1. Nama Lengkap --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm font-regular text-gray-700 dark:text-gray-400">
-                                            Firsty Angelica Valency
-                                        </span>
-                                    </td>
+                            <tbody>
+                                @foreach ($dataSiswa as $siswa)
+                                    @php
+                                        // Ambil semua nilai raport siswa tersebut, bisa difilter berdasarkan bulan/tahun jika diperlukan
+                                        $nilaiMapel = $siswa->raport->keyBy('id_mapel'); // keyBy agar mudah akses berdasarkan id_mapel
+                                        $total = 0;
+                                        $jumlahMapelAda = 0;
+                                    @endphp
 
-                                    {{-- 2. Jenis Kelamin --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm font-regular text-gray-700 dark:text-gray-400">
-                                            Perempuan
-                                        </span>
-                                    </td>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+                                        {{-- Nama --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div
+                                                    style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                    <span
+                                                        class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                        {{ $siswa->nama }}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
 
-                                    {{-- 3. Nama Wali --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm font-regular text-gray-700 dark:text-gray-400">
-                                            Gatot Prasetyo
-                                        </span>
-                                    </td>
+                                        {{-- Jenis Kelamin --}}
+                                        <td
+                                            class="px-6 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            {{ $siswa->jenis_kelamin }}
+                                        </td>
 
-                                    {{-- 4. Tanggal Submit --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm font-regular text-gray-700 dark:text-gray-400">
-                                            01-08-2023
-                                        </span>
-                                    </td>
+                                        {{-- Bulan --}}
+                                        <td class="px-6 py-3 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div
+                                                    style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                    <span
+                                                        class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                        {{ optional($siswa->raport->first())->tanggal_penilaian ? \Carbon\Carbon::parse($siswa->raport->first()->tanggal_penilaian)->format('Y-m') : '-' }}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        {{-- Semester --}}
+                                        <td
+                                            class="px-6 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            {{ optional($siswa->raport->first())->semester ?? '-' }}
+                                        </td>
 
-                                    {{-- Laporan per bulan apa --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm font-regular text-gray-700 dark:text-gray-400">
-                                            1
-                                        </span>
-                                    </td>
+                                        {{-- Kelas --}}
+                                        <td
+                                            class="px-6 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            {{ $siswa->tingkatPendidikan->nama ?? '-' }}
+                                        </td>
 
-                                    {{-- Laporan per bulan apa --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm font-regular text-gray-700 dark:text-gray-400">
-                                            Januari
-                                        </span>
-                                    </td>
+                                        {{-- Program Bimbel --}}
+                                        <td
+                                            class="px-6 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            {{ $siswa->program->nama_program ?? '-' }}
+                                        </td>
 
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm font-regular text-gray-700 dark:text-gray-400">
-                                            Genap
-                                        </span>
-                                    </td>
+                                        {{-- Nilai per Mapel --}}
+                                        @foreach ($mapelList as $mapel)
+                                            @php
+                                                $nilai = $nilaiMapel[$mapel->id]->nilai ?? null;
+                                                if (!is_null($nilai)) {
+                                                    $total += $nilai;
+                                                    $jumlahMapelAda++;
+                                                }
+                                            @endphp
+                                            <td
+                                                class="px-6 py-3 whitespace-nowrap text-center text-sm text-gray-800 dark:text-gray-200">
+                                                {{ $nilai ?? '-' }}
+                                            </td>
+                                        @endforeach
 
-                                    {{-- 5. Asal Sekolah --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm font-regular text-gray-700 dark:text-gray-400">
-                                            MI Gedeg
-                                        </span>
-                                    </td>
+                                        {{-- Total Score --}}
+                                        <td
+                                            class="px-6 py-3 whitespace-nowrap text-center text-sm text-gray-900 dark:text-white">
+                                            {{ $jumlahMapelAda > 0 ? $total : '-' }}
+                                        </td>
 
-                                    {{-- 6. Kelas --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm font-regular text-gray-700 dark:text-gray-400">
-                                            9
-                                        </span>
-                                    </td>
+                                        {{-- Rata-rata --}}
+                                        <td
+                                            class="px-6 py-3 whitespace-nowrap text-center text-sm text-gray-900 dark:text-white">
+                                            {{ $jumlahMapelAda > 0 ? round($total / $jumlahMapelAda, 2) : '-' }}
+                                        </td>
 
-                                    {{-- 7. Program Bimbel --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm font-regular text-gray-700 dark:text-gray-400">
-                                            Reguler
-                                        </span>
-                                    </td>
+                                        {{-- Saran --}}
+                                        <td
+                                            class="px-6 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            {{ $siswa->raport->first()->saran ?? '-' }}
+                                        </td>
 
-                                    {{-- 8. Bahasa Indonesia --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            90
-                                        </span>
-                                    </td>
+                                        {{-- Aksi --}}
+                                        <td
+                                            class="flex items-center justify-center gap-3 px-6 py-3 whitespace-nowrap text-center text-sm text-gray-900 dark:text-white">
+                                            <x-btn-aksi-nilai-bln :siswa="$siswa" />
+                                        </td>
 
-                                    {{-- 9. Matematika --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            85
-                                        </span>
-                                    </td>
-
-                                    {{-- 10. IPA --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            88
-                                        </span>
-                                    </td>
-
-                                    {{-- 11. IPS --}}
-                                    <td class="px-6 py-3 whitespace-nowrap">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            87
-                                        </span>
-                                    </td>
-
-                                    {{-- 12. Pendidikan Pancasila --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            92
-                                        </span>
-                                    </td>
-
-                                    {{-- 13. Seni Budaya & Prakarya --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            89
-                                        </span>
-                                    </td>
-
-                                    {{-- 14. PJOK --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            93
-                                        </span>
-                                    </td>
-
-                                    {{-- 15. Bahasa Inggris --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            84
-                                        </span>
-                                    </td>
-
-                                    {{-- 16. PAI & Budi Pekerti --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            91
-                                        </span>
-                                    </td>
-
-                                    {{-- 17. Alquran Hadist --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            95
-                                        </span>
-                                    </td>
-
-                                    {{-- 18. Aqidah Akhlak --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            89
-                                        </span>
-                                    </td>
-
-                                    {{-- 19. Fiqih --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            87
-                                        </span>
-                                    </td>
-
-                                    {{-- 20. SKI --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            90
-                                        </span>
-                                    </td>
-
-                                    {{-- 21. Bahasa Arab --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            86
-                                        </span>
-                                    </td>
-
-                                    {{-- total score --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            1000
-                                        </span>
-                                    </td>
-
-                                    {{-- rata2 --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                            86,9
-                                        </span>
-                                    </td>
-
-                                    {{-- ctt mentor --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <span class="text-theme-sm text-gray-700 dark:text-gray-400"
-                                            style="display: inline-block; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
-                                            title="Baik dia rajin tp nakal sering ngobrol membuat tidak fokus temannya Baik dia rajin tp nakal sering ngobrol membuat tidak fokus temannya Baik dia rajin tp nakal sering ngobrol membuat tidak fokus temannya Baik dia rajin tp nakal sering ngobrol membuat tidak fokus temannya">
-                                            Baik dia rajin tp nakal sering ngobrol membuat tidak fokus temannya
-                                            Baik dia rajin tp nakal sering ngobrol membuat tidak fokus temannya
-                                            Baik dia rajin tp nakal sering ngobrol membuat tidak fokus temannya
-                                            Baik dia rajin tp nakal sering ngobrol membuat tidak fokus temannya
-                                        </span>
-                                    </td>
-
-                                    {{-- 22. Detail Laporan --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <a href="{{ route('raport-bulanan') }}" title="Lihat laporan"
-                                            class="text-gray-500 hover:text-brand-600">
-                                            Lihat
-                                        </a>
-                                    </td>
-
-                                    {{-- 23. Aksi --}}
-                                    <td class="py-2 whitespace-nowrap text-center">
-                                        <div class="flex justify-center items-center gap-2">
-                                            <x-btn-aksi-nilai-bln />
-                                        </div>
-                                    </td>
-
-
-                                    {{-- 24. Unduh --}}
-                                    <td class="px-6 py-3 whitespace-nowrap text-center">
-                                        <a href="#" title="Unduh laporan"
-                                            class="text-gray-500 hover:text-brand-600">
-                                            <svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor"
-                                                stroke-width="1.5" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
-                                            </svg>
-                                        </a>
-                                    </td>
-                                </tr>
-                                {{-- @endforeach --}}
+                                        {{-- Unduh --}}
+                                        <td class="px-6 py-3 whitespace-nowrap text-center">
+                                            <a href="#" class="text-green-600 hover:underline text-sm">PDF</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
-
                             <!-- table body end -->
                         </table>
                     </div>

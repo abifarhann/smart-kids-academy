@@ -1,10 +1,6 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\FormMentorController;
-use App\Http\Controllers\FormNilaiBlnController;
-use App\Http\Controllers\FormNilaiSmtController;
-use App\Http\Controllers\FormWaliController;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\NilaiBulananController;
 use App\Http\Controllers\NilaiSemesterController;
@@ -19,12 +15,7 @@ use App\Http\Controllers\WaliSiswaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MapelController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\FormSiswaController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 // Auth
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
@@ -62,17 +53,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/data-mentor/{id}', [MentorController::class, 'deleteDataMentor'])->name('hapus-data-mentor');
     //Penilaian
     Route::get('/nilai-bulanan', [NilaiBulananController::class, 'nilaiBulanan'])->name('nilai-bulanan');
-    Route::get('/form-nilai-bln', [FormNilaiBlnController::class, 'formNilaiBln'])->name('form-nilai-bln');
-    Route::get('/raport-bulanan', [RaportBulananController::class, 'raportBulanan'])->name('raport-bulanan');
-    Route::get('/form-nilai-smt', [FormNilaiSmtController::class, 'formNilaiSmt'])->name('form-nilai-smt');
+    Route::get('/form-nilai-bln', [NilaiBulananController::class, 'formNilaiBln'])->name('form-nilai-bln');
+    Route::get('/get-mapel-by-tingkat/{idTingkat}', [NilaiBulananController::class, 'getMapelByTingkat']);
+    Route::post('/form-nilai/store', [NilaiBulananController::class, 'storeNilai'])->name('store-nilai');
+    Route::put('/data-nilai/update/{group_id}', [NilaiBulananController::class, 'updateNilai'])->name('update-nilai');
+    Route::delete('/data-nilai/{id}', [NilaiBulananController::class, 'deleteNilai'])->name('hapus-nilai');
     Route::get('/nilai-semester', [NilaiSemesterController::class, 'nilaiSemester'])->name('nilai-semester');
-    Route::get('/nilai-bulanan', [NilaiBulananController::class, 'nilaiBulanan'])->name('nilai-bulanan');
-    Route::get('/raport-semester', [RaportSmtController::class, 'RaportSmt'])->name('raport-semester');
+    // Auth Wali Murid
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
     Route::get('/penilaian-bulanan-siswa', [PenilaianSiswaBlnController::class, 'PenilaianSiswaBln'])->name('penilaian-bulanan-siswa');
-    Route::get('/penilaian-semester-siswa', [PenilaianSiswaSmtController::class, 'PenilaianSiswaSmt'])->name('penilaian-semester-siswa');
     Route::get('/raport-bulanan', [RaportBulananController::class, 'raportBulanan'])->name('raport-bulanan');
-    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::get('/penilaian-semester-siswa', [PenilaianSiswaSmtController::class, 'PenilaianSiswaSmt'])->name('penilaian-semester-siswa');
+    Route::get('/raport-semester', [RaportSmtController::class, 'RaportSmt'])->name('raport-semester');
+    Route::get('/raport-bulanan', [RaportBulananController::class, 'raportBulanan'])->name('raport-bulanan');
 });
 
 // require __DIR__.'/auth.php';

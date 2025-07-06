@@ -53,9 +53,18 @@ class Siswa extends Model
         return $this->belongsTo(User::class, 'id_user');
     }
 
-    public function tingkat_pendidikan()
+    public function tingkatPendidikan()
     {
         return $this->belongsTo(TingkatPendidikan::class, 'id_tingkat_pendidikan');
     }
 
+    public function raport()
+    {
+        return $this->hasMany(Raport::class, 'id_siswa');
+    }
+
+    public function program()
+    {
+        return $this->belongsTo(Program::class, 'id_program');
+    }
 }

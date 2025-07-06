@@ -13,7 +13,7 @@ class SiswaController extends Controller
     {
         $dataSiswa = Siswa::with([
             'wali:id,name',
-            'tingkat_pendidikan:id,nama'
+            'tingkatPendidikan:id,nama'
         ])->get();
 
         return view('partials.admin.data-siswa', compact('dataSiswa'));
