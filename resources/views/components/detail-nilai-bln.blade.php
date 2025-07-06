@@ -100,21 +100,25 @@
                                     </h2>
 
                                     <div class="flex gap-4 justify-center">
-                                        <p class="text-xs text-gray-500 dark:text-white">Head Office : Jl Pendidikan No 11 Gedeg Mojokerto </p>
-                                        <p class="text-xs text-gray-500 dark:text-white">Bimbel Umum : GG Cinta II Beratwetan Mojokerto </p>
+                                        <p class="text-xs text-gray-500 dark:text-white">Head Office : Jl Pendidikan No
+                                            11 Gedeg Mojokerto </p>
+                                        <p class="text-xs text-gray-500 dark:text-white">Bimbel Umum : GG Cinta II
+                                            Beratwetan Mojokerto </p>
                                     </div>
 
                                     <div class="flex gap-4 justify-center">
-                                    <p class="text-xs text-gray-500 dark:text-white">No Telp: +62 877-2109-9337 </p>
-                                    <p class="text-xs text-gray-500 dark:text-white">Instagram : smartkidsacademy__ </p>
+                                        <p class="text-xs text-gray-500 dark:text-white">No Telp: +62 877-2109-9337 </p>
+                                        <p class="text-xs text-gray-500 dark:text-white">Instagram : smartkidsacademy__
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="border-x-2 border-black dark:border-gray-700 p-6 md:p-8 z-10">
-                            <div class="space-y-2 flex justify-between items-center">
-                                <div class="flex flex-col">
+                            <div
+                                class="space-y-2 flex flex-col md:flex-row lg:flex-row justify-between items-start md:items-center lg:items-center overflow-x-auto gap-y-4">
+                                <div class="flex flex-col space-y-1">
                                     <div class="flex">
                                         <span
                                             class="w-40 text-sm font-semibold text-gray-700 dark:text-gray-300">Nama</span>
@@ -124,8 +128,7 @@
                                     <div class="flex">
                                         <span class="w-40 text-sm font-semibold text-gray-700 dark:text-gray-300">Nama
                                             Wali</span>
-                                        <span class="text-sm text-gray-800 dark:text-white/90">: Gatot
-                                            Prasetyo</span>
+                                        <span class="text-sm text-gray-800 dark:text-white/90">: Gatot Prasetyo</span>
                                     </div>
                                     <div class="flex">
                                         <span
@@ -135,7 +138,7 @@
                                     </div>
                                 </div>
 
-                                <div class="flex flex-col">
+                                <div class="flex flex-col space-y-1">
                                     <div class="flex">
                                         <span
                                             class="w-40 text-sm font-semibold text-gray-700 dark:text-gray-300">Kelas</span>
@@ -158,7 +161,6 @@
                                     </div>
                                 </div>
                             </div>
-
 
                             <div class="mb-8 mt-8">
                                 <div class="flex mb-4">
@@ -360,7 +362,7 @@
                                     <div class="space-y-1 text-xs text-gray-700 dark:text-white">
                                         <div><span class="font-semibold">A :</span> ≥ 85 (Sangat Baik)</div>
                                         <div><span class="font-semibold">B :</span> ≥ 70 (Baik)</div>
-                                        <div><span class="font-semibold">C :</span> ≤ 70  (Cukup)</div>
+                                        <div><span class="font-semibold">C :</span> ≤ 70 (Cukup)</div>
                                     </div>
                                 </div>
 
@@ -377,10 +379,10 @@
                                 <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg shadow-sm">
                                     <h4
                                         class="font-bold mb-3 text-gray-700 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2 flex items-center gap-2">
-                                        <span class="text-green-500">Apresiasi Siswa </span>
+                                        <span class="text-green-500">Saran untuk orang tua/wali </span>
                                     </h4>
                                     <div class="space-y-1 text-xs text-gray-700 dark:text-white">
-                                        <p>Dalam Kegiatan Belajar siswa Kooperatif</p>
+                                        <p>Dalam Kegiatan Belajar siswa diarahkan agar lebih Kooperatif</p>
                                     </div>
                                 </div>
 

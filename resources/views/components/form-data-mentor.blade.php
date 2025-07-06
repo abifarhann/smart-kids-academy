@@ -1,5 +1,5 @@
 <!-- Breadcrumb Start -->
-<div x-data="{ pageName: `{{ isset($mentor) ? 'Edit Data Mentor' : 'Tambah Data Mentor' }}` }">
+<div x-data="{ pageName: `{{ isset($mentor) ? 'Edit Data Mentor' : 'Tambah Data Tentor' }}` }">
     <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
         <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
         <nav class="flex items-center gap-2 text-gray-500 dark:text-gray-400">
@@ -40,7 +40,7 @@
 <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
     <div class="px-5 py-4 sm:px-6 sm:py-5">
         <h3 class="text-base font-medium text-gray-800 dark:text-white/90">
-            Profil Mentor
+            Profil Tentor
         </h3>
     </div>
     <form action="{{ isset($mentor) ? route('update-data-mentor', $mentor->id) : route('store-data-mentor') }}"

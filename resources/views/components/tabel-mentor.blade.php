@@ -1,6 +1,6 @@
 <div class="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
     <!-- Breadcrumb Start -->
-    <div x-data="{ pageName: `Mentor` }">
+    <div x-data="{ pageName: `Tentor` }">
         <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
             <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
             <nav class="flex items-center gap-2 text-gray-500 dark:text-gray-400">
@@ -28,7 +28,7 @@
             <div class="flex justify-between border-b border-gray-100 dark:border-gray-800 sm:px-6">
                 <div class="px-5 py-4 sm:px-6 sm:py-5">
                     <h3 class="text-base font-medium text-gray-800 dark:text-white/90">
-                        Data Mentor
+                        Data Tentor
                     </h3>
                 </div>
 

@@ -14,7 +14,7 @@
             <!-- Judul Akademi -->
             <h3 class="text-lg font-semibold  dark:text-white" :class="sidebarToggle ? 'hidden' : ''"
                 style="color: #004276">
-                SmartKids Academy
+                Smart Kids Academy
             </h3>
         </div>
     </div>
@@ -121,7 +121,7 @@
                         <!-- Menu Item Dashboard -->
 
                         <!-- Menu Item Profile -->
-                        <li>
+                        <li
                             <a href="{{ route('akun-wali-siswa') }}" class="menu-item group"
                                 :class="currentPage === 'akun-wali-siswa' ? 'menu-item-active' : 'menu-item-inactive'">
                                 <svg :class="currentPage === 'akun-wali-siswa' ? 'menu-item-icon-active' : 'menu-item-icon-inactive'"
@@ -143,17 +143,11 @@
                             <a href="{{ route('data-mapel') }}" class="menu-item group"
                                 :class="currentPage === 'data-mapel' ? 'menu-item-active' : 'menu-item-inactive'">
                                 <svg :class="currentPage === 'data-mapel' ? 'menu-item-icon-active' : 'menu-item-icon-inactive'"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24">
-                                    <g fill="none" fill-rule="evenodd">
-                                        <path
-                                            d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
-                                        <path fill="currentColor"
-                                            d="M3 4a2 2 0 0 1 2-2h2c.364 0 .706.097 1 .268A1.99 1.99 0 0 1 9 2h2c.727 0 1.364.388 1.714.969c.21-.168.456-.296.732-.37l1.932-.517a2 2 0 0 1 2.45 1.414l4.14 15.455a2 2 0 0 1-1.414 2.45l-1.932.517a2 2 0 0 1-2.45-1.414L13 8.663V20a2 2 0 0 1-2 2H9a1.99 1.99 0 0 1-1-.268A1.99 1.99 0 0 1 7 22H5a2 2 0 0 1-2-2V4Zm2 0h2v16H5V4Zm6 16H9V4h2v16Zm2.963-15.469l1.932-.517l4.142 15.455l-1.932.517l-4.142-15.455Z" />
-                                    </g>
+                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M5.5 3.25C4.25736 3.25 3.25 4.25736 3.25 5.5V18.5C3.25 19.7426 4.25736 20.75 5.5 20.75H18.5001C19.7427 20.75 20.7501 19.7426 20.7501 18.5V5.5C20.7501 4.25736 19.7427 3.25 18.5001 3.25H5.5ZM4.75 5.5C4.75 5.08579 5.08579 4.75 5.5 4.75H18.5001C18.9143 4.75 19.2501 5.08579 19.2501 5.5V18.5C19.2501 18.9142 18.9143 19.25 18.5001 19.25H5.5C5.08579 19.25 4.75 18.9142 4.75 18.5V5.5ZM6.25005 9.7143C6.25005 9.30008 6.58583 8.9643 7.00005 8.9643L17 8.96429C17.4143 8.96429 17.75 9.30008 17.75 9.71429C17.75 10.1285 17.4143 10.4643 17 10.4643L7.00005 10.4643C6.58583 10.4643 6.25005 10.1285 6.25005 9.7143ZM6.25005 14.2857C6.25005 13.8715 6.58583 13.5357 7.00005 13.5357H17C17.4143 13.5357 17.75 13.8715 17.75 14.2857C17.75 14.6999 17.4143 15.0357 17 15.0357H7.00005C6.58583 15.0357 6.25005 14.6999 6.25005 14.2857Z" />
                                 </svg>
-
-
                                 <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
                                     Data Mata Pelajaran
                                 </span>
@@ -205,7 +199,7 @@
                                     <li>
                                         <a href="{{ route('data-siswa') }}"
                                             class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
-                                            :class="currentPage === 'data-siswa' ? 'bg-[#ebf3ff] text-blue-600 font-semibold' :
+                                            :class="currentPage === 'data-siswa' || currentPage === 'form-siswa'? 'bg-[#ebf3ff] text-blue-600 font-semibold' :
                                                 'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
                                             Siswa
                                         </a>
@@ -213,10 +207,10 @@
                                     <li>
                                         <a href="{{ route('data-mentor') }}"
                                             class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
-                                            :class="currentPage === 'data-mentor' ?
+                                            :class="currentPage === 'data-mentor' || currentPage === 'form-mentor' ?
                                                 'bg-[#ebf3ff] text-blue-600 font-semibold' :
                                                 'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
-                                            Mentor
+                                            Tentor
                                         </a>
                                     </li>
                                 </ul>
@@ -267,7 +261,7 @@
                                     <li>
                                         <a href="{{ route('nilai-bulanan') }}"
                                             class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
-                                            :class="currentPage === 'nilai-bulanan' ?
+                                            :class="currentPage === 'nilai-bulanan' || currentPage === 'raport-bulanan' ?
                                                 'bg-[#ebf3ff] text-blue-600 font-semibold' :
                                                 'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
                                             Bulanan
@@ -276,7 +270,7 @@
                                     <li>
                                         <a href="{{ route('nilai-semester') }}"
                                             class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
-                                            :class="currentPage === 'nilai-semester' ?
+                                            :class="currentPage === 'nilai-semester' || currentPage === 'raport-semester' ?
                                                 'bg-[#ebf3ff] text-blue-600 font-semibold' :
                                                 'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
                                             Semester
@@ -326,13 +320,14 @@
                             <div class="overflow-hidden transform translate"
                                 :class="(selected === 'Pages' || currentPage === 'penilaian-bulanan-siswa' ||
                                     currentPage === 'penilaian-semester-siswa') ? 'block' : 'hidden'"
-                                x-init="if (currentPage === 'penilaian-bulanan-siswa' || currentPage === 'penilaian-siswa-smt') { selected = 'Pages' }">
+                                x-init="if (currentPage === 'penilaian-bulanan-siswa' || currentPage === 'penilaian-siswa-bln') { selected = 'Pages' }">
                                 <ul
                                     :class="[sidebarToggle ? 'lg:hidden' : '', 'flex flex-col gap-1 mt-2 menu-dropdown pl-9']">
                                     <li>
                                         <a href="{{ route('penilaian-bulanan-siswa') }}"
                                             class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
-                                            :class="currentPage === 'penilaian-bulanan-siswa' ?
+                                            :class="currentPage === 'penilaian-bulanan-siswa' ||
+                                                currentPage === 'raport-bulanan' ?
                                                 'bg-[#ebf3ff] text-blue-600 font-semibold' :
                                                 'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
                                             Bulanan
@@ -341,7 +336,8 @@
                                     <li>
                                         <a href="{{ route('penilaian-semester-siswa') }}"
                                             class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
-                                            :class="currentPage === 'penilaian-semester-siswa' ?
+                                            :class="currentPage === 'penilaian-semester-siswa' ||
+                                                currentPage === 'raport-semester' ?
                                                 'bg-[#ebf3ff] text-blue-600 font-semibold' :
                                                 'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
                                             Semester
