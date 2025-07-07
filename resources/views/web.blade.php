@@ -1,4 +1,6 @@
-@extends('layouts.web')
+
+@extends('layouts.website')
+
 {{-- @php($noSidebar = true)
 @php($noHeader = true) --}}
 @section('content')
@@ -26,9 +28,22 @@
                 </div>
             </div>
 
-            <div class="hidden lg:flex" style="flex-shrink: 0; margin-right: 32px;"> <a href="{{ route('login') }}"
-                    style="text-decoration: none; color: inherit; font-size: 16px;">Login</a>
-            </div>
+            @if (Auth::check())
+                @if (Auth::user()->role === 'admin')
+                    <a href="{{ route('statistik') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
+                        Dashboard
+                    </a>
+                @elseif (Auth::user()->role === 'wali_murid')
+                    <a href="{{ route('penilaian-bulanan-siswa') }}"
+                        style="text-decoration: none; color: inherit; font-size: 16px;">
+                        Dashboard
+                    </a>
+                @endif
+            @else
+                <a href="{{ route('login') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
+                    Login
+                </a>
+            @endif
         </nav>
 
 
@@ -199,7 +214,9 @@
         <div class="section-header">
             <h1 style="font-size: 2.5rem; font-weight: 600; color:#333333">Fasilitas</h1>
             <p class="font-regular"
+
                 style="max-width: 1000px; width: 100%; margin: 0 auto; font-size: 20px; line-height: 1.8; color: #333333;">Segera bergabung
+
                 dan dapatkan seluruh fasilitas Smart Kids Academy</p>
         </div>
 
@@ -255,7 +272,9 @@
     </section>
 
     {{-- program Ekstrakulikular Section --}}
-    <section id="ektra-program" class="container mx-auto px-4 py-8 md:py-24 items-center justify-center" style="margin-top: -100px">
+    <section id="ektra-program" class="container mx-auto px-4 py-8 md:py-24 items-center justify-center"
+        style="margin-top: -100px">
+
         <div class="text-center " style="margin-bottom: 24px">
             <h1 style="font-size: 2.5rem; font-weight: 600; color:#333333">Program Ekstrakulikular Kami Kedepannya</h1>
         </div>
@@ -670,6 +689,4 @@
             </div>
         </div>
     </footer>
-
-    
 @endsection
