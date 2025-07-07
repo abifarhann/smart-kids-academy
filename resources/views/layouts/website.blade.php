@@ -267,16 +267,16 @@
             margin-bottom: 1rem;
         }
 
-        #welcome-card img{
+        #welcome-card img {
             width: 100vh;
             height: 100vh;
         }
 
-        #welcome-card h2{
+        #welcome-card h2 {
             font-size: 18px;
         }
 
-        #welcome-card p{
+        #welcome-card p {
             font-size: 14px;
         }
 
@@ -510,13 +510,19 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                const offset = 80; // Ubah sesuai tinggi navbar
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = targetElement.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
             });
         });
 

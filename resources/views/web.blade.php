@@ -1,9 +1,10 @@
-@extends('layouts.web')
+@extends('layouts.website')
+
 {{-- @php($noSidebar = true)
 @php($noHeader = true) --}}
 @section('content')
     <header style="background-color:  #0047A0; min-height: 100vh; position: relative;" class="text-white">
-        <nav class="navbar" id="mainNavbar"
+        <nav class="navbar" id="mainNavbar" class="block sm:hidden"
             style="display: flex; justify-content: space-between; align-items: center; padding: 16px; color: white;">
             <div style="flex-shrink: 0;"> <img src="/images/logo/3-removebg.png" alt="logo"
                     style="width: 50px; height: 50px;" />
@@ -19,15 +20,48 @@
 
             <div class="hidden lg:flex" style="flex: 1; justify-content: center; align-items: center;">
                 <div style="display: flex; gap: 16px;">
-                    <a href="#produk" style="text-decoration: none; color: inherit; font-size: 16px;">Produk Kami</a>
+                    <a href="#program" style="text-decoration: none; color: inherit; font-size: 16px;">Program Belajar</a>
                     <a href="#diskon" style="text-decoration: none; color: inherit; font-size: 16px;">Diskon</a>
                     <a href="#testimoni" style="text-decoration: none; color: inherit; font-size: 16px;">Testimoni</a>
                     <a href="#faq" style="text-decoration: none; color: inherit; font-size: 16px;">FAQ</a>
                 </div>
+
+                @if (Auth::check())
+                    @if (Auth::user()->role === 'admin')
+                        <a href="{{ route('statistik') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
+                            Dashboard
+                        </a>
+                    @elseif (Auth::user()->role === 'wali_murid')
+                        <a href="{{ route('penilaian-bulanan-siswa') }}"
+                            style="text-decoration: none; color: inherit; font-size: 16px;">
+                            Dashboard
+                        </a>
+                    @endif
+                @else
+                    <a href="{{ route('login') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
+                        Login
+                    </a>
+                @endif
             </div>
 
-            <div class="hidden lg:flex" style="flex-shrink: 0; margin-right: 32px;"> <a href="{{ route('login') }}"
-                    style="text-decoration: none; color: inherit; font-size: 16px;">Login</a>
+            {{-- Paling kanan --}}
+            <div class="hidden lg:flex" style="flex-shrink: 0; margin-left: 32px;">
+                @if (Auth::check())
+                    @if (Auth::user()->role === 'admin')
+                        <a href="{{ route('statistik') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
+                            Dashboard
+                        </a>
+                    @elseif (Auth::user()->role === 'wali_murid')
+                        <a href="{{ route('penilaian-bulanan-siswa') }}"
+                            style="text-decoration: none; color: inherit; font-size: 16px;">
+                            Dashboard
+                        </a>
+                    @endif
+                @else
+                    <a href="{{ route('login') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
+                        Login
+                    </a>
+                @endif
             </div>
         </nav>
 
@@ -37,11 +71,28 @@
 
         <!-- Mobile menu -->
         <div id="mobileMenu" class="mobile-menu lg:hidden">
+
+            <a href="#program">Produk Belajar</a>
             <a href="#diskon">Diskon</a>
             <a href="#testimoni">Testimoni</a>
             <a href="#faq">FAQ</a>
-            <a href="#produk">Produk Kami</a>
-            <a href="{{ route('login') }}">Login</a>
+
+            @if (Auth::check())
+                @if (Auth::user()->role === 'admin')
+                    <a href="{{ route('statistik') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
+                        Dashboard
+                    </a>
+                @elseif (Auth::user()->role === 'wali_murid')
+                    <a href="{{ route('penilaian-bulanan-siswa') }}"
+                        style="text-decoration: none; color: inherit; font-size: 16px;">
+                        Dashboard
+                    </a>
+                @endif
+            @else
+                <a href="{{ route('login') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
+                    Login
+                </a>
+            @endif
         </div>
 
         <div class="flex flex-col justify-center items-center"
@@ -199,7 +250,9 @@
         <div class="section-header">
             <h1 style="font-size: 2.5rem; font-weight: 600; color:#333333">Fasilitas</h1>
             <p class="font-regular"
-                style="max-width: 1000px; width: 100%; margin: 0 auto; font-size: 20px; line-height: 1.8; color: #333333;">Segera bergabung
+                style="max-width: 1000px; width: 100%; margin: 0 auto; font-size: 20px; line-height: 1.8; color: #333333;">
+                Segera bergabung
+
                 dan dapatkan seluruh fasilitas Smart Kids Academy</p>
         </div>
 
@@ -255,7 +308,9 @@
     </section>
 
     {{-- program Ekstrakulikular Section --}}
-    <section id="ektra-program" class="container mx-auto px-4 py-8 md:py-24 items-center justify-center" style="margin-top: -100px">
+    <section id="ektra-program" class="container mx-auto px-4 py-8 md:py-24 items-center justify-center"
+        style="margin-top: -100px">
+
         <div class="text-center " style="margin-bottom: 24px">
             <h1 style="font-size: 2.5rem; font-weight: 600; color:#333333">Program Ekstrakulikular Kami Kedepannya</h1>
         </div>
@@ -670,6 +725,4 @@
             </div>
         </div>
     </footer>
-
-    
 @endsection
