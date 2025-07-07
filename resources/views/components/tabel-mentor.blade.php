@@ -271,7 +271,7 @@
 
                                         {{-- Status Ajar --}}
                                         <td class="px-6 py-3 whitespace-nowrap">
-                                            @if ($mentor->status === 'Aktif')
+                                            @if ($mentor->status === 1)
                                                 <p
                                                     class="bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-500 rounded-full px-2 py-0.5 text-theme-xs font-medium">
                                                     Aktif

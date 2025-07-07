@@ -4,6 +4,6 @@
 
 @section('content')
     <div class="container mx-auto p-6">
-       <x-card-profile />
+       <x-card-profile :waliMurid="$waliMurid" :dataSiswa="$dataSiswa" />
     </div>
 @endsection

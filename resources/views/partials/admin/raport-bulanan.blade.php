@@ -4,6 +4,6 @@
 
 @section('content')
     <div class="container mx-auto p-6">
-       <x-detail-nilai-bln />
+        <x-raport-nilai-bulan :base64Pdf="$base64Pdf" :siswa="$siswa" :bulan="$bulan" :semester="$semester" />
     </div>
 @endsection

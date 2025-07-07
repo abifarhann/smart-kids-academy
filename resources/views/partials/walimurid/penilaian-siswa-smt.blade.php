@@ -4,8 +4,6 @@
 
 @section('content')
     <div class="container mx-auto space-y-6 p-6">
-        <x-card-header-smt />
-        <x-chart-smt-js />
-        <x-card-smt />
+        <x-card-header-smt :waliMurid="$waliMurid" :dataSiswa="$dataSiswa" />
     </div>
 @endsection

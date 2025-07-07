@@ -3,11 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Siswa;
+use App\Models\Raport;
+use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class RaportBulananController extends Controller
 {
-    function raportBulanan()
+
+    public function raportBulanan($id, $bulan, $semester)
     {
-        return view('partials.admin.raport-bulanan');
+        $siswa = Siswa::with('wali', 'program')->findOrFail($id);
+
+        $raports = Raport::with('mapel')
+        ->where('jenis_nilai', 'Bulanan')
+        ->where('id_siswa', $siswa->id)
+        ->where('semester', $semester)
+        ->whereMonth('tanggal_penilaian', Carbon::parse($bulan)->month)
+        ->get();
+
+        if ($raports->isEmpty()) {
+            return back()->with('error', 'Data raport tidak ditemukan untuk bulan ini.');
+        }
+
+        $tahunAjar = $raports->first()->tahun_ajar ?? '-';
+        $saran = $raports->first()->saran ?? '-';
+
+        // Render PDF ke string
+        $pdf = Pdf::loadView('pdf.raport-bulanan', compact(
+            'siswa',
+            'raports',
+            'semester',
+            'tahunAjar',
+            'bulan',
+            'saran'
+        ))->output();
+
+        // Encode ke base64 supaya bisa ditampilkan dalam <iframe>
+        $base64Pdf = base64_encode($pdf);
+
+        return view('partials.admin.raport-bulanan', compact('base64Pdf', 'siswa', 'bulan', 'semester'));
     }
+
 }

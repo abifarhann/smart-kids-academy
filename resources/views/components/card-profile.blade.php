@@ -32,7 +32,7 @@
                                 Nama Lengkap
                             </p>
                             <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                Upik Sudiati
+                                {{ $waliMurid->name ?? '-' }}
                             </p>
                         </div>
 
@@ -41,7 +41,7 @@
                                 Nomor WhatsApp
                             </p>
                             <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                088996429778
+                                {{ $waliMurid->phone ?? '-' }}
                             </p>
                         </div>
                     </div>
@@ -51,83 +51,77 @@
         </div>
 
         {{-- loop jika >1 --}}
-        <div class="p-5 mb-6 border border-gray-200 rounded-2xl dark:border-gray-800 lg:p-6">
-            <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                <div>
-                    <h4 class="text-lg font-semibold text-gray-800 dark:text-white/90 lg:mb-6">
-                        Informasi Siswa
-                    </h4>
+        @foreach ($dataSiswa as $siswa)
+            <div class="p-5 mb-6 border border-gray-200 rounded-2xl dark:border-gray-800 lg:p-6">
+                <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800 dark:text-white/90 lg:mb-6">
+                            Informasi Siswa
+                        </h4>
 
-                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-7 2xl:gap-x-32">
-                        <div>
-                            <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
-                                Nama Lengkap
-                            </p>
-                            <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                Firsty Angelica Valency
-                            </p>
-                        </div>
+                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-7 2xl:gap-x-32">
+                            <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                    Nama Lengkap
+                                </p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                    {{ $siswa->nama ?? '-' }}
+                                </p>
+                            </div>
 
-                        <div>
-                            <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
-                                Kelas
-                            </p>
-                            <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                6
-                            </p>
-                        </div>
+                            <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                    Kelas
+                                </p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                    {{ $siswa->kelas ?? '-' }}
+                                </p>
+                            </div>
 
-                        <div>
-                            <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
-                                Tempat Lahir
-                            </p>
-                            <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                Mojokerto
-                            </p>
-                        </div>
+                            <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                    Tempat Lahir
+                                </p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                    {{ $siswa->tempat_lahir ?? '-' }}
+                                </p>
+                            </div>
 
-                        <div>
-                            <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
-                                Asal Sekolah
-                            </p>
-                            <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                SDN Bandung 1
-                            </p>
-                        </div>
-                        <div>
-                            <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
-                                Tanggal Lahir
-                            </p>
-                            <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                12/10/2003
-                            </p>
-                        </div>
-                        <div>
-                            <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
-                                Program Bimbel
-                            </p>
-                            <p class="text-sm font-medium text-gray-800 dark:text-white/90">
-                                Regular
-                            </p>
+                            <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                    Asal Sekolah
+                                </p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                    {{ $siswa->asal_sekolah ?? '-' }}
+                                </p>
+                            </div>
+                            <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                    Tanggal Lahir
+                                </p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                    {{ $siswa->tgl_lahir ? \Carbon\Carbon::parse($siswa->tgl_lahir)->format('d-m-Y') : '-' }}
+                                </p>
+                            </div>
+                            <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                    Program Bimbel
+                                </p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                    {{ $siswa->program->nama_program ?? '-' }}
+                                </p>
+                            </div>
+                            <div>
+                                <p class="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                                    Alamat
+                                </p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white/90">
+                                    {{ $siswa->alamat ?? '-' }}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-
-        {{-- ambil data dari tabel siswa --}}
-        <div class="p-5 border border-gray-200 rounded-2xl dark:border-gray-800 lg:p-6 mb-4">
-            <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                <div class="min-w-0 flex-1">
-                    <h4 class="text-lg font-semibold text-gray-800 dark:text-white/90 mb-3">
-                        Address
-                    </h4>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 break-words leading-relaxed">
-                        1234 Very Long Street Name That Goes On Forever, Apartment Building Complex Unit 567, Some Really Long City Name, State 12345-6789
-                    </p>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
-</div>

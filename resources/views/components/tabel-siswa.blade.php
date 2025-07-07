@@ -285,7 +285,7 @@
                                                     style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                                     <p
                                                         class="font-regular text-gray-700 text-theme-sm dark:text-gray-400">
-                                                        {{ $siswa->tingkat_pendidikan->nama ?? '-' }}
+                                                        {{ $siswa->tingkatPendidikan->nama ?? '-' }}
                                                     </p>
                                                 </div>
 

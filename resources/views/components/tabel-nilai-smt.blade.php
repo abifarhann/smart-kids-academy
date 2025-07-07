@@ -144,13 +144,13 @@
                                             </p>
                                         </div>
                                     </th>
-                                    <th class="px-6 py-3 whitespace-nowrap">
+                                    {{-- <th class="px-6 py-3 whitespace-nowrap">
                                         <div class="flex items-center justify-center">
                                             <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
                                                 Unduh
                                             </p>
                                         </div>
-                                    </th>
+                                    </th> --}}
                                 </tr>
                             </thead>
                             <!-- table header end -->
@@ -255,9 +255,9 @@
                                         </td>
 
                                         {{-- Unduh --}}
-                                        <td class="px-6 py-3 whitespace-nowrap text-center">
+                                        {{-- <td class="px-6 py-3 whitespace-nowrap text-center">
                                             <a href="#" class="text-green-600 hover:underline text-sm">PDF</a>
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                 @endforeach
                             </tbody>

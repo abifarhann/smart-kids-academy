@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('raport', function (Blueprint $table) {
-            DB::statement('ALTER TABLE raport ALTER COLUMN id_siswa TYPE INTEGER USING id_siswa::integer');
+            $table->integer('id_siswa')->change();
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('raport', function (Blueprint $table) {
-            DB::statement('ALTER TABLE raport ALTER COLUMN id_siswa TYPE VARCHAR');
+            $table->string('id_siswa')->change();
         });
     }
 };

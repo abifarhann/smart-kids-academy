@@ -1,1 +1,0 @@
-<canvas id="myLineChart" width="800" height="400"></canvas>

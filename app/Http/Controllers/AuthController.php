@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate(); // Hindari session fixation
-            return redirect()->route('statistik'); 
+            return redirect()->route('statistik');
         }
 
         // Jika gagal login
