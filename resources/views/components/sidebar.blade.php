@@ -120,7 +120,7 @@
                         </li>
                         <!-- Menu Item Dashboard -->
 
-                        <!-- Menu Item Profile -->
+                        <!-- Menu Item Profile-->
                         <li>
                             <a href="{{ route('akun-wali-siswa') }}" class="menu-item group" 
                                 :class="currentPage === 'akun-wali-siswa' ? 'menu-item-active' : 'menu-item-inactive'">
@@ -198,10 +198,10 @@
                                     class="menu-dropdown mt-2 flex flex-col gap-1 pl-9">
                                     <li>
                                         <a href="{{ route('data-siswa') }}"
-                                            class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
-                                            :class="currentPage === 'data-siswa' || currentPage === 'form-siswa' ?
-                                                'bg-[#ebf3ff] text-blue-600 font-semibold' :
-                                                'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
+                                            class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium durat:class="currentPage === 'data-siswa' || currenge === 'form-siswa' ?
+                                                'bg-[#ebf3ff]tPa text-blue-600 font-semibold' :
+                     
+                                            'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
                                             Siswa
                                         </a>
                                     </li>
