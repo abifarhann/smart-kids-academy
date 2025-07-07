@@ -121,9 +121,6 @@
                         <!-- Menu Item Dashboard -->
 
                         <!-- Menu Item Profile -->
-                        <li
-                            <a href="{{ route('akun-wali-siswa') }}" class="menu-item group"
-                        <!-- Menu Item Profile-->
                         <li>
                             <a href="{{ route('akun-wali-siswa') }}" class="menu-item group"
                                 :class="currentPage === 'akun-wali-siswa' ? 'menu-item-active' : 'menu-item-inactive'">
