@@ -381,7 +381,7 @@
                         Panel admin untuk pengelolaan data siswa, mapel dan tentor
                     </p>
                     <a href="{{route('web')}}"
-                        class="flex items-center justify-center rounded-lg bg-brand-500 p-3 text-theme-sm font-medium text-white hover:bg-brand-600">
+                        class="flex items-center justify-center rounded-lg p-3 text-theme-sm font-medium text-white hover:bg-brand-600"  style="background-color: #0047A0;">
                         Kembali ke Beranda
                     </a>
                 </div>
@@ -398,7 +398,9 @@
                         Platform pemantauan hasil belajar siswa untuk mendukung evaluasi pendidikan yang lebih efektif.
                     </p>
                     <a href="{{route('web')}}"
-                        class="flex items-center justify-center rounded-lg bg-brand-500 p-3 text-theme-sm font-medium text-white hover:bg-brand-600">
+
+                        class="flex items-center justify-center rounded-lg p-3 text-theme-sm font-medium text-white hover:bg-brand-600" style="background-color: #0047A0;">
+
                         Kembali ke Beranda
                     </a>
                 </div>
