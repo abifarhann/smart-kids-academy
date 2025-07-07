@@ -1,4 +1,3 @@
-
 @extends('layouts.website')
 
 {{-- @php($noSidebar = true)
@@ -21,11 +20,15 @@
 
             <div class="hidden lg:flex" style="flex: 1; justify-content: center; align-items: center;">
                 <div style="display: flex; gap: 16px;">
-                    <a href="#produk" style="text-decoration: none; color: inherit; font-size: 16px;">Produk Kami</a>
+                    <a href="#program" style="text-decoration: none; color: inherit; font-size: 16px;">Program Belajar</a>
                     <a href="#diskon" style="text-decoration: none; color: inherit; font-size: 16px;">Diskon</a>
                     <a href="#testimoni" style="text-decoration: none; color: inherit; font-size: 16px;">Testimoni</a>
                     <a href="#faq" style="text-decoration: none; color: inherit; font-size: 16px;">FAQ</a>
                 </div>
+            </div>
+
+            {{-- Paling kanan --}}
+            <div class="hidden lg:flex" style="flex-shrink: 0; margin-left: 32px;">
                 @if (Auth::check())
                     @if (Auth::user()->role === 'admin')
                         <a href="{{ route('statistik') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
@@ -51,10 +54,10 @@
 
         <!-- Mobile menu -->
         <div id="mobileMenu" class="mobile-menu lg:hidden">
+            <a href="#program">Produk Belajar</a>
             <a href="#diskon">Diskon</a>
             <a href="#testimoni">Testimoni</a>
             <a href="#faq">FAQ</a>
-            <a href="#produk">Produk Kami</a>
             @if (Auth::check())
                 @if (Auth::user()->role === 'admin')
                     <a href="{{ route('statistik') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
@@ -228,8 +231,8 @@
         <div class="section-header">
             <h1 style="font-size: 2.5rem; font-weight: 600; color:#333333">Fasilitas</h1>
             <p class="font-regular"
-
-                style="max-width: 1000px; width: 100%; margin: 0 auto; font-size: 20px; line-height: 1.8; color: #333333;">Segera bergabung
+                style="max-width: 1000px; width: 100%; margin: 0 auto; font-size: 20px; line-height: 1.8; color: #333333;">
+                Segera bergabung
 
                 dan dapatkan seluruh fasilitas Smart Kids Academy</p>
         </div>
