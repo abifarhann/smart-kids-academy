@@ -121,7 +121,7 @@
                         <!-- Menu Item Dashboard -->
 
                         <!-- Menu Item Profile -->
-                        <li
+                        <li>
                             <a href="{{ route('akun-wali-siswa') }}" class="menu-item group" 
                                 :class="currentPage === 'akun-wali-siswa' ? 'menu-item-active' : 'menu-item-inactive'">
                                 <svg :class="currentPage === 'akun-wali-siswa' ? 'menu-item-icon-active' : 'menu-item-icon-inactive'"
