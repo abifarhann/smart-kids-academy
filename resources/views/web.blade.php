@@ -1,4 +1,6 @@
+
 @extends('layouts.website')
+
 {{-- @php($noSidebar = true)
 @php($noHeader = true) --}}
 @section('content')
@@ -212,8 +214,9 @@
         <div class="section-header">
             <h1 style="font-size: 2.5rem; font-weight: 600; color:#333333">Fasilitas</h1>
             <p class="font-regular"
-                style="max-width: 1000px; width: 100%; margin: 0 auto; font-size: 20px; line-height: 1.8; color: #333333;">
-                Segera bergabung
+
+                style="max-width: 1000px; width: 100%; margin: 0 auto; font-size: 20px; line-height: 1.8; color: #333333;">Segera bergabung
+
                 dan dapatkan seluruh fasilitas Smart Kids Academy</p>
         </div>
 
@@ -271,6 +274,7 @@
     {{-- program Ekstrakulikular Section --}}
     <section id="ektra-program" class="container mx-auto px-4 py-8 md:py-24 items-center justify-center"
         style="margin-top: -100px">
+
         <div class="text-center " style="margin-bottom: 24px">
             <h1 style="font-size: 2.5rem; font-weight: 600; color:#333333">Program Ekstrakulikular Kami Kedepannya</h1>
         </div>
