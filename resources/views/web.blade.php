@@ -3,7 +3,7 @@
 @php($noHeader = true) --}}
 @section('content')
     <header style="background-color:  #0047A0; min-height: 100vh; position: relative;" class="text-white">
-        <nav class="navbar" id="mainNavbar"
+        <nav class="navbar" id="mainNavbar" class="block sm:hidden"
             style="display: flex; justify-content: space-between; align-items: center; padding: 16px; color: white;">
             <div style="flex-shrink: 0;"> <img src="/images/logo/3-removebg.png" alt="logo"
                     style="width: 50px; height: 50px;" />
@@ -24,8 +24,35 @@
                     <a href="#testimoni" style="text-decoration: none; color: inherit; font-size: 16px;">Testimoni</a>
                     <a href="#faq" style="text-decoration: none; color: inherit; font-size: 16px;">FAQ</a>
                 </div>
+                @if (Auth::check())
+                    @if (Auth::user()->role === 'admin')
+                        <a href="{{ route('statistik') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
+                            Dashboard
+                        </a>
+                    @elseif (Auth::user()->role === 'wali_murid')
+                        <a href="{{ route('penilaian-bulanan-siswa') }}"
+                            style="text-decoration: none; color: inherit; font-size: 16px;">
+                            Dashboard
+                        </a>
+                    @endif
+                @else
+                    <a href="{{ route('login') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
+                        Login
+                    </a>
+                @endif
             </div>
+        </nav>
 
+
+        <!-- Mobile menu overlay -->
+        <div id="menuOverlay" class="menu-overlay"></div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="mobile-menu lg:hidden">
+            <a href="#diskon">Diskon</a>
+            <a href="#testimoni">Testimoni</a>
+            <a href="#faq">FAQ</a>
+            <a href="#produk">Produk Kami</a>
             @if (Auth::check())
                 @if (Auth::user()->role === 'admin')
                     <a href="{{ route('statistik') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
@@ -42,19 +69,6 @@
                     Login
                 </a>
             @endif
-        </nav>
-
-
-        <!-- Mobile menu overlay -->
-        <div id="menuOverlay" class="menu-overlay"></div>
-
-        <!-- Mobile menu -->
-        <div id="mobileMenu" class="mobile-menu lg:hidden">
-            <a href="#diskon">Diskon</a>
-            <a href="#testimoni">Testimoni</a>
-            <a href="#faq">FAQ</a>
-            <a href="#produk">Produk Kami</a>
-            <a href="{{ route('login') }}">Login</a>
         </div>
 
         <div class="flex flex-col justify-center items-center"
