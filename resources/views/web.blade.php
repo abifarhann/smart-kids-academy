@@ -26,6 +26,7 @@
                     <a href="#testimoni" style="text-decoration: none; color: inherit; font-size: 16px;">Testimoni</a>
                     <a href="#faq" style="text-decoration: none; color: inherit; font-size: 16px;">FAQ</a>
                 </div>
+
                 @if (Auth::check())
                     @if (Auth::user()->role === 'admin')
                         <a href="{{ route('statistik') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
@@ -43,6 +44,7 @@
                     </a>
                 @endif
             </div>
+
         </nav>
 
 
