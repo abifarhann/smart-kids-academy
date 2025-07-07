@@ -25,6 +25,23 @@
                     <a href="#testimoni" style="text-decoration: none; color: inherit; font-size: 16px;">Testimoni</a>
                     <a href="#faq" style="text-decoration: none; color: inherit; font-size: 16px;">FAQ</a>
                 </div>
+
+                @if (Auth::check())
+                    @if (Auth::user()->role === 'admin')
+                        <a href="{{ route('statistik') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
+                            Dashboard
+                        </a>
+                    @elseif (Auth::user()->role === 'wali_murid')
+                        <a href="{{ route('penilaian-bulanan-siswa') }}"
+                            style="text-decoration: none; color: inherit; font-size: 16px;">
+                            Dashboard
+                        </a>
+                    @endif
+                @else
+                    <a href="{{ route('login') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
+                        Login
+                    </a>
+                @endif
             </div>
 
             {{-- Paling kanan --}}
@@ -46,7 +63,6 @@
                     </a>
                 @endif
             </div>
-
         </nav>
 
 
@@ -55,10 +71,12 @@
 
         <!-- Mobile menu -->
         <div id="mobileMenu" class="mobile-menu lg:hidden">
+
             <a href="#program">Produk Belajar</a>
             <a href="#diskon">Diskon</a>
             <a href="#testimoni">Testimoni</a>
             <a href="#faq">FAQ</a>
+
             @if (Auth::check())
                 @if (Auth::user()->role === 'admin')
                     <a href="{{ route('statistik') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
