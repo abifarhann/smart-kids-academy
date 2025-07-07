@@ -1,6 +1,6 @@
 <!-- ===== Sidebar Start ===== -->
 <aside :class="sidebarToggle ? 'translate-x-0 lg:w-[90px]' : '-translate-x-full'"
-    class="sidebar fixed left-0 top-0 z-9999 flex h-screen w-[290px] flex-col overflow-y-hidden border-r border-gray-200 bg-white px-5 dark:border-gray-800 dark:bg-black lg:static lg:translate-x-0">
+    class="sidebar fixed left-0 top-0 z-9999 flex h-screen w-[290px] flex-col overflow-y-hidden border-r bg-white border-gray-200 px-5 dark:border-gray-800 dark:bg-black lg:static lg:translate-x-0">
     <!-- SIDEBAR HEADER -->
     <div class="flex flex-col gap-[-100px] pt-4 pb-7 sidebar-header"
         :class="sidebarToggle ? 'items-center' : 'items-start'">
@@ -199,7 +199,8 @@
                                     <li>
                                         <a href="{{ route('data-siswa') }}"
                                             class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
-                                            :class="currentPage === 'data-siswa' || currentPage === 'form-siswa'? 'bg-[#ebf3ff] text-blue-600 font-semibold' :
+                                            :class="currentPage === 'data-siswa' || currentPage === 'form-siswa' ?
+                                                'bg-[#ebf3ff] text-blue-600 font-semibold' :
                                                 'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
                                             Siswa
                                         </a>
@@ -368,6 +369,42 @@
                     {{-- end menu wali --}}
                 </ul>
             </div>
+
+            @if (Auth::check() && Auth::user()->role === 'admin')
+                <div :class="sidebarToggle ? 'lg:hidden' : ''"
+                    class="mx-auto mb-10 w-full max-w-60 rounded-2xl bg-gray-50 px-4 py-5 text-center dark:bg-white/[0.03]">
+                    <h3 class="mb-2 font-semibold text-gray-900 dark:text-white">
+                        Smart Kids Academy
+                    </h3>
+                    <img src="images/website/header-1.svg">
+                    <p class="mb-4 mt-4 text-theme-sm text-gray-500 dark:text-gray-400">
+                        Panel admin untuk pengelolaan data siswa, mapel dan tentor
+                    </p>
+                    <a href="{{route('web')}}"
+                        class="flex items-center justify-center rounded-lg bg-brand-500 p-3 text-theme-sm font-medium text-white hover:bg-brand-600">
+                        Kembali ke Beranda
+                    </a>
+                </div>
+            @endif
+
+            @if (Auth::check() && Auth::user()->role === 'wali_murid')
+                <div :class="sidebarToggle ? 'lg:hidden' : ''"
+                    class="mx-auto mb-10 w-full max-w-60 rounded-2xl bg-gray-50 px-4 py-5 text-center dark:bg-white/[0.03]" style="margin-top:80px;">
+                    <h3 class="mb-2 font-semibold text-gray-900 dark:text-white">
+                        Smart Kids Academy
+                    </h3>
+                    <img src="images/website/header-1.svg">
+                    <p class="mb-4 text-theme-sm text-gray-500 dark:text-gray-400">
+                        Platform pemantauan hasil belajar siswa untuk mendukung evaluasi pendidikan yang lebih efektif.
+                    </p>
+                    <a href="{{route('web')}}"
+                        class="flex items-center justify-center rounded-lg bg-brand-500 p-3 text-theme-sm font-medium text-white hover:bg-brand-600">
+                        Kembali ke Beranda
+                    </a>
+                </div>
+            @endif
+
+            {{-- <!-- Promo Box --}}
         </nav>
         <!-- Sidebar Menu -->
     </div>
