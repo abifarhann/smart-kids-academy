@@ -21,17 +21,18 @@
     @foreach ($months as $index => $monthName)
         <div class="flex flex-col">
             <a href="{{ route('raport-bulanan') }}"
-               class="bg-white shadow-md flex flex-col md:flex-row lg:flex-row p-6 rounded-lg items-start md:items-center gap-4">
-                
+                class="bg-white shadow-md flex flex-col md:flex-row lg:flex-row p-6 rounded-lg items-start md:items-center gap-4">
+
                 {{-- Gambar --}}
-                <img src="{{ asset('images/b-' . ($index + 1) . '.jpg') }}"
-                     alt="Bulan {{ $monthName }}"
-                     style="width:120px; height: 120px; border-radius: 20px; margin-right: 20px;" />
+                <img src="{{ asset('images/b-' . ($index + 1) . '.jpg') }}" alt="Bulan {{ $monthName }}"
+                    style="width:120px; height: 120px; border-radius: 20px; margin-right: 20px;"  />
 
                 {{-- Konten teks --}}
                 <div class="flex flex-col">
-                    <h2 class="text-lg font-semibold text-gray-800" style="margin-top: 12px">Bulan {{ $monthName }}</h2>
-                    <p class="text-sm text-gray-600">Evaluasi siswa bulan {{ $monthName }} tahun {{ $year }}.</p>
+                    <h2 class="text-lg font-semibold text-gray-800" style="margin-top: 12px">Bulan {{ $monthName }}
+                    </h2>
+                    <p class="text-sm text-gray-600">Evaluasi siswa bulan {{ $monthName }} tahun {{ $year }}.
+                    </p>
                     <p class="text-brand-500 hover:text-brand-600 dark:text-brand-400" style="margin-top: 24px">
                         Klik untuk melihat
                     </p>
@@ -40,4 +41,3 @@
         </div>
     @endforeach
 </div>
-

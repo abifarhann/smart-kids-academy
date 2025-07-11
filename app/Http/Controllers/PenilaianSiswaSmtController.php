@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Models\Raport;
+use Carbon\Carbon;
 
 class PenilaianSiswaSmtController extends Controller
 {
@@ -24,6 +25,7 @@ class PenilaianSiswaSmtController extends Controller
             return redirect()->back()->with('error', 'Data siswa tidak ditemukan.');
         }
 
+        // Ambil hanya raport dengan jenis_nilai = 'Semester'
         $raports = Raport::with('mapel')
             ->where('jenis_nilai', 'Semester')
             ->where('id_siswa', $siswa->id)
@@ -31,12 +33,33 @@ class PenilaianSiswaSmtController extends Controller
             ->get();
 
         if ($raports->isEmpty()) {
-            return redirect()->back()->with('error', 'Data raport semester tidak atau belum ada untuk siswa ini.');
+            return redirect()->back()->with('error', 'Data raport bulanan tidak atau belum ada untuk siswa ini.');
         }
 
-        // Ambil daftar nama mapel unik
-        $mapelList = $raports->pluck('mapel.nama')->unique()->values();
+        // Kelompokkan raport berdasarkan Bulan + Semester
+        $groupedRaports = $raports->groupBy(function ($item) {
+            return Carbon::parse($item->tanggal_penilaian)->format('F') . '-' . $item->semester;
+        });
 
-        return view('partials.walimurid.detail-nilai-semester', compact('waliMurid', 'siswa', 'raports', 'mapelList'));
+        // Format ulang jadi array berisi data yang dibutuhkan saja
+        $groupedRaportsFormatted = $groupedRaports->map(function ($group, $key) {
+            [$bulanFormatted, $semester] = explode('-', $key);
+            $tahunAjar = $group->first()?->tahun_ajar ?? '-';
+            $idSiswa = $group->first()?->id_siswa ?? null;
+
+            return [
+                'bulan' => $bulanFormatted,
+                'semester' => $semester,
+                'tahun_ajar' => $tahunAjar,
+                'id_siswa' => $idSiswa,
+            ];
+        })->values();
+
+        return view('partials.walimurid.detail-nilai-semester', compact(
+            'waliMurid',
+            'siswa',
+            'raports',
+            'groupedRaportsFormatted'
+        ));
     }
 }

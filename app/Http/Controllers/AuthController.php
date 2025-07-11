@@ -26,7 +26,12 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate(); // Hindari session fixation
+            $user = Auth::user();
+            if ($user->role === 'admin') {
             return redirect()->route('statistik');
+            } elseif ($user->role === 'wali_murid') {
+            return redirect()->route('profile');
+            }
         }
 
         // Jika gagal login
@@ -39,7 +44,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('login')->with('success', 'Anda telah logout.');
+        return redirect()->route('web')->with('success', 'Anda telah logout.');
     }
 
     public function showRegisterForm()

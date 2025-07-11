@@ -26,8 +26,9 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
-    Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');
     Route::middleware('role:admin')->group(function () {
+        // Dashboard
+        Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');
         //Akun Wali
         Route::get('/akun-wali-siswa', [WaliSiswaController::class, 'dataWali'])->name('akun-wali-siswa');
         Route::get('/form-wali-siswa', [WaliSiswaController::class, 'formWali'])->name('form-wali-siswa');

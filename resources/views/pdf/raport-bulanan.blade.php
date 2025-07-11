@@ -73,7 +73,7 @@
 <body>
     <div class="overlay">
         <div class="header">
-            <h2>LAPORAN EVALUASI BULANAN SISWA</h2>
+            <h2>LAPORAN EVALUASI BULAN {{ strtoupper($bulan) }}</h2>
             <h3>SMARTKIDS ACADEMY</h3>
             <p>Jl Pendidikan No 11 Gedeg Mojokerto, GG Cinta II Beratwetan Mojokerto</p>
             <p>No Telp: +62 877-2109-9337 | Instagram : smartkidsacademy__</p>

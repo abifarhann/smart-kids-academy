@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Siswa;
+use App\Models\Raport;
 
 
 class WaliSiswaController extends Controller
@@ -46,7 +48,11 @@ class WaliSiswaController extends Controller
                 'name' => 'required|string|max:100',
                 'username' => 'required|string|max:50|unique:users,username',
                 'password' => 'required|string|confirmed|min:6',
+                'password_confirmation' => ['required', 'same:password'],
                 'phone' => 'nullable|string|max:20',
+            ], [
+                'password.confirmed' => 'Password dan konfirmasi password tidak cocok.',
+                'password_confirmation.same' => 'Password dan konfirmasi password harus sama.',
             ]);
 
             User::create([
@@ -100,13 +106,26 @@ class WaliSiswaController extends Controller
                 return redirect()->back()->with('error', 'Data yang dipilih bukan wali murid.');
             }
 
+            // Ambil semua siswa yang dimiliki wali ini
+            $siswaList = Siswa::where('id_user', $wali->id)->get();
+
+            foreach ($siswaList as $siswa) {
+                // Hapus semua raport siswa ini
+                Raport::where('id_siswa', $siswa->id)->delete();
+
+                // Hapus data siswa
+                $siswa->delete();
+            }
+
+            // Hapus wali
             $wali->delete();
 
-            return redirect()->route('akun-wali-siswa')->with('success', 'Data wali murid berhasil dihapus.');
+            return redirect()->route('akun-wali-siswa')->with('success', 'Data wali murid dan data terkait berhasil dihapus.');
         } catch (\Throwable $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus: ' . $e->getMessage());
         }
     }
+
 
     // public function index(Request $request)
     // {

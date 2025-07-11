@@ -14,4 +14,9 @@ class Program extends Model
         'nama_program'
     ];
 
+    public function siswa()
+    {
+        return $this->hasMany(Siswa::class, 'id_program');
+    }
+
 }

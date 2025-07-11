@@ -5,18 +5,17 @@
             <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
             <nav class="flex items-center gap-2 text-gray-500 dark:text-gray-400">
                 <ol class="flex items-center gap-1.5">
-                    <p
-                        class="inline-flex text-sm items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400"
-                            href="index.html">
-                            Rekapitulasi data
-                            <svg class="stroke-current" width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6.0765 12.667L10.2432 8.50033L6.0765 4.33366" stroke=""
-                                    stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+                    <p class="inline-flex text-sm items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400"
+                        href="index.html">
+                        Rekapitulasi data
+                        <svg class="stroke-current" width="17" height="16" viewBox="0 0 17 16" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.0765 12.667L10.2432 8.50033L6.0765 4.33366" stroke="" stroke-width="1.2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                         </a>
-                    </li>
-                    <li class="text-sm text-gray-800 dark:text-white/90" x-text="pageName"></li>
+                        </li>
+                        <li class="text-sm text-gray-800 dark:text-white/90" x-text="pageName"></li>
                 </ol>
             </nav>
         </div>
@@ -167,7 +166,7 @@
 
                             <!-- table body start -->
                             <tbody class="divide-y divide-gray-100 dark:divide-gray-800 transition-colors">
-                                @foreach ($dataMentor as $mentor)
+                                @forelse ($dataMentor as $mentor)
                                     <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
                                         {{-- Nama --}}
                                         <td class="px-6 py-3 whitespace-nowrap">
@@ -289,7 +288,19 @@
                                             <x-btn-aksi-mentor :mentor="$mentor" />
                                         </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <tr>
+                                        <td colspan="12" class="text-center py-6 text-gray-500 dark:text-gray-400">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="mx-auto mb-2 h-10 w-10 text-gray-300 dark:text-gray-600"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 17v-6h6v6m2 4H7a2 2 0 01-2-2V7a2 2 0 012-2h3l2-2h2l2 2h3a2 2 0 012 2v12a2 2 0 01-2 2z" />
+                                            </svg>
+                                            Tidak ada data Mentor untuk ditampilkan.
+                                        </td>
+                                    </tr>
+                                @endforelse
                             </tbody>
 
                             <!-- table body end -->

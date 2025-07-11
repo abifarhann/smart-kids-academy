@@ -157,109 +157,177 @@
 
                             <!-- table body start -->
                             <tbody>
-                                @foreach ($dataSiswa as $siswa)
-                                    @php
-                                        // Ambil semua nilai raport siswa tersebut, bisa difilter berdasarkan bulan/tahun jika diperlukan
-                                        $nilaiMapel = $siswa->raport->keyBy('id_mapel'); // keyBy agar mudah akses berdasarkan id_mapel
-                                        $total = 0;
-                                        $jumlahMapelAda = 0;
-                                    @endphp
+                                @forelse ($dataSiswa as $siswa)
+                                    @foreach ($siswa->raport->groupBy('group_id') as $groupId => $groupedRaports)
+                                        @php
+                                            $firstRaport = $groupedRaports->first();
+                                            $nilaiMapel = $groupedRaports->keyBy('id_mapel');
+                                            $total = 0;
+                                            $jumlahMapelAda = 0;
+                                        @endphp
 
-                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
-                                        {{-- Nama --}}
-                                        <td class="px-6 py-3 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div
-                                                    style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                    <span
-                                                        class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                        {{ $siswa->nama }}
-                                                    </span>
+                                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+                                            {{-- Nama --}}
+                                            <td class="px-6 py-3 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                        <span
+                                                            class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                            {{ $siswa->nama }}
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-
-                                        {{-- Jenis Kelamin --}}
-                                        <td
-                                            class="px-6 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
-                                            {{ $siswa->jenis_kelamin }}
-                                        </td>
-
-                                        {{-- Bulan --}}
-                                        <td class="px-6 py-3 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div
-                                                    style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                    <span
-                                                        class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
-                                                        {{ optional($siswa->raport->first())->tanggal_penilaian ? \Carbon\Carbon::parse($siswa->raport->first()->tanggal_penilaian)->format('Y-m') : '-' }}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        {{-- Semester --}}
-                                        <td
-                                            class="px-6 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
-                                            {{ optional($siswa->raport->first())->semester ?? '-' }}
-                                        </td>
-
-                                        {{-- Kelas --}}
-                                        <td
-                                            class="px-6 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
-                                            {{ $siswa->tingkatPendidikan->nama ?? '-' }}
-                                        </td>
-
-                                        {{-- Program Bimbel --}}
-                                        <td
-                                            class="px-6 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
-                                            {{ $siswa->program->nama_program ?? '-' }}
-                                        </td>
-
-                                        {{-- Nilai per Mapel --}}
-                                        @foreach ($mapelList as $mapel)
-                                            @php
-                                                $nilai = $nilaiMapel[$mapel->id]->nilai ?? null;
-                                                if (!is_null($nilai)) {
-                                                    $total += $nilai;
-                                                    $jumlahMapelAda++;
-                                                }
-                                            @endphp
-                                            <td
-                                                class="px-6 py-3 whitespace-nowrap text-center text-sm text-gray-800 dark:text-gray-200">
-                                                {{ $nilai ?? '-' }}
                                             </td>
-                                        @endforeach
 
-                                        {{-- Total Score --}}
-                                        <td
-                                            class="px-6 py-3 whitespace-nowrap text-center text-sm text-gray-900 dark:text-white">
-                                            {{ $jumlahMapelAda > 0 ? $total : '-' }}
+                                            {{-- Jenis Kelamin --}}
+                                            <td class="px-6 py-3 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                        <span
+                                                            class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                            {{ $siswa->jenis_kelamin }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            {{-- Bulan --}}
+                                            <td class="px-6 py-3 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                        <span
+                                                            class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                            {{ \Carbon\Carbon::parse($firstRaport->tanggal_penilaian)->format('Y-m') }}
+
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            {{-- Semester --}}
+                                            <td class="px-6 py-3 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                        <span
+                                                            class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                            {{ $firstRaport->semester }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            {{-- Kelas --}}
+                                            <td class="px-6 py-3 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                        <span
+                                                            class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                            {{ $siswa->tingkatPendidikan->nama ?? '-' }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            {{-- Program Bimbel --}}
+                                            <td class="px-6 py-3 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                        <span
+                                                            class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                            {{ $siswa->program->nama_program ?? '-' }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            {{-- Nilai per mapel --}}
+                                            @foreach ($mapelList as $mapel)
+                                                @php
+                                                    $nilai = $nilaiMapel[$mapel->id]->nilai ?? null;
+                                                    if (!is_null($nilai)) {
+                                                        $total += $nilai;
+                                                        $jumlahMapelAda++;
+                                                    }
+                                                @endphp
+                                                <td class="px-6 py-3 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div
+                                                            style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                            <span
+                                                                class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                                {{ $nilai ?? '-' }}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            @endforeach
+
+                                            {{-- Total --}}
+                                            <td class="px-6 py-3 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                        <span
+                                                            class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                            {{ $jumlahMapelAda > 0 ? $total : '-' }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            {{-- Rata-rata --}}
+                                            <td class="px-6 py-3 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                        <span
+                                                            class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                            {{ $jumlahMapelAda > 0 ? round($total / $jumlahMapelAda, 2) : '-' }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            {{-- Saran --}}
+                                            <td class="px-6 py-3 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                        <span
+                                                            class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                            {{ $firstRaport->saran ?? '-' }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            {{-- Aksi --}}
+                                            <td class="px-6 py-3 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                        <span
+                                                            class="text-theme-sm mb-0.5 block font-regular text-gray-700 dark:text-gray-400">
+                                                            <x-btn-aksi-nilai-bln :siswa="$siswa" :groupId="$groupId" />
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @empty
+                                    <tr>
+                                        <td colspan="12" class="text-center text-gray-500 py-6">
+                                            Tidak ada data siswa dengan raport bulanan.
                                         </td>
-
-                                        {{-- Rata-rata --}}
-                                        <td
-                                            class="px-6 py-3 whitespace-nowrap text-center text-sm text-gray-900 dark:text-white">
-                                            {{ $jumlahMapelAda > 0 ? round($total / $jumlahMapelAda, 2) : '-' }}
-                                        </td>
-
-                                        {{-- Saran --}}
-                                        <td
-                                            class="px-6 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
-                                            {{ $siswa->raport->first()->saran ?? '-' }}
-                                        </td>
-
-                                        {{-- Aksi --}}
-                                        <td
-                                            class="flex items-center justify-center gap-3 px-6 py-3 whitespace-nowrap text-center text-sm text-gray-900 dark:text-white">
-                                            <x-btn-aksi-nilai-bln :siswa="$siswa" />
-                                        </td>
-
-                                        {{-- Unduh --}}
-                                        {{-- <td class="px-6 py-3 whitespace-nowrap text-center">
-                                            <a href="#" class="text-green-600 hover:underline text-sm">PDF</a>
-                                        </td> --}}
                                     </tr>
-                                @endforeach
+                                @endforelse
                             </tbody>
                             <!-- table body end -->
                         </table>

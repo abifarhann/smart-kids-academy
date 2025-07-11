@@ -19,4 +19,9 @@ class TingkatPendidikan extends Model
     {
         return $this->belongsToMany(Mapel::class, 'mapel_tingkat_pendidikan', 'id_tingkat_pendidikan', 'id_mapel');
     }
+    
+    public function siswa()
+    {
+        return $this->hasMany(Siswa::class, 'id_tingkat_pendidikan');
+    }
 }

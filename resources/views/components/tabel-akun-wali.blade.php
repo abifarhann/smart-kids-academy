@@ -173,7 +173,7 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M9 17v-6h6v6m2 4H7a2 2 0 01-2-2V7a2 2 0 012-2h3l2-2h2l2 2h3a2 2 0 012 2v12a2 2 0 01-2 2z" />
                                             </svg>
-                                            Tidak ada data siswa untuk ditampilkan.
+                                            Tidak ada data wali untuk ditampilkan.
                                         </td>
                                     </tr>
                                 @endforelse

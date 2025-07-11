@@ -25,23 +25,6 @@
                     <a href="#testimoni" style="text-decoration: none; color: inherit; font-size: 16px;">Testimoni</a>
                     <a href="#faq" style="text-decoration: none; color: inherit; font-size: 16px;">FAQ</a>
                 </div>
-
-                @if (Auth::check())
-                    @if (Auth::user()->role === 'admin')
-                        <a href="{{ route('statistik') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
-                            Dashboard
-                        </a>
-                    @elseif (Auth::user()->role === 'wali_murid')
-                        <a href="{{ route('penilaian-bulanan-siswa') }}"
-                            style="text-decoration: none; color: inherit; font-size: 16px;">
-                            Dashboard
-                        </a>
-                    @endif
-                @else
-                    <a href="{{ route('login') }}" style="text-decoration: none; color: inherit; font-size: 16px;">
-                        Login
-                    </a>
-                @endif
             </div>
 
             {{-- Paling kanan --}}
@@ -107,11 +90,11 @@
             </div>
 
             <a href="https://wa.me/6282338109400" target="_blank"
-                style="background-color: white; 
-                        color: #0047A0; 
-                        padding: 10px 20px; 
-                        border-radius: 20px; 
-                        text-decoration: none; 
+                style="background-color: white;
+                        color: #0047A0;
+                        padding: 10px 20px;
+                        border-radius: 20px;
+                        text-decoration: none;
                         font-size: 16px;
                         transition: background-color 0.3s ease;
                         position: relative;

@@ -6,6 +6,7 @@ use App\Models\TingkatPendidikan;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Siswa;
+use App\Models\Raport;
 
 class SiswaController extends Controller
 {
@@ -105,14 +106,17 @@ class SiswaController extends Controller
     {
         try {
             $siswa = Siswa::findOrFail($id);
+
+            // Hapus data nilai terkait (misal: tabel raport/nilai bulanan)
+            Raport::where('id_siswa', $siswa->id)->delete();
+
+            // Hapus data siswa
             $siswa->delete();
 
-            return redirect()->route('data-siswa')->with('success', 'Data siswa berhasil dihapus.');
+            return redirect()->route('data-siswa')->with('success', 'Data siswa dan semua data terkait berhasil dihapus.');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Gagal menghapus data: ' . $e->getMessage()]);
         }
     }
-
-
 
 }
