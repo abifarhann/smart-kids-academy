@@ -194,18 +194,21 @@
             <!-- Program Ajar -->
             <div>
                 <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Program Ajar</label>
-                <select name="id_program"
-                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
-                    <option value="" disabled selected>Pilih program ajar</option>
-                    <option value="1" {{ isset($mentor) && $mentor->id_program == '1' ? 'selected' : '' }}>
-                        Privat</option>
-                    <option value="2" {{ isset($mentor) && $mentor->id_program == '2' ? 'selected' : '' }}>
-                        Kelompok</option>
-                    <option value="3" {{ isset($mentor) && $mentor->id_program == '3' ? 'selected' : '' }}>
-                        Community</option>
-                    <option value="4" {{ isset($mentor) && $mentor->id_program == '4' ? 'selected' : '' }}>Umum
-                    </option>
-                </select>
+
+                <div class="space-y-2">
+                    @php
+                        $selectedPrograms = isset($mentor) ? $mentor->programs->pluck('id')->toArray() : [];
+                    @endphp
+
+                    @foreach ($programList as $id => $nama)
+                        <label class="flex items-center space-x-2 text-sm text-gray-700 dark:text-gray-300">
+                            <input type="checkbox" name="program_id[]" value="{{ $id }}"
+                                {{ in_array($id, $selectedPrograms) ? 'checked' : '' }}
+                                class="rounded border-gray-300 text-brand-600 shadow-sm focus:ring-brand-500 dark:bg-gray-800 dark:border-gray-600">
+                            <span>{{ $nama }}</span>
+                        </label>
+                    @endforeach
+                </div>
             </div>
 
             <!-- Status Ajar -->

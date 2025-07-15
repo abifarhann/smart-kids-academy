@@ -36,7 +36,7 @@ class Mentor extends Model
 
     public function program()
     {
-        return $this->belongsTo(Program::class, 'id_program');
+        return $this->belongsToMany(Program::class, 'mentor_program', 'mentor_id', 'program_id');
     }
 
     public function tingkatPendidikan()

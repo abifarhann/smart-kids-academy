@@ -1,13 +1,6 @@
-<div class="flex gap-5 px-5 py-4 sm:px-6 sm:py-5">
+<div class="px-5 py-4 sm:px-6 sm:py-5">
     <div class="flex items-center gap-3">
-        <a href="{{ route('cetak-data-wali') }}" class="btn-download" target="_blank"
-            style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 0.6rem; background-color: #1ED760; color: white; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); transition: background-color 0.2s;"
-            onmouseover="this.style.backgroundColor='#169c45'" onmouseout="this.style.backgroundColor='#1ED760'">
-            Download Data
-        </a>
-    </div>
-    <div class="flex items-center gap-3">
-        <a href="{{ route('form-wali-siswa') }}" class="btn-add"
+        <a href="{{ route('form-program') }}" class="btn-add"
             style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 0.6rem; background-color: #3139d8; color: white; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); transition: background-color 0.2s;"
             onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563eb'">
             <svg style="width: 1rem; height: 1rem; color: white;" xmlns="http://www.w3.org/2000/svg" fill="none"

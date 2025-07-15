@@ -196,34 +196,8 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="rounded-xl p-6 md:p-8 shadow-md flex flex-col justify-between h-56"
-                    style="background-color: #0047A0; color: white;">
-                    <div class="mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 13H5a2 2 0 00-2 2v2a2 2 0 002 2h4m5-6v6m3-3h-3.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Strategy Development</h3>
-                    <p class="text-sm opacity-90">Crafting strategic plans that align with your goals.</p>
-                </div>
-
-                <div class="rounded-xl p-6 md:p-8 shadow-md flex flex-col justify-between h-56"
-                    style="background-color: #F8F9FA;">
-                    <div class="mb-4">
-                        <svg class="w-8 h-8 text-[#0047A0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2-3-.895-3-2 1.343-2 3-2zM9 17a3 3 0 00-3 3v1h12v-1a3 3 0 00-3-3H9z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-[#333333] mb-2">Risk Management</h3>
-                    <p class="text-sm text-[#666666]">Identify, assess, and mitigate risks to protect your assets.</p>
-                </div>
+            <div class="flex justify-center items-center">
+                <img src="{{ asset('images/website/diskon.svg') }}" alt="Diskon Smart Kids Academy" class="max-w-md w-full h-auto">
             </div>
         </div>
     </section>

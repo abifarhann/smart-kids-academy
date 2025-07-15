@@ -15,6 +15,7 @@ use App\Http\Controllers\WaliSiswaController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\ProgramController;
 
 
 // Auth
@@ -32,6 +33,7 @@ Route::middleware('auth')->group(function () {
         //Akun Wali
         Route::get('/akun-wali-siswa', [WaliSiswaController::class, 'dataWali'])->name('akun-wali-siswa');
         Route::get('/form-wali-siswa', [WaliSiswaController::class, 'formWali'])->name('form-wali-siswa');
+        Route::get('/cetak-data-wali', [WaliSiswaController::class, 'cetakDataWali'])->name('cetak-data-wali');
         Route::post('/form-wali-siswa/store', [WaliSiswaController::class, 'storeDataWali'])->name('store-data-wali');
         Route::put('/akun-wali-siswa/update/{id}', [WaliSiswaController::class, 'updateDataWali'])->name('update-data-wali');
         Route::delete('/akun-wali-siswa/{id}', [WaliSiswaController::class, 'destroyWali'])->name('hapus-wali-siswa');
@@ -41,6 +43,12 @@ Route::middleware('auth')->group(function () {
         Route::post('/form-mapel/store', [MapelController::class, 'storeDataMapel'])->name('store-data-mapel');
         Route::put('/data-mapel/update/{id}', [MapelController::class, 'updateDataMapel'])->name('update-data-mapel');
         Route::delete('/data-mapel/{id}', [MapelController::class, 'deleteDataMapel'])->name('hapus-data-mapel');
+        //Program
+        Route::get('/data-program', [ProgramController::class, 'dataProgram'])->name('data-program');
+        Route::get('/form-program', [ProgramController::class, 'formProgram'])->name('form-program');
+        Route::post('/form-program/store', [ProgramController::class, 'storeDataProgram'])->name('store-data-program');
+        Route::put('/data-program/update/{id}', [ProgramController::class, 'updateDataProgram'])->name('update-data-program');
+        Route::delete('/data-program/{id}', [ProgramController::class, 'deleteDataProgram'])->name('hapus-data-program');
         //Data Siswa
         Route::get('/data-siswa', [SiswaController::class, 'dataSiswa'])->name('data-siswa');
         Route::get('/form-siswa', [SiswaController::class, 'formSiswa'])->name('form-siswa');

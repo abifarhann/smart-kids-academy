@@ -19,4 +19,9 @@ class Program extends Model
         return $this->hasMany(Siswa::class, 'id_program');
     }
 
+    public function mentor()
+    {
+        return $this->belongsToMany(Mentor::class, 'mentor_program', 'program_id', 'mentor_id');
+    }
+
 }

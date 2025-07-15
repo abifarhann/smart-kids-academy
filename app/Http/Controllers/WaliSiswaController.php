@@ -6,17 +6,41 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Siswa;
 use App\Models\Raport;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class WaliSiswaController extends Controller
 {
-    public function dataWali()
+    public function dataWali(Request $request)
     {
         try {
-            $dataWali = User::where('role', 'wali_murid')->get();
+            $query = User::where('role', 'wali_murid');
+
+            // Pencarian berdasarkan nama
+            if ($request->filled('search')) {
+                $query->where('name', 'like', '%' . $request->search . '%');
+            }
+
+            // Gunakan pagination
+            $dataWali = $query->orderBy('name')->paginate(10)->appends($request->query());
+
             return view('partials.admin.akun-wali-siswa', compact('dataWali'));
         } catch (\Throwable $e) {
             return redirect()->back()->with('error', 'Gagal mengambil data wali: ' . $e->getMessage());
+        }
+    }
+
+
+
+    public function cetakDataWali()
+    {
+        try {
+            $dataWali = User::where('role', 'wali_murid')->get();
+            $pdf = Pdf::loadView('pdf.data-wali', compact('dataWali'))->setPaper('A4', 'portrait');
+
+            return $pdf->stream('data-wali-murid.pdf');
+        } catch (\Throwable $e) {
+            return redirect()->back()->with('error', 'Gagal mencetak PDF: ' . $e->getMessage());
         }
     }
 

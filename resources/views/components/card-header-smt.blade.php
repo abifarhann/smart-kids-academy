@@ -32,7 +32,7 @@
          <div class="flex flex-col md:flex-row items-center justify-between gap-4">
              <div class="flex-1 order-2 md:order-1 text-center md:text-left z-10"> {{-- Z-index to ensure text is above illustration --}}
                  <h2 style="font-size: 2.5rem; font-weight: 600; color: white; line-height: 1.25; margin-bottom: 2rem;">
-                     Selamat Datang
+                     Selamat Datang Bapak/Ibu
                      <span
                          style="color: white; padding: 4px; background-color: #0047A0; border-radius: 8px;">{{ $waliMurid->name }}</span>
                  </h2>

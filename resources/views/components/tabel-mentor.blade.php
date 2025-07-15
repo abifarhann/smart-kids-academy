@@ -43,7 +43,7 @@
                     <div class="flex flex-col gap-5 px-6 mb-4 sm:flex-row sm:items-center sm:justify-end">
                         <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
                             {{-- fitur pencarian data --}}
-                            <form>
+                            <form method="GET" action="{{ route('data-mentor') }}" class="w-full sm:w-auto">
                                 <div class="relative">
                                     <span class="absolute -translate-y-1/2 pointer-events-none top-1/2 left-4">
                                         <svg class="fill-gray-500 dark:fill-gray-400" width="20" height="20"
@@ -53,13 +53,14 @@
                                                 fill=""></path>
                                         </svg>
                                     </span>
-                                    <input type="text" placeholder="Search..."
+                                    <input type="text" name="search" value="{{ request('search') }}"
+                                        placeholder="Search..."
                                         class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-10 w-full rounded-lg border border-gray-300 bg-transparent py-2.5 pr-4 pl-[42px] text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden xl:w-[300px] dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
                                 </div>
                             </form>
 
                             {{-- fitur filter data --}}
-                            <x-btn-filter />
+                            <x-btn-filter :tingkatPendidikanList="$tingkatPendidikanList" :programList="$programList" action="{{ route('data-mentor') }}" />
 
                         </div>
                     </div>
@@ -264,9 +265,14 @@
                                         {{-- Program --}}
                                         <td class="px-6 py-3 whitespace-nowrap">
                                             <span class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                {{ $mentor->program->nama_program ?? 'Tidak ada program' }}
+                                                @if ($mentor->program->isNotEmpty())
+                                                    {{ $mentor->program->pluck('nama_program')->implode(', ') }}
+                                                @else
+                                                    Tidak ada program
+                                                @endif
                                             </span>
                                         </td>
+
 
                                         {{-- Status Ajar --}}
                                         <td class="px-6 py-3 whitespace-nowrap">
@@ -308,7 +314,7 @@
                     </div>
 
                     {{-- pagination --}}
-                    <x-pagination />
+                    <x-pagination :paginator="$dataMentor"/>
                     <!-- Table Four -->
                 </div>
             </div>

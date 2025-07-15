@@ -154,6 +154,23 @@
                             </a>
                         </li>
                         <!-- Menu Item Profile -->
+                        <!-- Menu Item Profile -->
+                        <li>
+                            <a href="{{ route('data-program') }}" class="menu-item group"
+                                :class="currentPage === 'data-program' ? 'menu-item-active' : 'menu-item-inactive'">
+                                <svg :class="currentPage === 'data-program' ? 'menu-item-icon-active' : 'menu-item-icon-inactive'"
+                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M19.5 19.75C19.5 20.9926 18.4926 22 17.25 22H6.75C5.50736 22 4.5 20.9926 4.5 19.75V9.62105C4.5 9.02455 4.73686 8.45247 5.15851 8.03055L10.5262 2.65951C10.9482 2.23725 11.5207 2 12.1177 2H17.25C18.4926 2 19.5 3.00736 19.5 4.25V19.75ZM17.25 20.5C17.6642 20.5 18 20.1642 18 19.75V4.25C18 3.83579 17.6642 3.5 17.25 3.5H12.248L12.2509 7.49913C12.2518 8.7424 11.2442 9.75073 10.0009 9.75073H6V19.75C6 20.1642 6.33579 20.5 6.75 20.5H17.25ZM7.05913 8.25073L10.7488 4.55876L10.7509 7.5002C10.7512 7.91462 10.4153 8.25073 10.0009 8.25073H7.05913ZM8.25 14.5C8.25 14.0858 8.58579 13.75 9 13.75H15C15.4142 13.75 15.75 14.0858 15.75 14.5C15.75 14.9142 15.4142 15.25 15 15.25H9C8.58579 15.25 8.25 14.9142 8.25 14.5ZM8.25 17.5C8.25 17.0858 8.58579 16.75 9 16.75H12C12.4142 16.75 12.75 17.0858 12.75 17.5C12.75 17.9142 12.4142 18.25 12 18.25H9C8.58579 18.25 8.25 17.9142 8.25 17.5Z"
+                                        fill=""></path>
+                                </svg>
+                                <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
+                                    Data Program
+                                </span>
+                            </a>
+                        </li>
+                        <!-- Menu Item Profile -->
 
                         <!-- Menu Item Tables -->
                         <li>
@@ -198,10 +215,10 @@
                                     class="menu-dropdown mt-2 flex flex-col gap-1 pl-9">
                                     <li>
                                         <a href="{{ route('data-siswa') }}"
-                                            class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium durat:class="currentPage === 'data-siswa' || currenge === 'form-siswa' ?
-                                                'bg-[#ebf3ff]tPa text-blue-600 font-semibold' :
-
-                                            'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
+                                            class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium durat:class="currentPage
+                                            === 'data-siswa' || currenge === 'form-siswa'
+                                            ? 'bg-[#ebf3ff]tPa text-blue-600 font-semibold'
+                                            : 'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
                                             Siswa
                                         </a>
                                     </li>
@@ -232,55 +249,70 @@
                                     width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M8.50391 4.25C8.50391 3.83579 8.83969 3.5 9.25391 3.5H15.2777C15.4766 3.5 15.6674 3.57902 15.8081 3.71967L18.2807 6.19234C18.4214 6.333 18.5004 6.52376 18.5004 6.72268V16.75C18.5004 17.1642 18.1646 17.5 17.7504 17.5H16.248V17.4993H14.748V17.5H9.25391C8.83969 17.5 8.50391 17.1642 8.50391 16.75V4.25ZM14.748 19H9.25391C8.01126 19 7.00391 17.9926 7.00391 16.75V6.49854H6.24805C5.83383 6.49854 5.49805 6.83432 5.49805 7.24854V19.75C5.49805 20.1642 5.83383 20.5 6.24805 20.5H13.998C14.4123 20.5 14.748 20.1642 14.748 19.75L14.748 19ZM7.00391 4.99854V4.25C7.00391 3.00736 8.01127 2 9.25391 2H15.2777C15.8745 2 16.4468 2.23705 16.8687 2.659L19.3414 5.13168C19.7634 5.55364 20.0004 6.12594 20.0004 6.72268V16.75C20.0004 17.9926 18.9931 19 17.7504 19H16.248L16.248 19.75C16.248 20.9926 15.2407 22 13.998 22H6.24805C5.00541 22 3.99805 20.9926 3.99805 19.75V7.24854C3.99805 6.00589 5.00541 4.99854 6.24805 4.99854H7.00391Z"
-                                        fill="" />
-                                </svg>
+                                        d=" M8.50391 4.25C8.50391 3.83579 8.83969 3.5 9.25391 3.5H15.2777C15.4766 3.5
+                                            15.6674 3.57902 15.8081 3.71967L18.2807 6.19234C18.4214 6.333 18.5004
+                                            6.52376 18.5004 6.72268V16.75C18.5004 17.1642 18.1646 17.5 17.7504
+                                            17.5H16.248V17.4993H14.748V17.5H9.25391C8.83969 17.5 8.50391 17.1642 8.50391
+                                            16.75V4.25ZM14.748 19H9.25391C8.01126 19 7.00391 17.9926 7.00391
+                                            16.75V6.49854H6.24805C5.83383 6.49854 5.49805 6.83432 5.49805
+                                            7.24854V19.75C5.49805 20.1642 5.83383 20.5 6.24805 20.5H13.998C14.4123 20.5
+                                            14.748 20.1642 14.748 19.75L14.748 19ZM7.00391 4.99854V4.25C7.00391 3.00736
+                                            8.01127 2 9.25391 2H15.2777C15.8745 2 16.4468 2.23705 16.8687 2.659L19.3414
+                                            5.13168C19.7634 5.55364 20.0004 6.12594 20.0004 6.72268V16.75C20.0004
+                                            17.9926 18.9931 19 17.7504 19H16.248L16.248 19.75C16.248 20.9926 15.2407 22
+                                            13.998 22H6.24805C5.00541 22 3.99805 20.9926 3.99805 19.75V7.24854C3.99805
+                                            6.00589 5.00541 4.99854 6.24805 4.99854H7.00391Z" fill="" />
+                                        </svg>
 
-                                <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
-                                    Penilaian Siswa
-                                </span>
+                                        <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
+                                            Penilaian Siswa
+                                        </span>
 
-                                <svg class="menu-item-arrow absolute right-2.5 top-1/2 -translate-y-1/2 stroke-current"
-                                    :class="[(selected === 'Pages' || currentPage === 'nilai-bulanan') ?
-                                        'menu-item-arrow-active' : 'menu-item-arrow-inactive',
-                                        sidebarToggle ? 'lg:hidden' : ''
-                                    ]"
-                                    width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4.79175 7.39584L10.0001 12.6042L15.2084 7.39585" stroke=""
-                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </a>
-
-                            <!-- Dropdown Menu Start -->
-                            <div class="overflow-hidden transform translate"
-                                :class="(selected === 'Pages' || currentPage === 'nilai-bulanan' ||
-                                    currentPage === 'nilai-semester') ? 'block' : 'hidden'"
-                                x-init="if (currentPage === 'nilai-bulanan' || currentPage === 'nilai-semester') { selected = 'Pages' }">
-                                <ul
-                                    :class="[sidebarToggle ? 'lg:hidden' : '', 'flex flex-col gap-1 mt-2 menu-dropdown pl-9']">
-                                    <li>
-                                        <a href="{{ route('nilai-bulanan') }}"
-                                            class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
-                                            :class="currentPage === 'nilai-bulanan' || currentPage === 'raport-bulanan' ?
-                                                'bg-[#ebf3ff] text-blue-600 font-semibold' :
-                                                'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
-                                            Bulanan
+                                        <svg class="menu-item-arrow absolute right-2.5 top-1/2 -translate-y-1/2 stroke-current"
+                                            :class="[(selected === 'Pages' || currentPage === 'nilai-bulanan') ?
+                                                'menu-item-arrow-active' : 'menu-item-arrow-inactive',
+                                                sidebarToggle ? 'lg:hidden' : ''
+                                            ]"
+                                            width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4.79175 7.39584L10.0001 12.6042L15.2084 7.39585" stroke=""
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
                                         </a>
+
+                                        <!-- Dropdown Menu Start -->
+                                        <div class="overflow-hidden transform translate"
+                                            :class="(selected === 'Pages' || currentPage === 'nilai-bulanan' ||
+                                                currentPage === 'nilai-semester') ? 'block' : 'hidden'"
+                                            x-init="if (currentPage === 'nilai-bulanan' || currentPage === 'nilai-semester') { selected = 'Pages' }">
+                                            <ul
+                                                :class="[sidebarToggle ? 'lg:hidden' : '',
+                                                    'flex flex-col gap-1 mt-2 menu-dropdown pl-9'
+                                                ]">
+                                                <li>
+                                                    <a href="{{ route('nilai-bulanan') }}"
+                                                        class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
+                                                        :class="currentPage === 'nilai-bulanan' ||
+                                                            currentPage === 'raport-bulanan' ?
+                                                            'bg-[#ebf3ff] text-blue-600 font-semibold' :
+                                                            'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
+                                                        Bulanan
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('nilai-semester') }}"
+                                                        class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
+                                                        :class="currentPage === 'nilai-semester' ||
+                                                            currentPage === 'raport-semester' ?
+                                                            'bg-[#ebf3ff] text-blue-600 font-semibold' :
+                                                            'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
+                                                        Semester
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- Dropdown Menu End -->
                                     </li>
-                                    <li>
-                                        <a href="{{ route('nilai-semester') }}"
-                                            class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2 text-sm font-medium duration-300 ease-in-out"
-                                            :class="currentPage === 'nilai-semester' || currentPage === 'raport-semester' ?
-                                                'bg-[#ebf3ff] text-blue-600 font-semibold' :
-                                                'text-gray-700 hover:bg-gray-100 dark:text-white/70 hover:text-gray-900 dark:hover:bg-gray-800'">
-                                            Semester
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Dropdown Menu End -->
-                        </li>
                     @endif
                     <!-- end menu admin Item Pages -->
 
@@ -380,8 +412,9 @@
                     <p class="mb-4 mt-4 text-theme-sm text-gray-500 dark:text-gray-400">
                         Panel admin untuk pengelolaan data siswa, mapel dan tentor
                     </p>
-                    <a href="{{route('web')}}"
-                        class="flex items-center justify-center rounded-lg p-3 text-theme-sm font-medium text-white hover:bg-brand-600"  style="background-color: #0047A0;">
+                    <a href="{{ route('web') }}"
+                        class="flex items-center justify-center rounded-lg p-3 text-theme-sm font-medium text-white hover:bg-brand-600"
+                        style="background-color: #0047A0;">
                         Kembali ke Beranda
                     </a>
                 </div>
@@ -389,7 +422,8 @@
 
             @if (Auth::check() && Auth::user()->role === 'wali_murid')
                 <div :class="sidebarToggle ? 'lg:hidden' : ''"
-                    class="mx-auto mb-10 w-full max-w-60 rounded-2xl bg-gray-50 px-4 py-5 text-center dark:bg-white/[0.03]" style="margin-top:80px;">
+                    class="mx-auto mb-10 w-full max-w-60 rounded-2xl bg-gray-50 px-4 py-5 text-center dark:bg-white/[0.03]"
+                    style="margin-top:80px;">
                     <h3 class="mb-2 font-semibold text-gray-900 dark:text-white">
                         Smart Kids Academy
                     </h3>
@@ -397,9 +431,9 @@
                     <p class="mb-4 text-theme-sm text-gray-500 dark:text-gray-400">
                         Platform pemantauan hasil belajar siswa untuk mendukung evaluasi pendidikan yang lebih efektif.
                     </p>
-                    <a href="{{route('web')}}"
-
-                        class="flex items-center justify-center rounded-lg p-3 text-theme-sm font-medium text-white hover:bg-brand-600" style="background-color: #0047A0;">
+                    <a href="{{ route('web') }}"
+                        class="flex items-center justify-center rounded-lg p-3 text-theme-sm font-medium text-white hover:bg-brand-600"
+                        style="background-color: #0047A0;">
 
                         Kembali ke Beranda
                     </a>

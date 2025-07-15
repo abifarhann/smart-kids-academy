@@ -4,6 +4,6 @@
 
 @section('content')
     <div class="container mx-auto p-6">
-        <x-form-data-mentor :mentor="$mentor" :tingkat-pendidikan="$tingkatPendidikan" />
+        <x-form-data-mentor :mentor="$mentor" :tingkat-pendidikan="$tingkatPendidikan" :programList="$programList" />
     </div>
 @endsection

@@ -5,18 +5,33 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mapel;
 use App\Models\TingkatPendidikan;
+use App\Models\Raport;
 
 class MapelController extends Controller
 {
-    public function dataMapel()
+    public function dataMapel(Request $request)
     {
         try {
-            $dataMapel = Mapel::with('tingkatPendidikan')->get();
+            $query = Mapel::with('tingkatPendidikan');
+
+            // Filter berdasarkan pencarian
+            if ($request->filled('search')) {
+                $query->where('nama', 'like', '%' . $request->search . '%')
+                    ->orWhereHas('tingkatPendidikan', function ($q) use ($request) {
+                        $q->where('nama', 'like', '%' . $request->search . '%');
+                    });
+            }
+
+            // Gunakan pagination
+            $dataMapel = $query->orderBy('nama')->paginate(10)->appends($request->query());
+
             return view('partials.admin.mapel', compact('dataMapel'));
         } catch (\Throwable $e) {
             return redirect()->back()->with('error', 'Gagal mengambil data mata pelajaran: ' . $e->getMessage());
         }
     }
+
+
 
     public function formMapel(Request $request)
     {
@@ -84,12 +99,16 @@ class MapelController extends Controller
     {
         $mapel = Mapel::findOrFail($id);
 
-        // Detach relasi ke tingkat pendidikan (hapus dari pivot)
+        // Hapus semua data raport yang berkaitan dengan mapel ini
+        Raport::where('id_mapel', $id)->delete();
+
+        // Hapus relasi pivot dengan tingkat pendidikan
         $mapel->tingkatPendidikan()->detach();
 
         // Hapus mapel itu sendiri
         $mapel->delete();
 
-        return redirect()->route('data-mapel')->with('success', 'Data mata pelajaran berhasil dihapus.');
+        return redirect()->route('data-mapel')->with('success', 'Data mata pelajaran dan data terkait berhasil dihapus.');
     }
+
 }

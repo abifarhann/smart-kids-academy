@@ -164,7 +164,7 @@
                 </td>
                 <td style="width: 40%; text-align: center; border: none !important;">
                     <p>Mojokerto, {{ \Carbon\Carbon::now()->translatedFormat('d F Y') }}</p>
-                    <p><strong>Admin</strong></p>
+                    <p><strong>Admin Akademik SKA</strong></p>
                     <br><br><br>
                     <p>__________________</p>
                 </td>

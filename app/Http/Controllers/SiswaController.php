@@ -7,18 +7,44 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Siswa;
 use App\Models\Raport;
+use App\Models\Program;
 
 class SiswaController extends Controller
 {
-    public function dataSiswa()
+    public function dataSiswa(Request $request)
     {
-        $dataSiswa = Siswa::with([
+        $query = Siswa::with([
             'wali:id,name',
-            'tingkatPendidikan:id,nama'
-        ])->get();
+            'tingkatPendidikan:id,nama',
+            'program:id,nama_program'
+        ]);
 
-        return view('partials.admin.data-siswa', compact('dataSiswa'));
+        // Search berdasarkan nama siswa
+        if ($request->filled('search')) {
+            $query->where('nama', 'like', '%' . $request->search . '%');
+        }
+
+        // Filter berdasarkan tingkat pendidikan
+        if ($request->filled('jenjang')) {
+            $query->where('id_tingkat_pendidikan', $request->jenjang);
+        }
+
+        // Filter berdasarkan program
+        if ($request->filled('program')) {
+            $query->where('id_program', $request->program);
+        }
+
+        // Gunakan pagination
+        $dataSiswa = $query->orderBy('nama')->paginate(10)->appends($request->query());
+
+        // Untuk dropdown filter di blade
+        $tingkatPendidikanList = TingkatPendidikan::select('id', 'nama')->get();
+        $programList = Program::select('id', 'nama_program')->get();
+
+        return view('partials.admin.data-siswa', compact('dataSiswa', 'tingkatPendidikanList', 'programList'));
     }
+
+
 
     public function formSiswa(Request $request)
     {
