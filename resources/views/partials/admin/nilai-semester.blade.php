@@ -5,10 +5,5 @@
 @section('content')
     <div class="container mx-auto p-6">
        <x-tabel-nilai-smt :dataSiswa="$dataSiswa" :mapelList="$mapelList" :tingkatPendidikanList="$tingkatPendidikanList" :programList="$programList" :tahunAjarList="$tahunAjarList"/>
-       'dataSiswa',
-            'mapelList',
-            'tingkatPendidikanList',
-            'programList',
-            'tahunAjarList'
     </div>
 @endsection

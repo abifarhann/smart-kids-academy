@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Siswa;
 use App\Models\Raport;
 use App\Models\Program;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class SiswaController extends Controller
 {
@@ -44,7 +45,28 @@ class SiswaController extends Controller
         return view('partials.admin.data-siswa', compact('dataSiswa', 'tingkatPendidikanList', 'programList'));
     }
 
+    public function cetakDataSiswa(Request $request)
+    {
+        $query = Siswa::with(['tingkatPendidikan', 'program', 'wali']);
 
+        if ($request->filled('search')) {
+            $query->where('nama', 'like', '%' . $request->search . '%');
+        }
+
+        if ($request->filled('jenjang')) {
+            $query->where('id_tingkat_pendidikan', $request->jenjang);
+        }
+
+        if ($request->filled('program')) {
+            $query->where('id_program', $request->program);
+        }
+
+        $dataSiswa = $query->get();
+
+        $pdf = Pdf::loadView('pdf.data-siswa', compact('dataSiswa'))->setPaper('A4', 'landscape');
+
+        return $pdf->stream('data-siswa.pdf');
+    }
 
     public function formSiswa(Request $request)
     {

@@ -111,6 +111,20 @@
                                 {{ Auth::user()->username }}
                             </span>
                         </div>
+                        {{-- Tombol Edit Akun hanya untuk admin --}}
+                        @if (Auth::user()->role === 'admin')
+                            <a href="{{ route('form-admin') }}"
+                                class="group text-theme-sm mt-3 flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
+                                <svg class="fill-gray-500 group-hover:fill-gray-700 dark:group-hover:fill-gray-300"
+                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 20h9" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor"
+                                        stroke-width="2" />
+                                </svg>
+                                Edit Akun
+                            </a>
+                        @endif
                         <form method="POST" action="{{ route('auth.logout') }}">
                             @csrf
                             <button type="submit"

@@ -16,6 +16,7 @@ use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\AdminController;
 
 
 // Auth
@@ -30,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:admin')->group(function () {
         // Dashboard
         Route::get('/statistik', [StatistikController::class, 'index'])->name('statistik');
+        Route::get('/form-admin', [AdminController::class, 'formAdmin'])->name('form-admin');
+        Route::put('/akun-admin/update/{id}', [AdminController::class, 'updateDataAdmin'])->name('update-admin');
         //Akun Wali
         Route::get('/akun-wali-siswa', [WaliSiswaController::class, 'dataWali'])->name('akun-wali-siswa');
         Route::get('/form-wali-siswa', [WaliSiswaController::class, 'formWali'])->name('form-wali-siswa');
@@ -52,23 +55,27 @@ Route::middleware('auth')->group(function () {
         //Data Siswa
         Route::get('/data-siswa', [SiswaController::class, 'dataSiswa'])->name('data-siswa');
         Route::get('/form-siswa', [SiswaController::class, 'formSiswa'])->name('form-siswa');
+        Route::get('/cetak-data-siswa', [SiswaController::class, 'cetakDataSiswa'])->name('cetak-data-siswa');
         Route::post('/form-siswa/store', [SiswaController::class, 'storeDataSiswa'])->name('store-data-siswa');
         Route::put('/data-siswa/update/{id}', [SiswaController::class, 'updateDataSiswa'])->name('update-data-siswa');
         Route::delete('/data-siswa/{id}', [SiswaController::class, 'deleteDataSiswa'])->name('hapus-data-siswa');
         //Data Mentor
         Route::get('/data-mentor', [MentorController::class, 'dataMentor'])->name('data-mentor');
+        Route::get('/cetak-data-mentor', [MentorController::class, 'cetakDataMentor'])->name('cetak-data-mentor');
         Route::get('/form-mentor', [MentorController::class, 'formMentor'])->name('form-mentor');
         Route::post('/form-mentor/store', [MentorController::class, 'storeDataMentor'])->name('store-data-mentor');
         Route::put('/data-mentor/update/{id}', [MentorController::class, 'updateDataMentor'])->name('update-data-mentor');
         Route::delete('/data-mentor/{id}', [MentorController::class, 'deleteDataMentor'])->name('hapus-data-mentor');
         //Penilaian
         Route::get('/nilai-bulanan', [NilaiBulananController::class, 'nilaiBulanan'])->name('nilai-bulanan');
+        Route::get('/cetak-nilai-bulanan', [NilaiBulananController::class, 'cetakNilaiBulanan'])->name('cetak-nilai-bulanan');
         Route::get('/form-nilai-bln', [NilaiBulananController::class, 'formNilaiBln'])->name('form-nilai-bln');
         Route::get('/get-mapel-by-tingkat/{idTingkat}', [NilaiBulananController::class, 'getMapelByTingkat']);
         Route::post('/form-nilai/store', [NilaiBulananController::class, 'storeNilai'])->name('store-nilai');
         Route::put('/data-nilai/update/{group_id}', [NilaiBulananController::class, 'updateNilai'])->name('update-nilai');
         Route::delete('/data-nilai/{id}', [NilaiBulananController::class, 'deleteNilai'])->name('hapus-nilai');
         Route::get('/nilai-semester', [NilaiSemesterController::class, 'nilaiSemester'])->name('nilai-semester');
+        Route::get('/cetak-nilai-semester', [NilaiSemesterController::class, 'cetakNilaiSemester'])->name('cetak-nilai-semester');
     });
     // Auth Wali Murid
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');

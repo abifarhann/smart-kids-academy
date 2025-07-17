@@ -9,6 +9,7 @@ use App\Models\Raport;
 use App\Models\Mentor;
 use App\Models\TingkatPendidikan;
 use App\Models\Program;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class NilaiSemesterController extends Controller
 {
@@ -85,6 +86,60 @@ class NilaiSemesterController extends Controller
             'programList',
             'tahunAjarList'
         ));
+    }
+
+    public function cetakNilaiSemester(Request $request)
+    {
+        $jenjang = $request->input('jenjang');
+        $program = $request->input('program');
+        $bulan = $request->input('bulan');
+        $semester = $request->input('semester');
+        $tahunAjar = $request->input('tahun_ajar');
+
+        // Ambil data mapel untuk kolom dinamis
+        $mapelList = Mapel::all();
+
+        $dataSiswa = Siswa::with([
+            'raport' => function ($q) use ($bulan, $semester, $tahunAjar) {
+                $q->where('jenis_nilai', 'Semester');
+                if ($bulan) {
+                    $q->whereMonth('tanggal_penilaian', $bulan);
+                }
+                if ($tahunAjar) {
+                    $q->where('tahun_ajar', $tahunAjar);
+                }
+                if ($semester) {
+                    $q->where('semester', $semester);
+                }
+            },
+            'program',
+            'tingkatPendidikan'
+        ])
+            ->when($jenjang, fn($q) => $q->where('id_tingkat_pendidikan', $jenjang))
+            ->when($program, fn($q) => $q->where('id_program', $program))
+            ->whereHas('raport', function ($q) use ($bulan, $semester, $tahunAjar) {
+                $q->where('jenis_nilai', 'Semester');
+                if ($bulan)
+                    $q->whereMonth('tanggal_penilaian', $bulan);
+                if ($tahunAjar)
+                    $q->where('tahun_ajar', $tahunAjar);
+                if ($semester)
+                    $q->where('semester', $semester);
+            })
+            ->get();
+
+        // Kelompokkan raport tiap siswa berdasarkan group_id
+        foreach ($dataSiswa as $siswa) {
+            $siswa->groupedRaports = $siswa->raport
+                ->where('jenis_nilai', 'Semester')
+                ->when($bulan, fn($q) => $q->where('tanggal_penilaian', 'like', "$tahunAjar-$bulan%"))
+                ->groupBy('group_id');
+        }
+
+        $pdf = Pdf::loadView('pdf.nilai-semester', compact('dataSiswa', 'mapelList'))
+            ->setPaper('A4', 'landscape');
+
+        return $pdf->stream('nilai-semester.pdf');
     }
 
 }

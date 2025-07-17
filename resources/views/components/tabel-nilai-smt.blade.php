@@ -31,7 +31,7 @@
                 </div>
 
                 {{-- Button add data --}}
-                <x-btn-add-nilai-bln />
+                <x-btn-add-nilai-bln :url="route('cetak-nilai-semester', request()->query())"/>
             </div>
 
 

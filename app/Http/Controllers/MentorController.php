@@ -7,6 +7,7 @@ use App\Models\Mentor;
 use Illuminate\Support\Facades\Validator;
 use App\Models\TingkatPendidikan;
 use App\Models\Program;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class MentorController extends Controller
 {
@@ -43,7 +44,34 @@ class MentorController extends Controller
         }
     }
 
+    public function cetakDataMentor(Request $request)
+    {
+        $query = Mentor::with('tingkatPendidikan', 'program');
 
+        // Filter nama
+        if ($request->filled('search')) {
+            $query->where('nama', 'like', '%' . $request->search . '%');
+        }
+
+        // Filter berdasarkan tingkat pendidikan
+        if ($request->filled('jenjang')) {
+            $query->where('id_tingkat_pendidikan', $request->jenjang);
+        }
+
+        // Filter berdasarkan program
+        if ($request->filled('program')) {
+            $query->whereHas('program', function ($q) use ($request) {
+                $q->where('program_id', $request->program);
+            });
+        }
+
+        $dataMentor = $query->get();
+
+        $pdf = Pdf::loadView('pdf.data-mentor', compact('dataMentor'))
+            ->setPaper('A4', 'landscape');
+
+        return $pdf->stream('data-mentor.pdf');
+    }
 
     public function formMentor()
     {
